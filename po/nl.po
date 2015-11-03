@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# root <arjenbalfoort@solydxk.com>, 2015.
+# 
+# Translators:
+# Arjen Balfoort <schoelje@solydxk.com>, 2015
+# root <arjenbalfoort@solydxk.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 12:45+0100\n"
-"PO-Revision-Date: 2015-11-03 12:47+0200\n"
-"Last-Translator: root <arjenbalfoort@solydxk.com>\n"
-"Language-Team: none\n"
-"Language: ca\n"
+"POT-Creation-Date: 2015-11-03 16:25+0100\n"
+"PO-Revision-Date: 2015-11-03 15:28+0000\n"
+"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/solydxk/usb-creator/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
 
 #: ../usr/lib/usb-creator/main.py:37
 msgid "Unexpected error"
@@ -25,182 +27,182 @@ msgstr "Onverwachte fout"
 msgid ""
 "USB Creator has failed with the following unexpected error. Please submit a "
 "bug report!"
-msgstr ""
-"USB Creator is mislukt met de volgende onverwachte fout.\n"
-"A.u.b., dien een bug verslag in."
+msgstr "USB Creator is mislukt met de volgende onverwachte fout.\nA.u.b., dien een bug verslag in."
 
-#: ../usr/lib/usb-creator/usbcreator.py:63
+#: ../usr/lib/usb-creator/usbcreator.py:64
 #: ../usr/share/applications/usb-creator.desktop.in.h:1
 msgid "USB Creator"
 msgstr "USB Creator"
 
-#: ../usr/lib/usb-creator/usbcreator.py:64
+#: ../usr/lib/usb-creator/usbcreator.py:65
 msgid "Device"
 msgstr "Apparaat"
 
-#: ../usr/lib/usb-creator/usbcreator.py:65
+#: ../usr/lib/usb-creator/usbcreator.py:66
 msgid "USB"
 msgstr "USB"
 
-#: ../usr/lib/usb-creator/usbcreator.py:66
+#: ../usr/lib/usb-creator/usbcreator.py:67
 msgid "Available"
 msgstr "Beschikbaar:"
 
-#: ../usr/lib/usb-creator/usbcreator.py:67
+#: ../usr/lib/usb-creator/usbcreator.py:68
 msgid "Required"
 msgstr "Nodig:"
 
-#: ../usr/lib/usb-creator/usbcreator.py:68
-msgid "Clear device"
-msgstr "Apparaat leegmaken"
-
 #: ../usr/lib/usb-creator/usbcreator.py:69
+msgid "Format device"
+msgstr "Formatteer het apparaat"
+
+#: ../usr/lib/usb-creator/usbcreator.py:70
+msgid "Warning: all data will be lost"
+msgstr "Waarschuwing: all data zal verloren gaan"
+
+#: ../usr/lib/usb-creator/usbcreator.py:71
 msgid "Repair device"
 msgstr "Apparaat repareren"
 
-#: ../usr/lib/usb-creator/usbcreator.py:70
+#: ../usr/lib/usb-creator/usbcreator.py:72
+msgid "Tries to repair an unbootable USB"
+msgstr "Probeert een unbootable USB te repareren"
+
+#: ../usr/lib/usb-creator/usbcreator.py:73
 msgid "Execute"
 msgstr "Uitvoeren"
 
-#: ../usr/lib/usb-creator/usbcreator.py:71
+#: ../usr/lib/usb-creator/usbcreator.py:74
 msgid "ISO"
 msgstr "ISO"
 
-#: ../usr/lib/usb-creator/usbcreator.py:72
+#: ../usr/lib/usb-creator/usbcreator.py:75
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: ../usr/lib/usb-creator/usbcreator.py:73
+#: ../usr/lib/usb-creator/usbcreator.py:76
 msgid "Refresh device list"
 msgstr "Ververs apparaatlijst"
 
-#: ../usr/lib/usb-creator/usbcreator.py:74
+#: ../usr/lib/usb-creator/usbcreator.py:77
 msgid "Unmount device"
 msgstr "Ontkoppel apparaat"
 
-#: ../usr/lib/usb-creator/usbcreator.py:75
+#: ../usr/lib/usb-creator/usbcreator.py:78
 msgid "Browse for ISO file"
 msgstr "ISO bestand zoeken"
 
 #: ../usr/lib/usb-creator/usbcreator.py:79
+msgid "Clear the ISO field"
+msgstr "Maak het ISO veld schoon"
+
+#: ../usr/lib/usb-creator/usbcreator.py:83
 msgid "Partitioning USB..."
 msgstr "USB partitioneren..."
 
-#: ../usr/lib/usb-creator/usbcreator.py:80
+#: ../usr/lib/usb-creator/usbcreator.py:84
 msgid "Searching for bad block"
 msgstr "Zoeken naar slecht blok"
 
-#: ../usr/lib/usb-creator/usbcreator.py:81
+#: ../usr/lib/usb-creator/usbcreator.py:85
 msgid "Installing Grub..."
 msgstr "Grub installeren..."
 
-#: ../usr/lib/usb-creator/usbcreator.py:82
+#: ../usr/lib/usb-creator/usbcreator.py:86
 msgid "Start copying ISO..."
 msgstr "Start kopiëren van ISO..."
 
-#: ../usr/lib/usb-creator/usbcreator.py:83
+#: ../usr/lib/usb-creator/usbcreator.py:87
 msgid "kB left to copy:"
 msgstr "kB nog te kopiëren:"
 
-#: ../usr/lib/usb-creator/usbcreator.py:84
+#: ../usr/lib/usb-creator/usbcreator.py:88
 msgid "Check md5sum of ISO..."
 msgstr "Controleer md5sum van ISO..."
 
-#: ../usr/lib/usb-creator/usbcreator.py:121
+#: ../usr/lib/usb-creator/usbcreator.py:125
 msgid "Version"
 msgstr "Versie"
 
-#: ../usr/lib/usb-creator/usbcreator.py:140
+#: ../usr/lib/usb-creator/usbcreator.py:144
 msgid ""
 "Cannot add ISO from path: {}.\n"
 "Please, remove the ISO path or browse for an existing ISO."
-msgstr ""
-"Kan de ISO niet toevoegen van pad: {}.\n"
-"Verwijder het ISO pad of zoek naar een bestaand ISO bestand."
+msgstr "Kan de ISO niet toevoegen van pad: {}.\nVerwijder het ISO pad of zoek naar een bestaand ISO bestand."
 
-#: ../usr/lib/usb-creator/usbcreator.py:147
+#: ../usr/lib/usb-creator/usbcreator.py:151
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
-msgstr ""
-"Er is onvoldoende ruimte over op de USB stick.\n"
-"Verwijder onnodige bestanden voordat u verder gaat."
+msgstr "Er is onvoldoende ruimte over op de USB stick.\nVerwijder onnodige bestanden voordat u verder gaat."
 
-#: ../usr/lib/usb-creator/usbcreator.py:170
+#: ../usr/lib/usb-creator/usbcreator.py:174
 msgid "Are you sure you want to remove the selected ISO from the device?"
-msgstr ""
-"Weet u zeker dat u het geselecteerde ISO bestand van het apparaat wilt "
-"verwijderen?"
+msgstr "Weet u zeker dat u het geselecteerde ISO bestand van het apparaat wilt verwijderen?"
 
-#: ../usr/lib/usb-creator/usbcreator.py:191
+#: ../usr/lib/usb-creator/usbcreator.py:195
 msgid "Select ISO"
 msgstr "Selecteer ISO"
 
-#: ../usr/lib/usb-creator/usbcreator.py:240
+#: ../usr/lib/usb-creator/usbcreator.py:248
 msgid "Unmount"
 msgstr "Ontkoppel"
 
-#: ../usr/lib/usb-creator/usbcreator.py:245
+#: ../usr/lib/usb-creator/usbcreator.py:253
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
-msgstr ""
-"Kon het apparaat niet ontkoppelen.\n"
-"Ontkoppel het apparaat handmatig."
+msgstr "Kon het apparaat niet ontkoppelen.\nOntkoppel het apparaat handmatig."
 
-#: ../usr/lib/usb-creator/usbcreator.py:248
+#: ../usr/lib/usb-creator/usbcreator.py:256
 msgid "You can now safely remove the device."
 msgstr "U kunt het apparaat nu veilig verwijderen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:481
+#: ../usr/lib/usb-creator/usbcreator.py:489
 msgid "Run this application with root permission."
 msgstr "Start de applicatie met root permissie."
 
-#: ../usr/lib/usb-creator/usbcreator.py:483
+#: ../usr/lib/usb-creator/usbcreator.py:491
 msgid "Wrong arguments were passed to usb-creator."
 msgstr "Er zijn verkeerde argumenten voor usb-creator gebruikt."
 
-#: ../usr/lib/usb-creator/usbcreator.py:485
+#: ../usr/lib/usb-creator/usbcreator.py:493
 msgid "The device was not found or no device was given."
 msgstr "Het apparaat was niet gevonden of er was geen apparaat opgegeven."
 
-#: ../usr/lib/usb-creator/usbcreator.py:487
+#: ../usr/lib/usb-creator/usbcreator.py:495
 msgid "Given ISO path was not found."
 msgstr "Gegeven ISO pad was niet gevonden."
 
-#: ../usr/lib/usb-creator/usbcreator.py:489
+#: ../usr/lib/usb-creator/usbcreator.py:497
 msgid "Device is in use by another application."
 msgstr "Het apparaat wordt door een andere applicatie gebruikt"
 
-#: ../usr/lib/usb-creator/usbcreator.py:491
+#: ../usr/lib/usb-creator/usbcreator.py:499
 msgid "Unable to mount the device."
 msgstr "Kan het apparaat niet koppelen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:493
+#: ../usr/lib/usb-creator/usbcreator.py:501
 msgid "Md5sum mismatch."
 msgstr "Md5sum komt niet overeen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:495
+#: ../usr/lib/usb-creator/usbcreator.py:503
 msgid "The device has no fat32 partition."
 msgstr "Het apparaat heeft geen fat32 partitie."
 
-#: ../usr/lib/usb-creator/usbcreator.py:497
+#: ../usr/lib/usb-creator/usbcreator.py:505
 msgid "The device has no bootloader installed."
 msgstr "Het apparaat heeft geen bootloader geïnstalleerd."
 
-#: ../usr/lib/usb-creator/usbcreator.py:499
+#: ../usr/lib/usb-creator/usbcreator.py:507
 msgid "There is not enough space available on the device."
 msgstr "Er is op het apparaat onvoldoende ruimte beschikbaar."
 
-#: ../usr/lib/usb-creator/usbcreator.py:501
+#: ../usr/lib/usb-creator/usbcreator.py:509
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
-msgstr ""
-"Een onbekende fout is opgetreden.\n"
-"Bezoek ons forum: http://forums.solydxk.com"
+msgstr "Een onbekende fout is opgetreden.\nBezoek ons forum: http://forums.solydxk.com"
 
-#: ../usr/lib/usb-creator/usbcreator.py:505
+#: ../usr/lib/usb-creator/usbcreator.py:513
 msgid "The USB was successfully written."
 msgstr "De USB is succesvol geschreven."
 
@@ -211,373 +213,3 @@ msgstr "Maak een multi-boot USB met de USB Creator"
 #: ../usr/share/applications/usb-creator.desktop.in.h:2
 msgid "Create a multi-boot USB"
 msgstr "Maak een multi-boot USB"
-
-#~ msgid "SpinID"
-#~ msgstr "SpinID"
-
-#~ msgid "Spin Name"
-#~ msgstr "Spin Naam"
-
-#~ msgid "Spin Version"
-#~ msgstr "Spin Versie"
-
-#~ msgid "Download URL"
-#~ msgstr "Download URL"
-
-#~ msgid "File Size"
-#~ msgstr "Bestandsgrootte"
-
-#~ msgid "MD5Sum"
-#~ msgstr "MD5Sum"
-
-#~ msgid "Error Returned: {}"
-#~ msgstr "Error geretourneerd: {}"
-
-#~ msgid "Downloading File"
-#~ msgstr "Downloaden bestand"
-
-#~ msgid "Please choose a file"
-#~ msgstr "Kies een bestand"
-
-#~ msgid "_Cancel"
-#~ msgstr "_Annuleren"
-
-#~ msgid "_OK"
-#~ msgstr "_OK"
-
-#~ msgid "ISO Files"
-#~ msgstr "ISO Bestanden"
-
-#~ msgid "SolydXK Multi-Boot USB Creator"
-#~ msgstr "SolydXK Multi-Boot USB Creator"
-
-#~ msgid "Auto-Mount"
-#~ msgstr "Auto-mount"
-
-#~ msgid "ISOs Available for Download"
-#~ msgstr "ISO's beschikbaar voor download"
-
-#~ msgid "GiB"
-#~ msgstr "GiB"
-
-#~ msgid "Local ISO"
-#~ msgstr "Lokale ISO"
-
-#~ msgid "Install boot loader only"
-#~ msgstr "Installeer alleen de boot loader"
-
-#~ msgid "Clean USB (all data will be erased)"
-#~ msgstr "USB leegmaken (alle gegevens worden verwijderd)"
-
-#~ msgid "Delete from USB"
-#~ msgstr "Verwijder van de USB"
-
-#~ msgid "Download ISO"
-#~ msgstr "Download ISO"
-
-#~ msgid "Refresh"
-#~ msgstr "Verversen"
-
-#~ msgid "File"
-#~ msgstr "Bestand"
-
-#~ msgid "Information"
-#~ msgstr "Informatie"
-
-#~ msgid "Help"
-#~ msgstr "Help"
-
-#~ msgid "Close"
-#~ msgstr "Sluiten"
-
-#~ msgid "Multi-Boot Server ISO List"
-#~ msgstr "Multi-boot server ISO lijst"
-
-#~ msgid "Not Root"
-#~ msgstr "Geen Root"
-
-#~ msgid "This application is designed to be run by root, only"
-#~ msgstr "Deze applicatie dient als root gestart te worden"
-
-#~ msgid "No USB Device"
-#~ msgstr "Geen USB apparaat"
-
-#~ msgid "Please select a USB device to which to copy the .iso file."
-#~ msgstr "Selecteer een USB apparaat om de ISO naar te kopieëren."
-
-#~ msgid "Problem with Radio Buttons"
-#~ msgstr "Probleem met selectie"
-
-#~ msgid "Unknown Radio Button selected"
-#~ msgstr "Onbekende selectie"
-
-#~ msgid "Auto-mount is Turned Off"
-#~ msgstr "Auto-mount is uitgeschakeld"
-
-#~ msgid ""
-#~ "Selected device is not mounted\n"
-#~ "and auto-mount is turned off.\n"
-#~ "\n"
-#~ "Mount this device?"
-#~ msgstr ""
-#~ "Geselecteerd apparaat is niet gemount\n"
-#~ "en auto-mount is uitgeschakeld.\n"
-#~ "\n"
-#~ "Wilt u dit apparaat mounten?"
-
-#~ msgid "Device in use"
-#~ msgstr "Apparaat is in gebruik"
-
-#~ msgid "Please Confirm"
-#~ msgstr "Bevestig, a.u.b."
-
-#~ msgid ""
-#~ "Please confirm you wish to re-initialize\n"
-#~ "the device\n"
-#~ "\n"
-#~ "{}"
-#~ msgstr ""
-#~ "Bevestig dat u het apparaat wilt herinitialiseren\n"
-#~ "\n"
-#~ "{}"
-
-#~ msgid "Operation Cancelled"
-#~ msgstr "Operatie geannuleerd"
-
-#~ msgid ""
-#~ "Operation to re-initialize the\n"
-#~ "USB device has been cancelled."
-#~ msgstr ""
-#~ "Operatie om het USB apparaat te\n"
-#~ "herinitialiseren is geannuleerd."
-
-#~ msgid "Error Encountered"
-#~ msgstr "Er is een fout opgetreden"
-
-#~ msgid "Cleaning Is Complete"
-#~ msgstr "Leegmaken is voltooid"
-
-#~ msgid ""
-#~ "The USB Device has been re-initialized.\n"
-#~ "It is safe to use it for\n"
-#~ "ISO file copy/download operations."
-#~ msgstr ""
-#~ "Het USB apparaat is geherinitialiseerd.\n"
-#~ "Het is nu gereed voor schrijven."
-
-#~ msgid ""
-#~ "MultiBootISOCreator:CleanTheUSBDeviceCheck\n"
-#~ " - Error encountered during cleaning operation."
-#~ msgstr ""
-#~ "MultiBootISOCreator:CleanTheUSBDeviceCheck\n"
-#~ " - Fout opgetreden tijdens het leegmaken van het apparaat."
-
-#~ msgid "{} of {} GiB"
-#~ msgstr "{} van {} GiB"
-
-#~ msgid "Copy is Complete"
-#~ msgstr "Kopie is gereed"
-
-#~ msgid ""
-#~ "The USB Device has been updated.\n"
-#~ "If you wish, it is safe to unmount and remove it."
-#~ msgstr ""
-#~ "Het USB apparaat is aangepast.\n"
-#~ "U kunt het apparaat nu veilig verwijderen."
-
-#~ msgid "MultiBootISOCreator:CopyCheck - Error encountered during copy."
-#~ msgstr ""
-#~ "MultiBootISOCreator:CopyCheck - Fout opgetreden tijdens het kopieëren."
-
-#~ msgid "Copy Is Complete"
-#~ msgstr "Kopie is gereed"
-
-#~ msgid "Downloading is Complete"
-#~ msgstr "Downloaden is gereed"
-
-#~ msgid "Error encountered during download"
-#~ msgstr "Fout opgetreden tijdens de download"
-
-#~ msgid "Download is Complete"
-#~ msgstr "Downloaden is gereed"
-
-#~ msgid "Please Confirm ISO Copy"
-#~ msgstr "Bevestig kopieëren van de ISO"
-
-#~ msgid ""
-#~ "Please confirm you wish to copy the file\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "to the selected USB device."
-#~ msgstr ""
-#~ "Bevestig dat u het bestand\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "naar het geselecteerde USB apparaat wilt kopieëren."
-
-#~ msgid "Not a Known SolydXK ISO"
-#~ msgstr "Geen bekende SolydXK ISO"
-
-#~ msgid ""
-#~ "The filename supplied does not match that\n"
-#~ "of a known SolydXK ISO file.\n"
-#~ "\n"
-#~ "Please check your information and try again."
-#~ msgstr ""
-#~ "De opgegeven bestandsnaam komt niet overeen\n"
-#~ "met een bekende SolydXK ISO bestand.\n"
-#~ "\n"
-#~ "Contoleer uw informatie en probeer het nogmaals."
-
-#~ msgid "No File Selected"
-#~ msgstr "Geen bestand geselecteerd"
-
-#~ msgid "Please select a file to be copied to the selected USB device."
-#~ msgstr "Selecteer een bestand om naar het USB apparaat te kopieëren."
-
-#~ msgid "Please Confirm ISO Download"
-#~ msgstr "Bevestig de ISO download"
-
-#~ msgid ""
-#~ "Please confirm you wish to download the file\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "to the selected USB device."
-#~ msgstr ""
-#~ "Bevestig dat u het bestand\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "naar het geselecteerde USB apparaat wilt downloaden."
-
-#~ msgid ""
-#~ "The selected file already exists on the USB device.\n"
-#~ "\n"
-#~ "Over-write this file?"
-#~ msgstr ""
-#~ "Het geselecteerde bestand bestaat reeds op het USB apparaat.\n"
-#~ "\n"
-#~ "Wilt u dit bestand overschrijven?"
-
-#~ msgid "Please select a file to be deleted from the USB device."
-#~ msgstr "Selecteer een bestand om van het USB apparaat te verwijderen."
-
-#~ msgid "Please confirm file deletion"
-#~ msgstr "Bevestig het verwijderen van het bestand"
-
-#~ msgid ""
-#~ "Please confirm you wish to delete the file\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-#~ "from the selected USB device."
-#~ msgstr ""
-#~ "Bevestig dat u het bestand\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "van het geselecteerde USB apparaat wilt verwijderen."
-
-#~ msgid "Operation Complete"
-#~ msgstr "Operatie compleet"
-
-#~ msgid "The selected file has been deleted."
-#~ msgstr "Het geselecteerde bestand is verwijderd."
-
-#~ msgid "File not found."
-#~ msgstr "Bestand niet gevonden."
-
-#~ msgid "Insufficient Space Available"
-#~ msgstr "Er is onvoldoende ruimte aanwezig."
-
-#~ msgid ""
-#~ "The selected USB device has insufficient\n"
-#~ "space for the indicated operation."
-#~ msgstr ""
-#~ "Het geselecteerde USB apparaat heeft\n"
-#~ "onvoldoende ruimte voor de operatie."
-
-#~ msgid ""
-#~ "Please confirm you wish to install grub\n"
-#~ "on the device\n"
-#~ "\n"
-#~ "{}"
-#~ msgstr ""
-#~ "Bevestig dat u het apparaat wilt herinitialiseren\n"
-#~ "\n"
-#~ "{}"
-
-#~ msgid "Boot Loader Install Complete"
-#~ msgstr "Boot loader installatie compleet"
-
-#~ msgid ""
-#~ "The USB Device has been re-initialized.\n"
-#~ "If you wish, it is safe to unmount and remove it."
-#~ msgstr ""
-#~ "Het USB apparaat is geherinitialiseerd.\n"
-#~ "U kunt het apparaat nu unmounten en verwijderen."
-
-#~ msgid "No ISO files on USB"
-#~ msgstr "Er zijn geen ISO bestanden op het USB apparaat"
-
-#~ msgid ""
-#~ "No grub.cfg file was written because there\n"
-#~ "are no ISO files on this device"
-#~ msgstr ""
-#~ "Er was geen grub.cfg bestand geschreven omdat\n"
-#~ "er geen ISO bestanden op het apparaat staan."
-
-#~ msgid "Grub not installed"
-#~ msgstr "Grub is niet geïnstalleerd"
-
-#~ msgid ""
-#~ "It appears grub is not installed on the selected device\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Grub lijkt niet op het geselecteerde apparaat te zijn geïnstalleerd\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "Grub will be installed on the device when you continue.\n"
-#~ "\n"
-#~ "Do you wish to continue with the pending operation?"
-#~ msgstr ""
-#~ "Grub wordt op het apparaat geïnstalleerd wanneer u verder gaat.\n"
-#~ "\n"
-#~ "Wilt u doorgaan?"
-
-#~ msgid "No fat32 partition"
-#~ msgstr "Er is geen fat32 partitie"
-
-#~ msgid ""
-#~ "It appears that the device does not have a fat32 partition:\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Het apparaat lijkt geen fat32 partitie te hebben:\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "All data will be erased if you continue.\n"
-#~ "\n"
-#~ "Do you wish to continue with the pending operation?"
-#~ msgstr ""
-#~ "Alle data wordt verwijderd wanneer u doorgaat.\n"
-#~ "\n"
-#~ "Wilt u doorgaan?"
-
-#~ msgid "The help file was not found where expected"
-#~ msgstr "Het helpbestand was niet gevonden"
-
-#~ msgid "Multi-Boot Help"
-#~ msgstr "Multi-boot help"

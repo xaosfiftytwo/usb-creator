@@ -2,6 +2,8 @@
 Name=USB Creator
 Name[nl]=USB Creator
 Comment=Create a multi-boot USB
+Comment[de]=Erstelle einen Multi-Boot
+Comment[it]=Creare un USB multi-boot
 Comment[nl]=Maak een multi-boot USB
 Exec=usb-creator
 Icon=usb-creator

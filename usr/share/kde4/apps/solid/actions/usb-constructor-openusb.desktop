@@ -5,7 +5,7 @@ Actions=open;
 
 [Desktop Action open]
 # %f gives StorageAccess.filePath, %d gives Block.device, %i gives UDI
-Exec=usb-creator %d
+Exec=usb-creator
 Icon=usb-creator
 Name=Create a multi-boot USB with the USB Creator
 Name[nl]=Maak een multi-boot USB met de USB Creator

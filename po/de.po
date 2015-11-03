@@ -1,0 +1,606 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: solydxk-usb-creator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-03 16:19+0100\n"
+"PO-Revision-Date: 2015-10-24 13:28+0000\n"
+"Last-Translator: pitfd <pitfd@openmailbox.org>\n"
+"Language-Team: German (http://www.transifex.com/solydxk/solydxk-usb-creator/"
+"language/de/)\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../usr/lib/usb-creator/main.py:37
+msgid "Unexpected error"
+msgstr "Unerwarteter Fehler"
+
+#: ../usr/lib/usb-creator/main.py:38
+#, fuzzy
+msgid ""
+"USB Creator has failed with the following unexpected error. Please submit a "
+"bug report!"
+msgstr ""
+"SolydXK USB Creator hat den folgenden unerwarteter Fehler zurückgemeldet.\n"
+"Bitte reichen Sie einen Fehlerbericht ein!"
+
+#: ../usr/lib/usb-creator/usbcreator.py:64
+#: ../usr/share/applications/usb-creator.desktop.in.h:1
+#, fuzzy
+msgid "USB Creator"
+msgstr "SolydXK USB Creator"
+
+#: ../usr/lib/usb-creator/usbcreator.py:65
+#, fuzzy
+msgid "Device"
+msgstr "Init Gerät"
+
+#: ../usr/lib/usb-creator/usbcreator.py:66
+msgid "USB"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:67
+#, fuzzy
+msgid "Available"
+msgstr "Verfügbar:"
+
+#: ../usr/lib/usb-creator/usbcreator.py:68
+#, fuzzy
+msgid "Required"
+msgstr "benötigter Platz"
+
+#: ../usr/lib/usb-creator/usbcreator.py:69
+#, fuzzy
+msgid "Format device"
+msgstr "USB aushängen"
+
+#: ../usr/lib/usb-creator/usbcreator.py:70
+#, fuzzy
+msgid "Warning: all data will be lost"
+msgstr "Säubere USB (alle Daten werden gelöscht)"
+
+#: ../usr/lib/usb-creator/usbcreator.py:71
+#, fuzzy
+msgid "Repair device"
+msgstr "Gerät wird gereinigt"
+
+#: ../usr/lib/usb-creator/usbcreator.py:72
+msgid "Tries to repair an unbootable USB"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:73
+msgid "Execute"
+msgstr "Ausführen"
+
+#: ../usr/lib/usb-creator/usbcreator.py:74
+msgid "ISO"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:75
+msgid "Delete"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:76
+msgid "Refresh device list"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:77
+#, fuzzy
+msgid "Unmount device"
+msgstr "USB aushängen"
+
+#: ../usr/lib/usb-creator/usbcreator.py:78
+msgid "Browse for ISO file"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:79
+msgid "Clear the ISO field"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:83
+msgid "Partitioning USB..."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:84
+msgid "Searching for bad block"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:85
+msgid "Installing Grub..."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:86
+msgid "Start copying ISO..."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:87
+msgid "kB left to copy:"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:88
+msgid "Check md5sum of ISO..."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:125
+#, fuzzy
+msgid "Version"
+msgstr "Version: {}"
+
+#: ../usr/lib/usb-creator/usbcreator.py:144
+msgid ""
+"Cannot add ISO from path: {}.\n"
+"Please, remove the ISO path or browse for an existing ISO."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:151
+msgid ""
+"There is not enough space available on the pen drive.\n"
+"Please, remove unneeded files before continuing."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:174
+msgid "Are you sure you want to remove the selected ISO from the device?"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:195
+msgid "Select ISO"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:248
+#, fuzzy
+msgid "Unmount"
+msgstr "USB aushängen"
+
+#: ../usr/lib/usb-creator/usbcreator.py:253
+msgid ""
+"Could not unmount the device.\n"
+"Please unmount the device manually."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:256
+msgid "You can now safely remove the device."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:489
+msgid "Run this application with root permission."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:491
+msgid "Wrong arguments were passed to usb-creator."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:493
+#, fuzzy
+msgid "The device was not found or no device was given."
+msgstr "Die angegebene Datei wurde nicht auf dem USB-Gerät gefunden."
+
+#: ../usr/lib/usb-creator/usbcreator.py:495
+msgid "Given ISO path was not found."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:497
+msgid "Device is in use by another application."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:499
+msgid "Unable to mount the device."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:501
+msgid "Md5sum mismatch."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:503
+#, fuzzy
+msgid "The device has no fat32 partition."
+msgstr "Keine FAT32 Partition vorhanden"
+
+#: ../usr/lib/usb-creator/usbcreator.py:505
+msgid "The device has no bootloader installed."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:507
+msgid "There is not enough space available on the device."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:509
+msgid ""
+"An unknown error accured.\n"
+"Please, visit our forum for support: http://forums.solydxk.com"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:513
+msgid "The USB was successfully written."
+msgstr ""
+
+#: ../usr/share/kde4/apps/solid/actions/usb-constructor-openusb.desktop.in.h:1
+#, fuzzy
+msgid "Create a multi-boot USB with the USB Creator"
+msgstr "Erstelle einen bootfähigen USB Stick mit SolydXK USB Creator"
+
+#: ../usr/share/applications/usb-creator.desktop.in.h:2
+msgid "Create a multi-boot USB"
+msgstr "Erstelle einen Multi-Boot"
+
+#, fuzzy
+#~ msgid "Clear device"
+#~ msgstr "Gerät wird gereinigt"
+
+#~ msgid "SpinID"
+#~ msgstr "SpinID"
+
+#~ msgid "Spin Name"
+#~ msgstr "Spin Name"
+
+#~ msgid "Spin Version"
+#~ msgstr "Spin Version"
+
+#~ msgid "Download URL"
+#~ msgstr "Download URL"
+
+#~ msgid "File Size"
+#~ msgstr "Dateigrösse"
+
+#~ msgid "MD5Sum"
+#~ msgstr "MD5Summe"
+
+#~ msgid "Error Returned: {}"
+#~ msgstr "Zurückgegebener Fehler: {}"
+
+#~ msgid "Downloading File"
+#~ msgstr "Datei wird heruntergeladen"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Bitte wählen Sie eine Datei aus"
+
+#~ msgid "_Cancel"
+#~ msgstr "_Abbrechen"
+
+#~ msgid "_OK"
+#~ msgstr "_OK"
+
+#~ msgid "ISO Files"
+#~ msgstr "Iso Dateien"
+
+#~ msgid "SolydXK Multi-Boot USB Creator"
+#~ msgstr "SolydXK Multi-Boot USB Creator"
+
+#~ msgid "Auto-Mount"
+#~ msgstr "Auto-Mount"
+
+#~ msgid "ISOs Available for Download"
+#~ msgstr "ISOs stehen zum Herunterladen bereit"
+
+#~ msgid "GiB"
+#~ msgstr "GiB"
+
+#~ msgid "Local ISO"
+#~ msgstr "Lokale ISO"
+
+#~ msgid "Install boot loader only"
+#~ msgstr "Installiere nur den Bootloader"
+
+#~ msgid "Delete from USB"
+#~ msgstr "Entferne vom USB"
+
+#~ msgid "Download ISO"
+#~ msgstr "ISO herunterladen"
+
+#~ msgid "Refresh"
+#~ msgstr "Aktualisiere"
+
+#~ msgid "File"
+#~ msgstr "Datei"
+
+#~ msgid "Information"
+#~ msgstr "Information"
+
+#~ msgid "Help"
+#~ msgstr "Hilfe"
+
+#~ msgid "Close"
+#~ msgstr "Schliessen"
+
+#~ msgid "Multi-Boot Server ISO List"
+#~ msgstr "Multi-Boot Server ISO Liste"
+
+#~ msgid "Not Root"
+#~ msgstr "Kein Root"
+
+#~ msgid "This application is designed to be run by root, only"
+#~ msgstr "Diese Programm kann nur mit Root-Rechten ausgeführt werden"
+
+#~ msgid "No USB Device"
+#~ msgstr "Kein USB Gerät"
+
+#~ msgid "Please select a USB device to which to copy the .iso file."
+#~ msgstr ""
+#~ "Bitte wählen Sie ein USB Gerät aus , auf den die .iso Datei kopiert "
+#~ "werden soll."
+
+#~ msgid "Problem with Radio Buttons"
+#~ msgstr "Problem mit Auswahlknöpfen"
+
+#~ msgid "Unknown Radio Button selected"
+#~ msgstr "Unbekannter Auswahlknopf ausgewählt"
+
+#~ msgid "Auto-mount is Turned Off"
+#~ msgstr "Auto-mount ist ausgeschaltet"
+
+#~ msgid ""
+#~ "Selected device is not mounted\n"
+#~ "and auto-mount is turned off.\n"
+#~ "\n"
+#~ "Mount this device?"
+#~ msgstr ""
+#~ "Das ausgewählte Gerät ist nicht eingehängt\n"
+#~ "und die automatische Einhängung ist ausgeschaltet.\n"
+#~ "\n"
+#~ "Soll dieses Gerät eingehängt werden?"
+
+#~ msgid "Device in use"
+#~ msgstr "Gerät ist ein Benutzung"
+
+#~ msgid "Please Confirm"
+#~ msgstr "Bitte bestätigen Sie"
+
+#~ msgid ""
+#~ "Please confirm you wish to re-initialize\n"
+#~ "the device\n"
+#~ "\n"
+#~ "{}"
+#~ msgstr ""
+#~ "Bitte bestätigen Sie, dass Sie das Gerät\n"
+#~ "reinitialisieren wollen\n"
+#~ "\n"
+#~ "{}"
+
+#~ msgid "Operation Cancelled"
+#~ msgstr "Vorgang abgebrochen "
+
+#~ msgid ""
+#~ "Operation to re-initialize the\n"
+#~ "USB device has been cancelled."
+#~ msgstr ""
+#~ "Der Reinitialisierungsvorgang \n"
+#~ "des USB Gerätes wurde abgebrochen."
+
+#~ msgid "Error Encountered"
+#~ msgstr "Fehler aufgetreten"
+
+#~ msgid "Cleaning Is Complete"
+#~ msgstr "Reinigungsvorgang abgeschlossen"
+
+#~ msgid ""
+#~ "The USB Device has been re-initialized.\n"
+#~ "It is safe to use it for\n"
+#~ "ISO file copy/download operations."
+#~ msgstr ""
+#~ "Das USB Device wurde reinitialisiert.\n"
+#~ "Es ist bereit für das Kopieren oder das \n"
+#~ "Herunterladen von ISO Dateien."
+
+#~ msgid ""
+#~ "MultiBootISOCreator:CleanTheUSBDeviceCheck\n"
+#~ " - Error encountered during cleaning operation."
+#~ msgstr ""
+#~ "MultiBootISOCreator:Prüfung des USB Reinigungsvorgangs\n"
+#~ " - während der Reinigungsoperation ist ein Fehler aufgetreten."
+
+#~ msgid "{} of {} GiB"
+#~ msgstr "{} von {} GiB"
+
+#~ msgid "Copy is Complete"
+#~ msgstr "Kopiervorgang abgeschlossen"
+
+#~ msgid ""
+#~ "The USB Device has been updated.\n"
+#~ "If you wish, it is safe to unmount and remove it."
+#~ msgstr ""
+#~ "The USB Gerät wurde aktualisiert.\n"
+#~ "Es kann jetzt sicher ausgehängt und entfernt werden."
+
+#~ msgid "MultiBootISOCreator:CopyCheck - Error encountered during copy."
+#~ msgstr ""
+#~ "MultiBootISOCreator:Prüfung des Kopiervorgangs - es ist ein Fehler "
+#~ "aufgetreten."
+
+#~ msgid "Copy Is Complete"
+#~ msgstr "Kopiervorgang abgeschlossen"
+
+#~ msgid "Downloading is Complete"
+#~ msgstr "Das Herunterladen ist abgeschlossen"
+
+#~ msgid "Error encountered during download"
+#~ msgstr "Während des Herunterladens ist ein Fehler aufgetreten"
+
+#~ msgid "Download is Complete"
+#~ msgstr "Download ist abgeschlossen"
+
+#~ msgid "Please Confirm ISO Copy"
+#~ msgstr "Bitte bestätigen Sie das Kopieren der ISO Datei"
+
+#~ msgid ""
+#~ "Please confirm you wish to copy the file\n"
+#~ "\n"
+#~ "\"{0}\"\n"
+#~ "\n"
+#~ "to the selected USB device."
+#~ msgstr ""
+#~ "Bitte bestätigen Sie, das Kopieren der Datei\n"
+#~ "\n"
+#~ "\"{0}\"\n"
+#~ "\n"
+#~ "auf das ausgewählte USB Gerät."
+
+#~ msgid "Not a Known SolydXK ISO"
+#~ msgstr "Keine bekanne SolydXK ISO Datei"
+
+#~ msgid ""
+#~ "The filename supplied does not match that\n"
+#~ "of a known SolydXK ISO file.\n"
+#~ "\n"
+#~ "Please check your information and try again."
+#~ msgstr ""
+#~ "Der angegebene Dateiname stimmt nicht mit \n"
+#~ "einer bekannten SolydXK ISO Datei überein.\n"
+#~ "\n"
+#~ "Bitte überprüfen Sie den Sachverhalt und versuchen Sie es erneut."
+
+#~ msgid "No File Selected"
+#~ msgstr "Keine Datei ausgewählt"
+
+#~ msgid "Please select a file to be copied to the selected USB device."
+#~ msgstr ""
+#~ "Bitte wählen Sie eine Datei für das Übertragen auf das USB Gerät aus."
+
+#~ msgid "Please Confirm ISO Download"
+#~ msgstr "Bitte bestätigen Sie das Herunterladen der ISO Datei"
+
+#~ msgid ""
+#~ "Please confirm you wish to download the file\n"
+#~ "\n"
+#~ "\"{0}\"\n"
+#~ "\n"
+#~ "to the selected USB device."
+#~ msgstr ""
+#~ "Bitte bestätigen Sie, das Herunterladen der Datei\n"
+#~ "\n"
+#~ "\"{0}\"\n"
+#~ "\n"
+#~ "auf das ausgewählte USB Gerät."
+
+#~ msgid ""
+#~ "The selected file already exists on the USB device.\n"
+#~ "\n"
+#~ "Over-write this file?"
+#~ msgstr ""
+#~ "Die ausgewählte Datei existiert bereits auf Ihrem USB Gerät.\n"
+#~ "\n"
+#~ "Soll die Datei überschrieben werden?"
+
+#~ msgid "Please select a file to be deleted from the USB device."
+#~ msgstr ""
+#~ "Bitte wählen Sie eine Date aus, die von Ihrem USB Gerät gelöscht werden "
+#~ "soll."
+
+#~ msgid "Please confirm file deletion"
+#~ msgstr "Bitte bestätigen Sie das Löschen der Datei"
+
+#~ msgid ""
+#~ "Please confirm you wish to delete the file\n"
+#~ "\n"
+#~ "{}\n"
+#~ "\n"
+#~ "from the selected USB device."
+#~ msgstr ""
+#~ "Bitte bestätigen Sie das Löschen der Datei\n"
+#~ "\n"
+#~ "{}\n"
+#~ "\n"
+#~ "von dem ausgewählten USB Gerät."
+
+#~ msgid "Operation Complete"
+#~ msgstr "Vorgang abgeschlossen"
+
+#~ msgid "The selected file has been deleted."
+#~ msgstr "Die ausgewählte Datei wurde gelöscht."
+
+#~ msgid "File not found."
+#~ msgstr "Datei nicht gefunden"
+
+#~ msgid "Insufficient Space Available"
+#~ msgstr "Verfügbarer Platz ist unzureichend"
+
+#~ msgid ""
+#~ "The selected USB device has insufficient\n"
+#~ "space for the indicated operation."
+#~ msgstr ""
+#~ "Das ausgewählte USB Gerät verfügt nicht über ausreichend\n"
+#~ "Platz für die angegebene Operation."
+
+#~ msgid ""
+#~ "Please confirm you wish to install grub\n"
+#~ "on the device\n"
+#~ "\n"
+#~ "{}"
+#~ msgstr ""
+#~ "Bitte bestätigen Sie, dass Sie GRUB auf das\n"
+#~ "Gerät installieren wollen\n"
+#~ "\n"
+#~ "{}"
+
+#~ msgid "Boot Loader Install Complete"
+#~ msgstr "Die Installation des Bootloaders ist vollständig"
+
+#~ msgid ""
+#~ "The USB Device has been re-initialized.\n"
+#~ "If you wish, it is safe to unmount and remove it."
+#~ msgstr ""
+#~ "Das UBB Gerät wurde reinitialisiert.\n"
+#~ "Es kann jetzt sicher ausgehängt und entfernt werden."
+
+#~ msgid "No ISO files on USB"
+#~ msgstr "Keine ISO Dateien auf dem USB Gerät"
+
+#~ msgid ""
+#~ "No grub.cfg file was written because there\n"
+#~ "are no ISO files on this device"
+#~ msgstr ""
+#~ "Eine grub.cfg Datei konnte dort nicht erstellt werden \n"
+#~ "weil sich keine ISO Dateien auf dem Gerät befinden"
+
+#~ msgid "Grub not installed"
+#~ msgstr "Grub wurde nicht installiert"
+
+#~ msgid ""
+#~ "It appears grub is not installed on the selected device\n"
+#~ "\n"
+#~ "{}\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Anscheinend wurde GRUB auf dem gewählten Gerät nicht installiert\n"
+#~ "\n"
+#~ "{}\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "Grub will be installed on the device when you continue.\n"
+#~ "\n"
+#~ "Do you wish to continue with the pending operation?"
+#~ msgstr ""
+#~ "GRUB wird auf dem Gerät installiert, wennSie fortfahren.\n"
+#~ "\n"
+#~ "Wollten Sie mit der ausstehenden Operation fortfahren?"
+
+#~ msgid ""
+#~ "It appears that the device does not have a fat32 partition:\n"
+#~ "\n"
+#~ "{}\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Es scheint, dass das Gerät nicht über eine FAT32-Partition verfügt:\n"
+#~ "{}\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "All data will be erased if you continue.\n"
+#~ "\n"
+#~ "Do you wish to continue with the pending operation?"
+#~ msgstr ""
+#~ "Wenn Sie fortfahren, werden alle Daten gelöscht\n"
+#~ "\n"
+#~ "Wollten Sie mit der ausstehenden Operation fortfahren?"
+
+#~ msgid "The help file was not found where expected"
+#~ msgstr "Die Hilfedatei wurde nicht gefunden"
+
+#~ msgid "Multi-Boot Help"
+#~ msgstr "Hilfe für Multi-Boot"

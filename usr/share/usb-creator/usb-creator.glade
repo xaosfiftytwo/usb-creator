@@ -7,6 +7,11 @@
     <property name="can_focus">False</property>
     <property name="icon_name">gtk-cdrom</property>
   </object>
+  <object class="GtkImage" id="imgClear">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">edit-clear</property>
+  </object>
   <object class="GtkImage" id="imgRefresh">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -15,7 +20,7 @@
   <object class="GtkImage" id="imgUnmount">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="icon_name">emblem-unmounted</property>
+    <property name="icon_name">drive-removable-media-usb</property>
   </object>
   <object class="GtkWindow" id="usb-creator">
     <property name="width_request">600</property>
@@ -126,6 +131,22 @@
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
+                                <child>
+                                  <object class="GtkButton" id="btnClear">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="tooltip_text" translatable="yes">Clear ISO field</property>
+                                    <property name="image">imgClear</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="on_btnClear_clicked" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">2</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -215,14 +236,16 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkCheckButton" id="chkClearDevice">
-                                <property name="label" translatable="yes">Clear device</property>
+                              <object class="GtkCheckButton" id="chkFormatDevice">
+                                <property name="label" translatable="yes">Format device</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                                <property name="tooltip_text" translatable="yes">Warning: all data will be lost</property>
                                 <property name="xalign">0</property>
+                                <property name="yalign">0.43000000715255737</property>
                                 <property name="draw_indicator">True</property>
-                                <signal name="toggled" handler="on_chkClearDevice_toggled" swapped="no"/>
+                                <signal name="toggled" handler="on_chkFormatDevice_toggled" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -236,6 +259,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                                <property name="tooltip_text" translatable="yes">Tries to repair an unbootable USB</property>
                                 <property name="xalign">0</property>
                                 <property name="draw_indicator">True</property>
                               </object>

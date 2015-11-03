@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 13:04+0100\n"
+"POT-Creation-Date: 2015-11-03 16:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,168 +27,180 @@ msgid ""
 "bug report!"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:63
+#: ../usr/lib/usb-creator/usbcreator.py:64
 #: ../usr/share/applications/usb-creator.desktop.in.h:1
 msgid "USB Creator"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:64
+#: ../usr/lib/usb-creator/usbcreator.py:65
 msgid "Device"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:65
+#: ../usr/lib/usb-creator/usbcreator.py:66
 msgid "USB"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:66
+#: ../usr/lib/usb-creator/usbcreator.py:67
 msgid "Available"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:67
+#: ../usr/lib/usb-creator/usbcreator.py:68
 msgid "Required"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:68
-msgid "Clear device"
-msgstr ""
-
 #: ../usr/lib/usb-creator/usbcreator.py:69
-msgid "Repair device"
+msgid "Format device"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:70
-msgid "Execute"
+msgid "Warning: all data will be lost"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:71
-msgid "ISO"
+msgid "Repair device"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:72
-msgid "Delete"
+msgid "Tries to repair an unbootable USB"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:73
-msgid "Refresh device list"
+msgid "Execute"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:74
-msgid "Unmount device"
+msgid "ISO"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:75
+msgid "Delete"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:76
+msgid "Refresh device list"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:77
+msgid "Unmount device"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:78
 msgid "Browse for ISO file"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:79
-msgid "Partitioning USB..."
-msgstr ""
-
-#: ../usr/lib/usb-creator/usbcreator.py:80
-msgid "Searching for bad block"
-msgstr ""
-
-#: ../usr/lib/usb-creator/usbcreator.py:81
-msgid "Installing Grub..."
-msgstr ""
-
-#: ../usr/lib/usb-creator/usbcreator.py:82
-msgid "Start copying ISO..."
+msgid "Clear the ISO field"
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:83
-msgid "kB left to copy:"
+msgid "Partitioning USB..."
 msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:84
+msgid "Searching for bad block"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:85
+msgid "Installing Grub..."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:86
+msgid "Start copying ISO..."
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:87
+msgid "kB left to copy:"
+msgstr ""
+
+#: ../usr/lib/usb-creator/usbcreator.py:88
 msgid "Check md5sum of ISO..."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:121
+#: ../usr/lib/usb-creator/usbcreator.py:125
 msgid "Version"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:140
+#: ../usr/lib/usb-creator/usbcreator.py:144
 msgid ""
 "Cannot add ISO from path: {}.\n"
 "Please, remove the ISO path or browse for an existing ISO."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:147
+#: ../usr/lib/usb-creator/usbcreator.py:151
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:170
+#: ../usr/lib/usb-creator/usbcreator.py:174
 msgid "Are you sure you want to remove the selected ISO from the device?"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:191
+#: ../usr/lib/usb-creator/usbcreator.py:195
 msgid "Select ISO"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:240
+#: ../usr/lib/usb-creator/usbcreator.py:248
 msgid "Unmount"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:245
+#: ../usr/lib/usb-creator/usbcreator.py:253
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:248
+#: ../usr/lib/usb-creator/usbcreator.py:256
 msgid "You can now safely remove the device."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:481
+#: ../usr/lib/usb-creator/usbcreator.py:489
 msgid "Run this application with root permission."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:483
+#: ../usr/lib/usb-creator/usbcreator.py:491
 msgid "Wrong arguments were passed to usb-creator."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:485
+#: ../usr/lib/usb-creator/usbcreator.py:493
 msgid "The device was not found or no device was given."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:487
+#: ../usr/lib/usb-creator/usbcreator.py:495
 msgid "Given ISO path was not found."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:489
+#: ../usr/lib/usb-creator/usbcreator.py:497
 msgid "Device is in use by another application."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:491
+#: ../usr/lib/usb-creator/usbcreator.py:499
 msgid "Unable to mount the device."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:493
+#: ../usr/lib/usb-creator/usbcreator.py:501
 msgid "Md5sum mismatch."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:495
+#: ../usr/lib/usb-creator/usbcreator.py:503
 msgid "The device has no fat32 partition."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:497
+#: ../usr/lib/usb-creator/usbcreator.py:505
 msgid "The device has no bootloader installed."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:499
+#: ../usr/lib/usb-creator/usbcreator.py:507
 msgid "There is not enough space available on the device."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:501
+#: ../usr/lib/usb-creator/usbcreator.py:509
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:505
+#: ../usr/lib/usb-creator/usbcreator.py:513
 msgid "The USB was successfully written."
 msgstr ""
 

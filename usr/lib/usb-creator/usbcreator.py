@@ -50,7 +50,8 @@ class USBCreator(object):
         self.btnRefresh = go("btnRefresh")
         self.btnUnmount = go("btnUnmount")
         self.btnBrowseIso = go("btnBrowseIso")
-        self.chkClearDevice = go("chkClearDevice")
+        self.btnClear = go("btnClear")
+        self.chkFormatDevice = go("chkFormatDevice")
         self.chkRepairDevice = go("chkRepairDevice")
         self.btnExecute = go("btnExecute")
         self.lblUsb = go("lblUsb")
@@ -65,14 +66,17 @@ class USBCreator(object):
         self.lblUsb.set_label(_("USB"))
         self.available_text = _("Available")
         self.required_text = _("Required")
-        self.chkClearDevice.set_label(_("Clear device"))
+        self.chkFormatDevice.set_label(_("Format device"))
+        self.chkFormatDevice.set_tooltip_text(_("Warning: all data will be lost"))
         self.chkRepairDevice.set_label(_("Repair device"))
+        self.chkRepairDevice.set_tooltip_text(_("Tries to repair an unbootable USB"))
         self.btnExecute.set_label("_{}".format(_("Execute")))
         self.lblIso.set_label(_("ISO"))
         self.btnDelete.set_label("_{}".format(_("Delete")))
         self.btnRefresh.set_tooltip_text(_("Refresh device list"))
         self.btnUnmount.set_tooltip_text(_("Unmount device"))
         self.btnBrowseIso.set_tooltip_text(_("Browse for ISO file"))
+        self.btnClear.set_tooltip_text(_("Clear the ISO field"))
 
         # Log lines to show: check string, percent done (0=pulse, appends last word in log line), show line (translatable)
         self.log_lines = []
@@ -130,7 +134,7 @@ class USBCreator(object):
         if exists(self.device["path"]):
             arguments = []
             arguments.append("-d {}".format(self.device["path"]))
-            clear = self.chkClearDevice.get_active()
+            clear = self.chkFormatDevice.get_active()
             repair = self.chkRepairDevice.get_active()
             iso = self.device["new_iso"]
             iso_path = self.txtIso.get_text().strip()
@@ -193,6 +197,9 @@ class USBCreator(object):
             self.log.write("Add ISO: {}".format(iso))
             self.txtIso.set_text(iso)
 
+    def on_btnClear_clicked(self, widget):
+        self.txtIso.set_text('')
+
     def on_txtIso_changed(self, widget):
         iso_path = self.txtIso.get_text()
         if exists(iso_path):
@@ -231,6 +238,7 @@ class USBCreator(object):
         else:
             self.device['new_iso'] = ''
             self.device['new_iso_required'] = 0
+            self.lblRequired.set_text('')
 
     def on_btnRefresh_clicked(self, widget=None):
         self.devices = self.get_devices()
@@ -268,12 +276,12 @@ class USBCreator(object):
                 free_size = getoutput("df --output=avail {}1 | awk 'NR==2'".format(device))
                 if free_size:
                     available = int(free_size[0])
-                self.chkClearDevice.set_sensitive(True)
-                self.chkClearDevice.set_active(False)
+                self.chkFormatDevice.set_sensitive(True)
+                self.chkFormatDevice.set_active(False)
             else:
                 available = size
-                self.chkClearDevice.set_active(False)
-                self.chkClearDevice.set_sensitive(True)
+                self.chkFormatDevice.set_active(True)
+                self.chkFormatDevice.set_sensitive(False)
 
             self.chkRepairDevice.set_active(False)
             self.fill_treeview_usbcreator(mount)
@@ -299,7 +307,7 @@ class USBCreator(object):
             self.device["new_iso"] = ''
             self.device["new_iso_required"] = 0
 
-    def on_chkClearDevice_toggled(self, widget):
+    def on_chkFormatDevice_toggled(self, widget):
         # Recalculate available space
         if widget.get_active():
             available = self.device["size"]
