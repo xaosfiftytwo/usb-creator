@@ -1,0 +1,34 @@
+Source: usb-creator
+Section: admin
+Priority: optional
+Maintainer: Arjen Balfoort <arjenbalfoort@solydxk.com>
+Build-Depends: debhelper (>= 9)
+  , python3 (>= 3.2)
+  , intltool
+X-Python3-Version: >= 3.2
+Standards-Version: 3.9.5
+Vcs-Git: git://github.com/SolydXK/usb-creator.git
+Vcs-Browser: https://github.com/SolydXK/usb-creator
+
+Package: usb-creator
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${python3:Depends}
+  , python3-gi
+  , python3
+  , gir1.2-gtk-3.0
+  , grub-efi-amd64-bin
+  , grub-efi-ia32-bin
+  , grub-pc-bin
+  , grub2-common
+  , rsync
+  , dosfstools
+  , udisks
+  , psmisc
+  , util-linux
+  , parted
+  , coreutils
+Conflicts: solydxk-usb-creator
+Replaces: solydxk-usb-creator
+Description: USB Creator
+ Create a bootable USB with several ISO images.

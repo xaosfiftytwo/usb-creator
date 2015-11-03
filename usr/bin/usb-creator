@@ -1,0 +1,723 @@
+#!/bin/bash
+
+# Script to make a multi-boot USB stick
+# Arjen Balfoort, 25-10-2015
+# Dependencies: grub-efi-amd64-bin, grub-efi-ia32-bin, grub-pc-bin, grub2-common, rsync, dosfstools, udisks, psmisc, util-linux, parted, coreutils
+
+# exit codes
+# 0 - All's well
+# 1 - Run as root
+# 2 - Invalid argument (see log file)
+# 3 - Device not found or no device given
+# 4 - Given ISO path not found
+# 5 - Device in use
+# 6 - Unable to mount device
+# 7 - Md5sum mismatch
+# 8 - Not a fat32 filesystem
+# 9 - Missing bootloader
+# 10 - Not enough space on device
+
+
+GUISTART='/usr/lib/usb-creator/main.py'
+FILESDIR="/usr/share/usb-creator/files"
+
+
+# ================================================================
+# Distribution menu lines
+# Adapt write_grub_menu function below "Make distro specific menu"
+# Source: https://wiki.archlinux.org/index.php/Multiboot_USB_drive
+# ================================================================
+UBUNTU_LINUX='linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile noprompt noeject quiet'
+UBUNTU_INITRD='initrd (loop)/casper/initrd.lz'
+# ----------------------------------------------------------------
+# NOT TESTED
+# We need to download the initrd for the not live DVD.
+# This is done with wget in write_grub_menu
+DEBIAN_LINUX='linux (loop)/install.amd/vmlinuz iso-scan/ask_second_pass=true iso-scan/filename=$isofile quiet'
+DEBIAN_INITRD='initrd $isofile.initrd.gz'
+# Debian mini iso
+DEBIANMINI_LINUX='linux (loop)/linux'
+DEBIANMINI_INITRD='initrd (loop)/initrd.gz'
+# ----------------------------------------------------------------
+# NOT TESTED: too large for my USB!
+SUSE_LINUX='linux (loop)/boot/x86_64/loader/linux install=hd:$isofile quiet'
+SUSE_INITRD='initrd (loop)/boot/x86_64/loader/initrd'
+SUSELIVE_LINUX='linux (loop)/boot/x86_64/loader/linux isofrom_device=$imgdevpath isofrom_system=$isofile LANG=en_US.UTF-8 quiet'
+SUSELIVE_INITRD='initrd (loop)/boot/x86_64/loader/initrd'
+# ----------------------------------------------------------------
+FEDORA_LINUX='linux (loop)/isolinux/vmlinuz inst.stage2=hd:UUID=$rootuuid findiso=$isofile noeject quiet'
+FEDORA_INITRD='initrd (loop)/isolinux/initrd.img'
+# NO WORKY: hangs on "Reached target Basic System"
+FEDORALIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid findiso=$isofile rootfstype=auto ro rd.live.image quiet rhgb rd.luks=0 rd.md=0 rd.dm=0'
+FEDORALIVE_INITRD='initrd (loop)/isolinux/initrd0.img'
+# ----------------------------------------------------------------
+ARCHDUAL_LINUX='linux (loop)/arch/boot/x86_64/vmlinuz archisodevice=/dev/loop0 img_dev=$imgdevpath img_loop=$isofile quiet'
+ARCHDUAL_INITRD='initrd (loop)/arch/boot/x86_64/archiso.img'
+ARCHBOOT_LINUX='linux (loop)/boot/vmlinuz_x86_64 iso_loop_dev=$imgdevpath iso_loop_path=$isofile quiet'
+ARCHBOOT_INITRD='initrd (loop)/boot/initramfs_x86_64.img'
+# ----------------------------------------------------------------
+# NOT TESTED: too large for my USB!
+CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:UUID=$rootuuid findiso=$isofile quiet'
+#CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:LABEL='$LABEL':/$isofile'
+CENTOS_INITRD='initrd (loop)/isolinux/initrd.img'
+CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid iso-scan/filename=$isofile rd.live.image quiet'
+#CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:CDLABEL='$LABEL' iso-scan/filename=$isofile rd.live.image'
+CENTOSLIVE_INITRD='initrd (loop)/isolinux/initrd0.img'
+# ----------------------------------------------------------------
+# Source (German): https://forums.mageia.org/de/viewtopic.php?f=8&t=1713
+MAGEIA_LINUX='linux (loop)/isolinux/x86_64/vmlinuz from=$isofile ro rd.luks=0 rd.lvm=0 rd.md=0 rd.dm=0 xmode=800x600 xrandr quiet'
+MAGEIA_INITRD='initrd (loop)/isolinux/x86_64/all.rdz'
+# NO WORKY: unable to read squashfs_super_block: https://bugs.mageia.org/show_bug.cgi?id=1506
+# NO WORKY: need label of USB, not of ISO or UUID (iso iso9660 does not support UUID): is set in write_grub_menu
+MAGEIALIVE_LINUX='linux (loop)/boot/vmlinuz root=mgalive findiso=$isofile ro rd.luks=0 rd.lvm=0 rd.md=0 rd.dm=0 quiet'
+MAGEIALIVE_INITRD='initrd (loop)/boot/cdrom/initrd.gz'
+# ----------------------------------------------------------------
+# misolabel is replaced in write_grub_menu
+# Source = https://forum.manjaro.org/index.php?PHPSESSID=8npqcb42p5i5nhste1bbv30sk0&topic=14051.msg169258#msg169258
+MANJARO_LINUX='linux (loop)/manjaro/boot/x86_64/manjaro img_dev=UUID=$rootuuid img_loop=$isofile misobasedir=manjaro misolabel nouveau.modeset=1 i915.modeset=1 radeon.modeset=1 logo.nologo overlay=nonfree nonfree=yes quiet'
+MANJARO_INITRD='initrd (loop)/manjaro/boot/x86_64/manjaro.img'
+# ----------------------------------------------------------------
+GENTOO_LINUX='linux (loop)/isolinux/gentoo root=/dev/ram0 init=/linuxrc aufs looptype=squashfs loop=/image.squashfs cdroot isoboot=$isofile quiet splash=silent,theme:default console=tty0'
+GENTOO_INITRD='initrd (loop)/isolinux/gentoo.igz'
+# ----------------------------------------------------------------
+SLACK_LINUX='linux (loop)/kernels/huge.s/bzImage printk.time=0 quiet'
+SLACK_INITRD='initrd (loop)/isolinux/initrd.img'
+# ----------------------------------------------------------------
+KNOPPIX_LINUX='linux (loop)/boot/isolinux/linux bootfrom=/mnt-iso/$isofile acpi=off quiet keyboard=us lang=us'
+KNOPPIX_INITRD='initrd (loop)/boot/isolinux/minirt.gz'
+# ----------------------------------------------------------------
+ANTIX_LINUX='linux (loop)/antiX/vmlinuz fromiso=$isofile antiX=MLX'
+ANTIX_INITRD='initrd (loop)/antiX/initrd.gz'
+# ----------------------------------------------------------------
+SYSRESCUE_LINUX='linux (loop)/isolinux/rescue64 isoloop=$isofile setkmap=us docache dostartx quiet'
+SYSRESCUE_INITRD='initrd (loop)/isolinux/initram.igz'
+# ----------------------------------------------------------------
+CLONEZILLA_LINUX='linux (loop)/live/vmlinuz findiso=$isofile boot=live union=overlay username=user config quiet'
+CLONEZILLA_INITRD='initrd (loop)/live/initrd.img'
+# ----------------------------------------------------------------
+GPARTED_LINUX='linux (loop)/live/vmlinuz boot=live findiso=$isofile union=overlay username=user config components noswap noeject toram=filesystem.squashfs ip=  quiet nosplash'
+GPARTED_INITRD='initrd (loop)/live/initrd.img'
+# ----------------------------------------------------------------
+PMAGIC_LINUX='linux (loop)/pmagic/bzImage findiso=$isofile boot=live quiet'
+PMAGIC_INITRD='initrd (loop)/pmagic/initrd.img'
+# ================================================================
+# ================================================================
+
+
+# Write a grub menu for each ISO
+function write_grub_menu() {
+  GRUBDIR=$1
+  ISO=$2
+  ISONAME=$(basename $ISO)
+  LOWERISONAME=$(basename $ISO | tr '[:upper:]' '[:lower:]')
+  LINUX_LINE='linux (loop)/live/vmlinuz boot=live findiso=$isofile noprompt noeject noswap config quiet splash'
+  INITRD_LINE='initrd (loop)/live/initrd.img'
+
+  # ================================================================
+  # Make distro specific menu
+  # ================================================================
+  if [[ "$LOWERISONAME" =~ "buntu" ]] || 
+     [[ "$LOWERISONAME" =~ "lxle" ]] || 
+     [[ "$LOWERISONAME" =~ "elementary" ]] ||
+     [[ "$LOWERISONAME" =~ "mint" ]]; then
+    LINUX_LINE=$UBUNTU_LINUX
+    INITRD_LINE=$UBUNTU_INITRD
+    if [[ "$LOWERISONAME" =~ "64" ]]; then
+      if [[ ! "$LOWERISONAME" =~ "mint" ]]; then
+        LINUX_LINE=$(echo $LINUX_LINE | sed 's/vmlinuz/vmlinuz.efi/')
+      fi
+    fi
+  elif [[ "$LOWERISONAME" =~ "mini.iso" ]]; then
+    LINUX_LINE=$DEBIANMINI_LINUX
+    INITRD_LINE=$DEBIANMINI_INITRD
+  elif [[ "$LOWERISONAME" =~ "debian" ]]; then
+    if [[ ! "$LOWERISONAME" =~ "live" ]]; then
+      wget "https://mirrors.kernel.org/debian/dists/stable/main/installer-amd64/current/images/hd-media/initrd.gz" -O $ISO.initrd.gz
+      LINUX_LINE=$DEBIAN_LINUX
+      INITRD_LINE=$DEBIAN_INITRD
+    fi
+  elif [[ "$LOWERISONAME" =~ "lmde" ]]; then
+    INITRD_LINE=$(echo $INITRD_LINE | sed 's/img/lz/')
+  elif [[ "$LOWERISONAME" =~ "fedora" ]]; then
+    LINUX_LINE=$FEDORA_LINUX
+    INITRD_LINE=$FEDORA_INITRD
+    if [[ "$LOWERISONAME" =~ "live" ]]; then
+      LINUX_LINE=$FEDORALIVE_LINUX
+      INITRD_LINE=$FEDORALIVE_INITRD
+    fi
+  elif [[ "$LOWERISONAME" =~ "arch" ]]; then
+    LINUX_LINE=$ARCHDUAL_LINUX
+    INITRD_LINE=$ARCHDUAL_INITRD
+    if [[ "$LOWERISONAME" =~ "archboot" ]]; then
+      LINUX_LINE=$ARCHBOOT_LINUX
+      INITRD_LINE=$ARCHBOOT_INITRD
+    fi
+  elif [[ "$LOWERISONAME" =~ "manjaro" ]]; then
+    MISOLABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
+    LINUX_LINE=$(echo $MANJARO_LINUX | sed "s/misolabel/misolabel=$MISOLABEL/")
+    INITRD_LINE=$MANJARO_INITRD
+  elif [[ "$LOWERISONAME" =~ "centos" ]]; then
+    LINUX_LINE=$CENTOS_LINUX
+    INITRD_LINE=$CENTOS_INITRD
+    if [[ "$LOWERISONAME" =~ "live" ]]; then
+      LINUX_LINE=$CENTOSLIVE_LINUX
+      INITRD_LINE=$CENTOSLIVE_INITRD
+    fi
+  elif [[ "$LOWERISONAME" =~ "suse" ]]; then
+    LINUX_LINE=$SUSE_LINUX
+    INITRD_LINE=$SUSE_INITRD
+    if [[ "$LOWERISONAME" =~ "live" ]]; then
+      LINUX_LINE=$SUSELIVE_LINUX
+      INITRD_LINE=$SUSELIVE_INITRD
+    fi
+  elif [[ "$LOWERISONAME" =~ "gentoo" ]]; then
+    LINUX_LINE=$GENTOO_LINUX
+    INITRD_LINE=$GENTOO_INITRD
+  elif [[ "$LOWERISONAME" =~ "slack" ]]; then
+    LINUX_LINE=$SLACK_LINUX
+    INITRD_LINE=$SLACK_INITRD
+  elif [[ "$LOWERISONAME" =~ "knoppix" ]]; then
+    LINUX_LINE=$KNOPPIX_LINUX
+    INITRD_LINE=$KNOPPIX_INITRD
+  elif [[ "$LOWERISONAME" =~ "antix" ]] || [[ "$LOWERISONAME" =~ "mx" ]]; then
+    LINUX_LINE=$ANTIX_LINUX
+    INITRD_LINE=$ANTIX_INITRD
+  elif [[ "$LOWERISONAME" =~ "mageia" ]]; then
+    LINUX_LINE=$MAGEIA_LINUX
+    INITRD_LINE=$MAGEIA_INITRD
+    if [[ "$LOWERISONAME" =~ "live" ]]; then
+      #MAGEIA_LABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
+      LINUX_LINE=$(echo $LINUX_LINE | sed "s/mgalive/mgalive:LABEL=$LABEL/")
+      LINUX_LINE=$MAGEIALIVE_LINUX
+      INITRD_LINE=$MAGEIALIVE_INITRD
+    fi
+  elif [[ "$LOWERISONAME" =~ "rescue" ]]; then
+    LINUX_LINE=$SYSRESCUE_LINUX
+    INITRD_LINE=$SYSRESCUE_INITRD
+  elif [[ "$LOWERISONAME" =~ "zilla" ]]; then
+    LINUX_LINE=$CLONEZILLA_LINUX
+    INITRD_LINE=$CLONEZILLA_INITRD
+  elif [[ "$LOWERISONAME" =~ "magic" ]]; then
+    LINUX_LINE=$PMAGIC_LINUX
+    INITRD_LINE=$PMAGIC_INITRD
+  elif [[ "$LOWERISONAME" =~ "parted" ]]; then
+    LINUX_LINE=$GPARTED_LINUX
+    INITRD_LINE=$GPARTED_INITRD
+  fi
+  # ================================================================
+  # ================================================================
+  
+  if [ -d "$GRUBDIR" ]; then
+    # Check if ISO is 32-bit
+    if [[ "$LOWERISONAME" =~ "686" ]]; then
+      LINUX_LINE=$(echo $LINUX_LINE | sed 's/x86_64/i686/')
+      INITRD_LINE=$(echo $INITRD_LINE | sed 's/x86_64/i686/')
+    fi
+    
+    # Set menu title
+    MENUTITLE=$(echo "$ISONAME" | sed -e 's/x86_//g' -e 's/[-_]/ /g' -e 's/64/64-bit/g' -e 's/32/32-bit/g' -e 's/i*686/32-bit/g')
+    # Uppercase first character
+    MENUTITLE="${MENUTITLE^}"
+    # Remove extension
+    MENUTITLE="${MENUTITLE%%.*}"
+    
+    MENU="menuentry '"$MENUTITLE"' {\n"
+    MENU="$MENU  set isofile='/"$ISONAME"'\n"
+    MENU="$MENU  insmod loopback\n"
+    MENU="$MENU  loopback loop \$isofile\n"
+    MENU="$MENU  $LINUX_LINE\n"
+    MENU="$MENU  $INITRD_LINE\n"
+    MENU="$MENU}\n"
+    
+    echo -e $MENU >> "$GRUBDIR/grub.cfg"
+  fi
+}
+
+# Create user history file
+LOGNAME=$(logname)
+ISOHISTDIR=$(eval echo "~$LOGNAME/usb-creator")
+if [ ! -e "$ISOHISTDIR" ]; then
+  mkdir -p "$ISOHISTDIR"
+  chown -R $LOGNAME $ISOHISTDIR
+fi
+ISOHISTORY="$ISOHISTDIR/isohistory.txt"
+
+function usage() {
+  echo "=================================================================="
+  echo "USB Creator Help:"
+  echo "=================================================================="
+  echo "-b                        Install the bootloaders."
+  echo "-d /dev/device            Device path of the USB."
+  echo "                          When omitted, the device is searched."
+  echo "-f                        Format the device."
+  echo "-g                        Configure Grub."
+  echo "-h                        This screen."
+  echo "-i \"/path/to/your.iso\"    The ISO to add to the device."
+  echo "                          You can pass a directory and use wildcards."
+  echo "-l \"LABEL\"                Set the label of the USB."
+  echo "                          Default is: MULTIUSB"
+  echo "-m                        Md5sum the ISOs."
+  echo "                          If -i is not provided, $ISOHISTORY is used."
+  echo "-r                        Repair the device."
+  echo "                          With -f a deep scan is done."
+  echo "-u                        Unmount when done."
+  echo "------------------------------------------------------------------"
+  echo "No parameters             Start the GUI if available"
+  echo "=================================================================="
+}
+
+# Initialize grub.cfg
+function init_grub() {
+  GRUBDIR=$1
+  if [ -d "$GRUBDIR" ]; then
+    echo '''# Seconds to wait until starting the default menu entry
+set timeout=10
+
+# Default menu entry (0 = first)
+set default=0
+
+# set debug=all
+search --no-floppy --set=root -l LABEL
+probe -u $root --set=rootuuid
+set imgdevpath="/dev/disk/by-uuid/$rootuuid"
+
+if loadfont $prefix/fonts/unicode.pf2 ; then
+  set gfxmode=800x600
+  insmod efi_gop
+  insmod efi_uga
+  insmod video_bochs
+  insmod video_cirrus
+  insmod gfxterm
+  insmod png
+  terminal_output gfxterm
+fi
+
+background_image -m stretch /boot/grub/grubbg.png
+set menu_color_normal=white/black
+set menu_color_highlight=dark-gray/white
+''' | sed "s/LABEL/\'$LABEL\'/" > "$GRUBDIR/grub.cfg"
+  fi
+}
+
+# Function called after rsync of ISO.
+# Shows estimate kB left to copy to device
+function wait_until_done() {
+  STAT="/sys/block/$(basename $1)/stat"
+  VAL=100
+  while [ $VAL -gt 50 ]; do
+    if [ -e $STAT ]; then
+      VAL=$(awk '{print $9}' $STAT)
+      # Need the extra spaces to make sure the previous output is totally overwritten
+      KB=$(grep -e Dirty: /proc/meminfo | awk '{print $2}')
+      if [ -t 1 ]; then
+	echo -ne "kB left to copy: $KB                     \\r"
+      fi
+      echo "kB left to copy: $KB" >> $LOG
+      sleep 5
+    else
+      break
+    fi
+  done
+}
+
+trim() {
+  local var="$*"
+  var="${var#"${var%%[![:space:]]*}"}"   # remove leading whitespace characters
+  var="${var%"${var##*[![:space:]]}"}"   # remove trailing whitespace characters
+  echo -n "$var"
+}
+
+# ================================================================
+# End of functions
+# ================================================================
+
+if [ -z $1 ]; then
+  # Without arguments: show GUI if available, else show help
+  if [ -e "$GUISTART" ]; then
+    optimize='OO'; case "$*" in *--debug*) unset optimize; esac
+    MSG='Please enter your password'
+    CMD="python3 -tt${optimize} "$GUISTART" $@"
+    if [ $UID -eq 0 ]; then
+      . "$CMD"
+    else
+      if [ -e "/usr/bin/kdesudo" ]; then
+	kdesudo -i "usb-creator" -d --comment "<b>$MSG</b>" "$CMD"
+      else
+	gksudo --message "<b>$MSG</b>" "$CMD"
+      fi
+    fi
+  else
+    usage
+    exit 0
+  fi
+else
+  # Log file for traceback
+  MAX_SIZE_KB=5120
+  LOG_SIZE_KB=0
+  LOG=/var/log/usb-creator.log
+  LOG2=/var/log/usb-creator.log.1
+  if [ -f $LOG ]; then
+    LOG_SIZE_KB=$(ls -s $LOG | awk '{print $1}')
+    if [ $LOG_SIZE_KB -gt $MAX_SIZE_KB ]; then
+      mv -f $LOG $LOG2
+    fi
+  fi 
+
+  BOOT=false
+  DEVICE=''
+  LABEL=''
+  FORMAT=false
+  GRUB=false
+  ISOS=''
+  MD5SUM=false
+  REPAIR=false
+  UNMOUNT=false
+  FAT=false
+  MOUNT=''
+  
+  if [ $UID -ne 0 ]; then
+    echo "Run as root"
+    exit 1
+  fi
+  
+  while getopts ":bd:fghi:l:mru" opt; do
+    case $opt in
+      b)
+	# Bootloader
+	BOOT=true
+	;;
+      d)
+	# Device (remove trailing digits)
+	DEVICE=$OPTARG
+	;;
+      f)
+	# Format
+	FORMAT=true
+	;;
+      g)
+	# Grub
+	GRUB=true
+	;;
+      h)
+	# Help
+	usage
+	exit 0
+	;;
+      i)
+	# ISOs
+	ISOS=$OPTARG
+	;;
+      l)
+	# Label to upper case and without spaces
+	LABEL=$(echo $OPTARG | tr '[:lower:]' '[:upper:]' | tr -d '[[:space:]]')
+	;;
+      m)
+	# Md5sum
+	MD5SUM=true
+	;;
+      r)
+	# Repair
+	REPAIR=true
+	;;
+      u)
+	# Unmount
+	UNMOUNT=true
+	;;
+      \?)
+	echo "Invalid option: -$OPTARG" | tee -a $LOG
+	exit 2
+	;;
+      :)
+	echo "Option -$OPTARG requires an argument." | tee -a $LOG
+	exit 2
+	;;
+      *)
+	echo "Unknown error." | tee -a $LOG
+	usage
+	exit 2
+	;;
+    esac
+  done
+  
+  # Check for passed device
+  if [ "$DEVICE" == "" ]; then
+    # If running in terminal, search for detachable device
+    if [ -t 1 ]; then
+      DEVICES=$(udisks --enumerate-device-files | egrep '/dev/sd[a-z]$')
+      for D in $DEVICES; do
+	DETACHABLE=$(env LANG=C udisks --show-info $D | grep detachable | awk '{print $2}')
+	if [ "$DETACHABLE" == "1" ]; then
+	  PARTITION=$(env LANG=C udisks --show-info $D | grep partition)
+	  if [ "$PARTITION" != "" ]; then
+	    read -e -p "Confirm USB device: " -i $D DEVICE
+	    break
+	  fi
+	fi
+      done
+    fi
+  fi
+  
+  # Check the existence of the device
+  if [ "$DEVICE" == "" ]; then
+    echo "No device given."
+    exit 3
+  elif [ ! -e "$DEVICE" ]; then
+    echo "$DEVICE does not exist."
+    exit 3
+  fi
+  
+  # Check the device if it's a pen drive
+  DETACHABLE=$(env LANG=C udisks --show-info $DEVICE | grep detachable | awk '{print $2}')
+  if [ "$DETACHABLE" == "1" ]; then
+    PARTITION=$(env LANG=C udisks --show-info $DEVICE | grep partition)
+    if [ "$PARTITION" == "" ]; then
+      echo "$DEVICE is not a detachable device."
+      exit 3
+    fi
+  else
+    echo "$DEVICE is not a detachable device."
+    exit 3
+  fi
+   
+  # Make sure the device is not in use and not mounted
+  MOUNT=$(grep $DEVICE'1' /etc/mtab | awk '{print $2}' | sed 's/\\040/ /g')
+  if [ "$MOUNT" != "" ]; then
+    # Is it in use?
+    FUSER=$(fuser -m $MOUNT)
+    if [ "$FUSER" != "" ]; then
+      echo "$DEVICE is in use. Close any programs using the device." | tee -a $LOG
+      exit 5
+    else
+      # Make sure the USB is not mounted
+      udisks --unmount $DEVICE'1' | tee -a $LOG
+    fi
+  fi
+  
+  # Set the label
+  if [ "$LABEL" == "" ]; then
+    # Get the device's current label
+    LABEL=$(blkid -s LABEL -o value $DEVICE'1')
+    LABEL=$(trim $LABEL)
+    # If not set: set default label name
+    if [ "$LABEL" == "" ]; then
+      LABEL='MULTIUSB'
+    fi
+  fi
+  
+  # Clean the device
+  if $FORMAT; then
+    # Clean USB
+    echo "Clean USB..." | tee -a $LOG
+    dd if=/dev/zero of=$DEVICE bs=1 seek=446 count=64 && sync | tee -a $LOG
+
+    # Partition USB
+    echo "Partitioning USB..." | tee -a $LOG
+    parted -s $DEVICE mklabel msdos | tee -a $LOG
+    parted -s $DEVICE mkpart primary fat32 0% 100% | tee -a $LOG
+    parted -s $DEVICE align-check optimal 1 | tee -a $LOG
+    parted -s $DEVICE toggle 1 boot | tee -a $LOG
+    sleep 5
+    udisks --unmount $DEVICE'1' >/dev/null
+    
+    # Format the device
+    BADBLOCKS=''
+    if $REPAIR; then
+      BADBLOCKS='-c'
+    fi
+    mkfs.vfat -F 32 -v -I $BADBLOCKS -n $LABEL $DEVICE'1' | tee -a $LOG
+
+    # Repair the partition
+    if $REPAIR; then
+      fsck.vfat -Vavt $DEVICE'1' | tee -a $LOG
+      REPAIR=false
+    fi
+    
+    echo
+    echo "==================== Device Info ====================" | tee -a $LOG
+    parted -s $DEVICE print | tee -a $LOG
+    echo "=====================================================" | tee -a $LOG
+    fsck.vfat $DEVICE'1' | tee -a $LOG
+    echo "=====================================================" | tee -a $LOG
+    echo
+  fi
+
+  # Is it a fat partition?
+  FATSTR=$(udisks --show-info $DEVICE'1' | grep fat)
+  if [ "$FATSTR" == "" ]; then
+    echo "$DEVICE has no fat partition. Run with the -f parameter to format the device" | tee -a $LOG
+    exit 8
+  fi
+  
+  # Check if the ISO exists
+  for ISO in $ISOS; do
+    if [ -d $ISO ]; then
+      ISOS=$(ls $ISO/*.iso)
+      break
+    elif [ ! -e "$ISO" ]; then
+      echo "$ISO does not exist." | tee -a $LOG
+      exit 4
+    fi
+  done
+  
+  # Repair the device
+  if $REPAIR; then
+    fsck.vfat -a $DEVICE'1' | tee -a $LOG
+  fi
+  
+  # Get the mount point
+  MOUNT=$(grep $DEVICE'1' /etc/mtab | awk '{print $2}' | sed 's/\\040/ /g')
+  if [ "$MOUNT" == "" ]; then
+    echo "Mount $DEVICE" | tee -a $LOG
+    udisks --mount $DEVICE'1' | tee -a $LOG
+    MOUNT=$(grep $DEVICE'1' /etc/mtab | awk '{print $2}' | sed 's/\\040/ /g')
+  fi
+  if [ "$MOUNT" == "" ]; then
+    echo "$DEVICE could not be mounted. Mount it manually." | tee -a $LOG
+    exit 6
+  fi
+  
+  if ! $BOOT; then
+    # Check if we need to install the bootloaders
+    GRUBCHK=$(dd bs=512 count=1 if=$DEVICE 2>/dev/null | strings | grep GRUB)
+    EFI=$(ls $MOUNT/EFI/BOOT/*.EFI 2>/dev/null)
+    if [ "$GRUBCHK" == "" ] || [ "$EFI" == "" ] || [ ! -d "$MOUNT/boot/grub/" ]; then
+      echo "Force bootlader installation." | tee -a $LOG
+      BOOT=true
+    fi
+  fi
+  
+  if $BOOT; then
+    # Install BIOS and EFI Grub on device
+    echo "Installing legacy grub..." | tee -a $LOG
+    grub-install --target=i386-pc --recheck --boot-directory=$MOUNT/boot $DEVICE
+    echo "Installing i386 EFI..." | tee -a $LOG
+    grub-install --target=i386-efi --efi-directory=$MOUNT --boot-directory=$MOUNT/boot --removable
+    echo "Installing x86_64 EFI..." | tee -a $LOG
+    grub-install --target=x86_64-efi --efi-directory=$MOUNT --boot-directory=$MOUNT/boot --removable
+    # Check if there are ISOs on the USB
+    if ! $GRUB; then
+      USBISOS=$(find "$MOUNT" -type f -name "*.iso")
+      if [ "$USBISOS" != "" ]; then
+	echo "Force bootlader installation." | tee -a $LOG
+	GRUB=true
+      fi
+    fi
+  fi
+  
+  # Rsync the ISOs
+  # Watch progress with:
+  # watch -t -n1 'awk "{ print \$9 }" /sys/block/sdc/stat'
+  # watch -t grep -e Dirty: /proc/meminfo
+  for ISO in $ISOS; do
+    ISONAME=$(basename $ISO)
+    ISOSIZE=$(du -k "$ISO" | awk '{print $1}')
+    FREESIZE=$(df --output=avail $DEVICE'1' | awk 'NR==2')
+    if [ $ISOSIZE -gt $FREESIZE ]; then
+      if [ -f "$MOUNT/$ISONAME" ]; then
+        rm -vf "$MOUNT/$ISONAME" | tee -a $LOG
+        FREESIZE=$(df --output=avail $DEVICE'1' | awk 'NR==2')
+      fi
+    fi
+    if [ $ISOSIZE -gt $FREESIZE ]; then
+      echo "Not enough space on $DEVICE. Needed: $ISOSIZE, Available: $FREESIZE" | tee -a $LOG
+      exit 10
+    else
+      echo "Rsync $ISO to device..." | tee -a $LOG
+      rsync -r -v --progress --modify-window=1 -c "$ISO" "$MOUNT/" | tee -a $LOG
+      echo
+      wait_until_done $DEVICE & 
+      sync
+      # Add to history file when not already in history file
+      if ! grep -q $ISO "$ISOHISTORY"; then
+	echo $ISO >> $ISOHISTORY
+      fi
+      GRUB=true
+    fi
+  done
+  
+  # Configure Grub
+  if $GRUB; then
+    GRUBDIR="$MOUNT/boot/grub"
+    if [ ! -e "$GRUBDIR" ]; then
+      echo "You need to install the bootloaders before configuring Grub" | tee -a $LOG
+      echo "Run usb-creator with the -b option" | tee -a $LOG
+      exit 9
+    fi
+    
+    # Copy Grub background image
+    cp -vf $FILESDIR/*.png "$GRUBDIR/" 2>/dev/null | tee -a $LOG
+    
+    # Init grub.cfg
+    init_grub $GRUBDIR
+       
+    # Loop the ISOs
+    USBISOS=$(find "$MOUNT" -name "*.iso")
+    for ISO in $USBISOS; do
+      echo "Create Grub menu for $ISO" | tee -a $LOG
+      write_grub_menu $GRUBDIR $ISO
+    done
+    
+    echo "====================== Grub.cfg =====================" | tee -a $LOG
+    cat "$GRUBDIR/grub.cfg"
+    echo "=====================================================" | tee -a $LOG
+  fi
+   
+  # Check the md5sum of the given ISOs
+  if $MD5SUM; then
+    MISMATCH=''
+    
+    # If -i is not provided, use the history file
+    UPDATEHIST=false
+    if [ "$ISOS" == "" ] && [ -f "$ISOHISTORY" ]; then
+      UPDATEHIST=true
+      while IFS='' read -r ISO || [[ -n "$ISO" ]]; do
+        # Trim the line
+        ISO=$(trim $ISO)
+	if [ "$ISO" != "" ] && [ -f "$ISO" ]; then
+	  # Including a new line in a bash variable looks really odd...
+	  ISOS="$ISO
+$ISOS"
+	fi
+      done < "$ISOHISTORY"
+    fi
+    if $UPDATEHIST; then
+      # Only save existing ISOs in the history file
+      echo "$ISOS" > $ISOHISTORY
+    fi
+    
+    # Now check the md5sums of the ISOs
+    for ISO in $ISOS; do
+      ISONAME=$(basename $ISO)
+      if [ -f "$ISO" ] && [ -f "$MOUNT/$ISONAME" ]; then
+	echo "Check md5sum of $ISONAME..." | tee -a $LOG
+	MD5ORG=$(md5sum $ISO | awk '{print $1}')
+	MD5TARGET=$(md5sum "$MOUNT/$ISONAME" | awk '{print $1}')
+	if [ "$MD5ORG" != "$MD5TARGET" ]; then
+	  MISMATCH=$MISMATCH"Md5sum of $ISO does NOT match original. Original: $MD5ORG, Target: $MD5TARGET\n"
+	else
+	  echo "Md5sum of target $ISONAME matches original: $MD5ORG" | tee -a $LOG
+	fi
+      fi
+    done
+    if [ "$MISMATCH" != "" ]; then
+      echo -e $MISMATCH | tee -a $LOG
+      exit 7
+    fi
+  fi
+ 
+  # Safely remove the device
+  if $UNMOUNT; then
+    # Is it in use?
+    FUSER=$(fuser -m $MOUNT)
+    if [ "$FUSER" != "" ]; then
+      echo "Cannot safely unmount $DEVICE. Unmount the device manually." | tee -a $LOG
+      exit 5
+    else
+      udisks --unmount $DEVICE'1' | tee -a $LOG
+      udisks --detach $DEVICE | tee -a $LOG
+      echo "You can now safely remove $DEVICE"
+    fi
+  fi
+fi
+
+exit 0

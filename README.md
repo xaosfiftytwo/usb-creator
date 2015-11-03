@@ -1,2 +1,4 @@
-# usb-creator
-Create multi-boot USB
+USB Creator
+===================
+
+Create a bootable USB pen drive with multiple ISO images.

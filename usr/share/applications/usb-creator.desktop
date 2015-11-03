@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=USB Creator
+Name[nl]=USB Creator
+Comment=Create a multi-boot USB
+Comment[nl]=Maak een multi-boot USB
+Exec=usb-creator
+Icon=usb-creator
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;System;Settings;
+StartupNotify=false

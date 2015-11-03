@@ -1,0 +1,11 @@
+[Desktop Entry]
+X-KDE-Solid-Predicate=[ StorageVolume.ignored == false AND StorageVolume.usage == 'FileSystem' ]
+Type=Service
+Actions=open;
+
+[Desktop Action open]
+# %f gives StorageAccess.filePath, %d gives Block.device, %i gives UDI
+Exec=usb-creator %d
+Icon=usb-creator
+Name=Create a multi-boot USB with the USB Creator
+Name[nl]=Maak een multi-boot USB met de USB Creator

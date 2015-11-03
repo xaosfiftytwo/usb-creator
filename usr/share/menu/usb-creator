@@ -1,0 +1,5 @@
+?package(usb-creator):needs="X11"\
+   section="Applications/System"\
+   title="USB Creator"\
+   icon="usb-creator"\
+   command="usb-creator"
