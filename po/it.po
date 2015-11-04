@@ -6,12 +6,12 @@
 # Davide Favaro <belzebu87@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: solydxk-usb-creator\n"
+"Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 19:54+0100\n"
-"PO-Revision-Date: 2015-10-22 05:34+0000\n"
-"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
-"Language-Team: Italian (http://www.transifex.com/solydxk/solydxk-usb-creator/"
+"POT-Creation-Date: 2015-11-04 09:05+0100\n"
+"PO-Revision-Date: 2015-11-04 00:07+0000\n"
+"Last-Translator: Davide Favaro <belzebu87@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/solydxk/usb-creator/"
 "language/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,6 @@ msgid "Unexpected error"
 msgstr "Errore inatteso"
 
 #: ../usr/lib/usb-creator/main.py:38
-#, fuzzy
 msgid ""
 "USB Creator has failed with the following unexpected error. Please submit a "
 "bug report!"
@@ -34,47 +33,40 @@ msgstr ""
 
 #: ../usr/lib/usb-creator/usbcreator.py:64
 #: ../usr/share/applications/usb-creator.desktop.in.h:1
-#, fuzzy
 msgid "USB Creator"
 msgstr "SolydXK USB Creator"
 
 #: ../usr/lib/usb-creator/usbcreator.py:65
-#, fuzzy
 msgid "Device"
-msgstr "Init Device"
+msgstr "Dispositivi"
 
 #: ../usr/lib/usb-creator/usbcreator.py:66
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #: ../usr/lib/usb-creator/usbcreator.py:67
-#, fuzzy
 msgid "Available"
 msgstr "Disponibile:"
 
 #: ../usr/lib/usb-creator/usbcreator.py:68
-#, fuzzy
 msgid "Required"
 msgstr "Spazio richiesto:"
 
 #: ../usr/lib/usb-creator/usbcreator.py:69
-#, fuzzy
 msgid "Format device"
-msgstr "Smonta USB"
+msgstr "Formatta dispositivo"
 
 #: ../usr/lib/usb-creator/usbcreator.py:70
-#, fuzzy
 msgid "Warning: all data will be lost"
-msgstr "Pulisci USB (tutti i dati verranno cancellati)"
+msgstr "Attenzione: tutti i dati verranno cancellati"
 
 #: ../usr/lib/usb-creator/usbcreator.py:71
-#, fuzzy
 msgid "Repair device"
-msgstr "Pulizia della periferica"
+msgstr "Ripara dispositivo"
 
 #: ../usr/lib/usb-creator/usbcreator.py:72
 msgid "Tries to repair an unbootable USB"
-msgstr ""
+msgstr "Tenta di riparare un dispositivo USB non avviabile"
 
 #: ../usr/lib/usb-creator/usbcreator.py:73
 msgid "Execute"
@@ -82,523 +74,155 @@ msgstr "Esegui"
 
 #: ../usr/lib/usb-creator/usbcreator.py:74
 msgid "ISO"
-msgstr ""
+msgstr "ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:75
 msgid "Delete"
-msgstr ""
+msgstr "Cancella"
 
 #: ../usr/lib/usb-creator/usbcreator.py:76
 msgid "Refresh device list"
-msgstr ""
+msgstr "Aggiorna lista dispositivi"
 
 #: ../usr/lib/usb-creator/usbcreator.py:77
-#, fuzzy
 msgid "Unmount device"
-msgstr "Smonta USB"
+msgstr "Smonta dispositivo"
 
 #: ../usr/lib/usb-creator/usbcreator.py:78
 msgid "Browse for ISO file"
-msgstr ""
+msgstr "Sfoglia per inserire un file ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:79
 msgid "Clear the ISO field"
-msgstr ""
+msgstr "Azzera campo ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:83
 msgid "Partitioning USB..."
-msgstr ""
+msgstr "Partizionamento USB..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:84
 msgid "Searching for bad block"
-msgstr ""
+msgstr "Ricerca di blocchi danneggiati"
 
 #: ../usr/lib/usb-creator/usbcreator.py:85
 msgid "Installing Grub..."
-msgstr ""
+msgstr "Installazione di Grub..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:86
 msgid "Start copying ISO..."
-msgstr ""
+msgstr "Avvio copia ISO..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:87
 msgid "kB left to copy:"
-msgstr ""
+msgstr "kB da copiare rimanenti:"
 
 #: ../usr/lib/usb-creator/usbcreator.py:88
 msgid "Check md5sum of ISO..."
-msgstr ""
+msgstr "Controllo md5sum dell'immagine ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:125
-#, fuzzy
 msgid "Version"
-msgstr "Versione: {}"
+msgstr "Verisone"
 
 #: ../usr/lib/usb-creator/usbcreator.py:144
 msgid ""
 "Cannot add ISO from path: {}.\n"
 "Please, remove the ISO path or browse for an existing ISO."
 msgstr ""
+"Impossibile aggiungere il file ISO dal percorso: {}.\n"
+"Si prega di rimuovere il percorso inserito o di sfogliare per trovare un ISO "
+"esistente."
 
 #: ../usr/lib/usb-creator/usbcreator.py:151
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
 msgstr ""
+"Spazio disponibile sul dispositivo USB non sufficiente.\n"
+"Si prega di liberare spazio cancellando file non necessari prima di "
+"continuare."
 
 #: ../usr/lib/usb-creator/usbcreator.py:174
 msgid "Are you sure you want to remove the selected ISO from the device?"
 msgstr ""
+"Procedere con la rimozione dell'immagine ISO selezionata dal dispositivo?"
 
 #: ../usr/lib/usb-creator/usbcreator.py:195
 msgid "Select ISO"
-msgstr ""
+msgstr "Selezionare ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:248
-#, fuzzy
 msgid "Unmount"
-msgstr "Smonta USB"
+msgstr "Smonta"
 
 #: ../usr/lib/usb-creator/usbcreator.py:253
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
 msgstr ""
+"Impossibile smontare il dispositivo.\n"
+"Si prega di smontare il dispositivo manualmente."
 
 #: ../usr/lib/usb-creator/usbcreator.py:256
 msgid "You can now safely remove the device."
-msgstr ""
+msgstr "È ora possibile rimuovere il dispositivo."
 
 #: ../usr/lib/usb-creator/usbcreator.py:499
 msgid "Run this application with root permission."
-msgstr ""
+msgstr "Avvia questa applicazione con i permessi di amministratore"
 
 #: ../usr/lib/usb-creator/usbcreator.py:501
 msgid "Wrong arguments were passed to usb-creator."
-msgstr ""
+msgstr "Sono stati passati argomenti errati a usb-creator."
 
 #: ../usr/lib/usb-creator/usbcreator.py:503
-#, fuzzy
 msgid "The device was not found or no device was given."
-msgstr "Il file selezionato non è stato trovato sulla periferica USB."
+msgstr "Periferica non trovata o nessuna periferica selezionata."
 
 #: ../usr/lib/usb-creator/usbcreator.py:505
 msgid "Given ISO path was not found."
-msgstr ""
+msgstr "Il percorso fornito per l'immagine ISO non è stato trovato."
 
 #: ../usr/lib/usb-creator/usbcreator.py:507
 msgid "Device is in use by another application."
-msgstr ""
+msgstr "La periferica è in uso da un'altra applicazione."
 
 #: ../usr/lib/usb-creator/usbcreator.py:509
 msgid "Unable to mount the device."
-msgstr ""
+msgstr "Impossibile montare il dispositivo."
 
 #: ../usr/lib/usb-creator/usbcreator.py:511
 msgid "Md5sum mismatch."
-msgstr ""
+msgstr "Md5sum non corrispondente."
 
 #: ../usr/lib/usb-creator/usbcreator.py:513
-#, fuzzy
 msgid "The device has no fat32 partition."
 msgstr "Nessuna partizione fat32"
 
 #: ../usr/lib/usb-creator/usbcreator.py:515
 msgid "The device has no bootloader installed."
-msgstr ""
+msgstr "Nessun bootloader installato sul dispositivo."
 
 #: ../usr/lib/usb-creator/usbcreator.py:517
 msgid "There is not enough space available on the device."
-msgstr ""
+msgstr "Spazio disponibile non sufficiente sulla periferica."
 
 #: ../usr/lib/usb-creator/usbcreator.py:519
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
 msgstr ""
+"Errore inatteso.\n"
+"Si prega di visitare il forum di supporto: http://forums.solydxk.com"
 
 #: ../usr/lib/usb-creator/usbcreator.py:523
 msgid "The USB was successfully written."
-msgstr ""
+msgstr "Scrittura USB completata con successo."
 
 #: ../usr/share/kde4/apps/solid/actions/usb-constructor-openusb.desktop.in.h:1
-#, fuzzy
 msgid "Create a multi-boot USB with the USB Creator"
-msgstr "SolydXK USB Creator permette di creare USB avviabili"
+msgstr "Crea USB multi-boot con USB Creator"
 
 #: ../usr/share/applications/usb-creator.desktop.in.h:2
 msgid "Create a multi-boot USB"
 msgstr "Creare un USB multi-boot"
-
-#, fuzzy
-#~ msgid "Clear device"
-#~ msgstr "Pulizia della periferica"
-
-#~ msgid "SpinID"
-#~ msgstr "SpinID"
-
-#~ msgid "Spin Name"
-#~ msgstr "Nome Spin"
-
-#~ msgid "Spin Version"
-#~ msgstr "Versione Spin"
-
-#~ msgid "Download URL"
-#~ msgstr "Download URL"
-
-#~ msgid "File Size"
-#~ msgstr "Dimensione file"
-
-#~ msgid "MD5Sum"
-#~ msgstr "MD5Sum"
-
-#~ msgid "Error Returned: {}"
-#~ msgstr "Errore: {}"
-
-#~ msgid "Downloading File"
-#~ msgstr "Scaricamento file"
-
-#~ msgid "Please choose a file"
-#~ msgstr "Scegliere un file "
-
-#~ msgid "_Cancel"
-#~ msgstr "_Cancel"
-
-#~ msgid "_OK"
-#~ msgstr "_OK"
-
-#~ msgid "ISO Files"
-#~ msgstr "File ISO"
-
-#~ msgid "SolydXK Multi-Boot USB Creator"
-#~ msgstr "SolydXK Multi-Boot USB Creator"
-
-#~ msgid "Auto-Mount"
-#~ msgstr "Auto-Mount"
-
-#~ msgid "ISOs Available for Download"
-#~ msgstr "ISO disponibili per il download"
-
-#~ msgid "GiB"
-#~ msgstr "GiB"
-
-#~ msgid "Local ISO"
-#~ msgstr "ISO locale"
-
-#~ msgid "Install boot loader only"
-#~ msgstr "Installa solo il boot loader"
-
-#~ msgid "Delete from USB"
-#~ msgstr "Cancella da USB"
-
-#~ msgid "Download ISO"
-#~ msgstr "Scarica ISO"
-
-#~ msgid "Refresh"
-#~ msgstr "Aggiorna"
-
-#~ msgid "File"
-#~ msgstr "File"
-
-#~ msgid "Information"
-#~ msgstr "Informazioni"
-
-#~ msgid "Help"
-#~ msgstr "Aiuto"
-
-#~ msgid "Close"
-#~ msgstr "Chiudi"
-
-#~ msgid "Multi-Boot Server ISO List"
-#~ msgstr "Multi-Boot Server ISO List"
-
-#~ msgid "Not Root"
-#~ msgstr "Non Root"
-
-#~ msgid "This application is designed to be run by root, only"
-#~ msgstr ""
-#~ "Questo programma è sviluppato per eseguito esclusivamente dall'utente root"
-
-#~ msgid "No USB Device"
-#~ msgstr "Nessun dispositivo USB"
-
-#~ msgid "Please select a USB device to which to copy the .iso file."
-#~ msgstr ""
-#~ "Si prega di selezionare una periferica USB per la copia del file .iso"
-
-#~ msgid "Problem with Radio Buttons"
-#~ msgstr "Problema con i pulsandi Radio"
-
-#~ msgid "Unknown Radio Button selected"
-#~ msgstr "Unknown Radio Button selected"
-
-#~ msgid "Auto-mount is Turned Off"
-#~ msgstr "Il montaggio automatico è disattivato"
-
-#~ msgid ""
-#~ "Selected device is not mounted\n"
-#~ "and auto-mount is turned off.\n"
-#~ "\n"
-#~ "Mount this device?"
-#~ msgstr ""
-#~ "La periferica selezionata non è montata\n"
-#~ "il montaggio automatico è disattivato.\n"
-#~ "\n"
-#~ "Montare questa periferica?"
-
-#~ msgid "Device in use"
-#~ msgstr "Periferica in uso"
-
-#~ msgid "Please Confirm"
-#~ msgstr "Si prega di confermare"
-
-#~ msgid ""
-#~ "Please confirm you wish to re-initialize\n"
-#~ "the device\n"
-#~ "\n"
-#~ "{}"
-#~ msgstr ""
-#~ "Si prega di confermare per ri-inizializzare\n"
-#~ "la periferica\n"
-#~ "\n"
-#~ "{}"
-
-#~ msgid "Operation Cancelled"
-#~ msgstr "Operazione annullata"
-
-#~ msgid ""
-#~ "Operation to re-initialize the\n"
-#~ "USB device has been cancelled."
-#~ msgstr ""
-#~ "L'operazione per ri-inizializzare la\n"
-#~ "periferca USB è stata annullata."
-
-#~ msgid "Error Encountered"
-#~ msgstr "Errore riscontrato"
-
-#~ msgid "Cleaning Is Complete"
-#~ msgstr "Pulizia completata"
-
-#~ msgid ""
-#~ "The USB Device has been re-initialized.\n"
-#~ "It is safe to use it for\n"
-#~ "ISO file copy/download operations."
-#~ msgstr ""
-#~ "La periferica USB è stata ri-inizializzata.\n"
-#~ "Ora è sicuro utilizzarla\n"
-#~ "per operazioni di copia/download di file ISO."
-
-#~ msgid ""
-#~ "MultiBootISOCreator:CleanTheUSBDeviceCheck\n"
-#~ " - Error encountered during cleaning operation."
-#~ msgstr ""
-#~ "MultiBootISOCreator:CleanTheUSBDeviceCheck\n"
-#~ " - Errore riscontrato durante l'operazione di pulizia."
-
-#~ msgid "{} of {} GiB"
-#~ msgstr "{} di {} GiB"
-
-#~ msgid "Copy is Complete"
-#~ msgstr "Copia completata"
-
-#~ msgid ""
-#~ "The USB Device has been updated.\n"
-#~ "If you wish, it is safe to unmount and remove it."
-#~ msgstr ""
-#~ "La periferica USB è stata aggiornata.\n"
-#~ "È ora possibile smontarla e rimuoverla in sicurezza."
-
-#~ msgid "MultiBootISOCreator:CopyCheck - Error encountered during copy."
-#~ msgstr ""
-#~ "MultiBootISOCreator:CopyCheck - Errore riscontrato durante la copia."
-
-#~ msgid "Copy Is Complete"
-#~ msgstr "Copia completata"
-
-#~ msgid "Downloading is Complete"
-#~ msgstr "Download completato"
-
-#~ msgid "Error encountered during download"
-#~ msgstr "Errore riscontrato durante il download"
-
-#~ msgid "Download is Complete"
-#~ msgstr "Download completato"
-
-#~ msgid "Please Confirm ISO Copy"
-#~ msgstr "Si prega di confermare la copia ISO"
-
-#~ msgid ""
-#~ "Please confirm you wish to copy the file\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "to the selected USB device."
-#~ msgstr ""
-#~ "Si prega di confermare per procedere con la copia del file\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "sulla periferica USB selezionata."
-
-#~ msgid "Not a Known SolydXK ISO"
-#~ msgstr "Non è un file ISO di SolydXK conosciuto"
-
-#~ msgid ""
-#~ "The filename supplied does not match that\n"
-#~ "of a known SolydXK ISO file.\n"
-#~ "\n"
-#~ "Please check your information and try again."
-#~ msgstr ""
-#~ "Il nome fornito non corrisponde con\n"
-#~ "una versione conosciuta dei file ISO di SolydXK.\n"
-#~ "\n"
-#~ "Si prega di controllare ancora e riprovare."
-
-#~ msgid "No File Selected"
-#~ msgstr "Nessun file selezionato"
-
-#~ msgid "Please select a file to be copied to the selected USB device."
-#~ msgstr ""
-#~ "Si prega di selezionare un file per la copia sulla periferica USB "
-#~ "selezionata."
-
-#~ msgid "Please Confirm ISO Download"
-#~ msgstr "Si prega di confermare il file ISO da scaricare"
-
-#~ msgid ""
-#~ "Please confirm you wish to download the file\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "to the selected USB device."
-#~ msgstr ""
-#~ "Si prega di confermare per procedere con il download del file\n"
-#~ "\n"
-#~ "\"{0}\"\n"
-#~ "\n"
-#~ "sulla periferica USB selezionata."
-
-#~ msgid ""
-#~ "The selected file already exists on the USB device.\n"
-#~ "\n"
-#~ "Over-write this file?"
-#~ msgstr ""
-#~ "Il file selezionato risulta esistente sulla periferica USB.\n"
-#~ "\n"
-#~ "Sovrascrivere?"
-
-#~ msgid "Please select a file to be deleted from the USB device."
-#~ msgstr "Si prega di selezionare un file da cancellare dalla periferica USB."
-
-#~ msgid "Please confirm file deletion"
-#~ msgstr "Si prega di confermare per cancellare il file"
-
-#~ msgid ""
-#~ "Please confirm you wish to delete the file\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-#~ "from the selected USB device."
-#~ msgstr ""
-#~ "Si prega di confermare per procedere con la cancellazione del file\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-#~ "dalla periferica USB selezionata."
-
-#~ msgid "Operation Complete"
-#~ msgstr "Operazione completata"
-
-#~ msgid "The selected file has been deleted."
-#~ msgstr "Il file selezionato è stato cancellato."
-
-#~ msgid "File not found."
-#~ msgstr "File non trovato."
-
-#~ msgid "Insufficient Space Available"
-#~ msgstr "Spazio disponibile non sufficiente"
-
-#~ msgid ""
-#~ "The selected USB device has insufficient\n"
-#~ "space for the indicated operation."
-#~ msgstr ""
-#~ "La periferica USB selezionata non dispone\n"
-#~ "di spazio sufficiente per l'operazione richiesta."
-
-#~ msgid ""
-#~ "Please confirm you wish to install grub\n"
-#~ "on the device\n"
-#~ "\n"
-#~ "{}"
-#~ msgstr ""
-#~ "Si prega di confermare per procedere con l'installazione di grub\n"
-#~ "sulla periferica\n"
-#~ "\n"
-#~ "{}"
-
-#~ msgid "Boot Loader Install Complete"
-#~ msgstr "Installazione del boot loader completata"
-
-#~ msgid ""
-#~ "The USB Device has been re-initialized.\n"
-#~ "If you wish, it is safe to unmount and remove it."
-#~ msgstr ""
-#~ "La periferica USB è stata ri-inizializzata.\n"
-#~ "È ora possibile smontarla e rimuoverla in sicurezza."
-
-#~ msgid "No ISO files on USB"
-#~ msgstr "Nessun file ISO sulla periferica USB"
-
-#~ msgid ""
-#~ "No grub.cfg file was written because there\n"
-#~ "are no ISO files on this device"
-#~ msgstr ""
-#~ "Il file grub.cfg non è stato scritto perchè\n"
-#~ "non è stato trovato alcun file ISO sulla periferica"
-
-#~ msgid "Grub not installed"
-#~ msgstr "Grub non installato"
-
-#~ msgid ""
-#~ "It appears grub is not installed on the selected device\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Sembra che grub non sia installato sulla periferica selezionata\n"
-#~ "\n"
-#~ "{}\n"
-
-#~ msgid ""
-#~ "Grub will be installed on the device when you continue.\n"
-#~ "\n"
-#~ "Do you wish to continue with the pending operation?"
-#~ msgstr ""
-#~ "Grub sarà installato sulla periferica nel prossimo passaggio.\n"
-#~ "\n"
-#~ "Si vuole proseguire con le operazioni in coda?"
-
-#~ msgid ""
-#~ "It appears that the device does not have a fat32 partition:\n"
-#~ "\n"
-#~ "{}\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Sembra che la periferica non contenga partizione fat32:\n"
-#~ "\n"
-#~ "{}\n"
-
-#~ msgid ""
-#~ "All data will be erased if you continue.\n"
-#~ "\n"
-#~ "Do you wish to continue with the pending operation?"
-#~ msgstr ""
-#~ "Tutti i dati saranno cancellati se si prosegue.\n"
-#~ "\n"
-#~ "Si vuole proseguire con le operazioni in coda?"
-
-#~ msgid "The help file was not found where expected"
-#~ msgstr "Il file di aiuto non è stato trovato dove richiesto"
-
-#~ msgid "Multi-Boot Help"
-#~ msgstr "Aiuto per il Multi-boot"
