@@ -1,7 +1,9 @@
 [Desktop Entry]
 Name=USB Creator
+Name[ca]=USB Creator 
 Name[nl]=USB Creator
 Comment=Create a multi-boot USB
+Comment[ca]=Crea un USB de multi-arrencada. 
 Comment[de]=Erstelle einen Multi-Boot
 Comment[it]=Creare un USB multi-boot
 Comment[nl]=Maak een multi-boot USB

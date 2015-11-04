@@ -383,6 +383,11 @@ class USBCreator(object):
             self.btnBrowseIso.set_sensitive(False)
             self.btnRefresh.set_sensitive(False)
             self.btnUnmount.set_sensitive(False)
+            self.btnClear.set_sensitive(False)
+            self.chkFormatDevice.set_sensitive(False)
+            self.chkRepairDevice.set_sensitive(False)
+            self.cmbDevice.set_sensitive(False)
+            self.txtIso.set_sensitive(False)
         else:
             # Enable buttons and reset progress bar
             self.btnExecute.set_sensitive(True)
@@ -390,6 +395,11 @@ class USBCreator(object):
             self.btnBrowseIso.set_sensitive(True)
             self.btnRefresh.set_sensitive(True)
             self.btnUnmount.set_sensitive(True)
+            self.btnClear.set_sensitive(True)
+            self.chkFormatDevice.set_sensitive(True)
+            self.chkRepairDevice.set_sensitive(True)
+            self.cmbDevice.set_sensitive(True)
+            self.txtIso.set_sensitive(True)
             self.pbUsbCreator.set_fraction(0)
 
     def get_logos(self):

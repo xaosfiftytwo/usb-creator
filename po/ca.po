@@ -3,18 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Arjen Balfoort <schoelje@solydxk.com>, 2015
-# root <arjenbalfoort@solydxk.com>, 2015
+# Eduard Selma <selma@tinet.cat>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-03 19:54+0100\n"
-"PO-Revision-Date: 2015-11-03 15:28+0000\n"
-"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/solydxk/usb-creator/language/"
-"nl/)\n"
-"Language: nl\n"
+"PO-Revision-Date: 2015-11-03 18:42+0000\n"
+"Last-Translator: Eduard Selma <selma@tinet.cat>\n"
+"Language-Team: Catalan (http://www.transifex.com/solydxk/usb-creator/"
+"language/ca/)\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,207 +21,205 @@ msgstr ""
 
 #: ../usr/lib/usb-creator/main.py:37
 msgid "Unexpected error"
-msgstr "Onverwachte fout"
+msgstr "Error inesperat"
 
 #: ../usr/lib/usb-creator/main.py:38
 msgid ""
 "USB Creator has failed with the following unexpected error. Please submit a "
 "bug report!"
 msgstr ""
-"USB Creator is mislukt met de volgende onverwachte fout.\n"
-"A.u.b., dien een bug verslag in."
+"USB Creator ha fallat amb aquest error inesperat. Si us plau, envieu un "
+"informe d'error! "
 
 #: ../usr/lib/usb-creator/usbcreator.py:64
 #: ../usr/share/applications/usb-creator.desktop.in.h:1
 msgid "USB Creator"
-msgstr "USB Creator"
+msgstr "USB Creator "
 
 #: ../usr/lib/usb-creator/usbcreator.py:65
 msgid "Device"
-msgstr "Apparaat"
+msgstr "Dispositiu "
 
 #: ../usr/lib/usb-creator/usbcreator.py:66
 msgid "USB"
-msgstr "USB"
+msgstr "USB  "
 
 #: ../usr/lib/usb-creator/usbcreator.py:67
 msgid "Available"
-msgstr "Beschikbaar:"
+msgstr "Disponible "
 
 #: ../usr/lib/usb-creator/usbcreator.py:68
 msgid "Required"
-msgstr "Nodig:"
+msgstr "Necessari "
 
 #: ../usr/lib/usb-creator/usbcreator.py:69
 msgid "Format device"
-msgstr "Formatteer het apparaat"
+msgstr "Formata el dispositiu "
 
 #: ../usr/lib/usb-creator/usbcreator.py:70
 msgid "Warning: all data will be lost"
-msgstr "Waarschuwing: all data zal verloren gaan"
+msgstr "Atenció: perdreu totes les dades "
 
 #: ../usr/lib/usb-creator/usbcreator.py:71
 msgid "Repair device"
-msgstr "Apparaat repareren"
+msgstr "Repara el dispositiu "
 
 #: ../usr/lib/usb-creator/usbcreator.py:72
 msgid "Tries to repair an unbootable USB"
-msgstr "Probeert een unbootable USB te repareren"
+msgstr "Prova de reparar un USB no arrencable "
 
 #: ../usr/lib/usb-creator/usbcreator.py:73
 msgid "Execute"
-msgstr "Uitvoeren"
+msgstr "Executa "
 
 #: ../usr/lib/usb-creator/usbcreator.py:74
 msgid "ISO"
-msgstr "ISO"
+msgstr "ISO "
 
 #: ../usr/lib/usb-creator/usbcreator.py:75
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Esborra "
 
 #: ../usr/lib/usb-creator/usbcreator.py:76
 msgid "Refresh device list"
-msgstr "Ververs apparaatlijst"
+msgstr "Refresca la llista de dispositius "
 
 #: ../usr/lib/usb-creator/usbcreator.py:77
 msgid "Unmount device"
-msgstr "Ontkoppel apparaat"
+msgstr "Desmunta el dispositiu "
 
 #: ../usr/lib/usb-creator/usbcreator.py:78
 msgid "Browse for ISO file"
-msgstr "ISO bestand zoeken"
+msgstr "Cerca fitxers ISO "
 
 #: ../usr/lib/usb-creator/usbcreator.py:79
 msgid "Clear the ISO field"
-msgstr "Maak het ISO veld schoon"
+msgstr "Esborra el camp ISO "
 
 #: ../usr/lib/usb-creator/usbcreator.py:83
 msgid "Partitioning USB..."
-msgstr "USB partitioneren..."
+msgstr "Fent particions al USB... "
 
 #: ../usr/lib/usb-creator/usbcreator.py:84
 msgid "Searching for bad block"
-msgstr "Zoeken naar slecht blok"
+msgstr "Cercant blocs defectuosos "
 
 #: ../usr/lib/usb-creator/usbcreator.py:85
 msgid "Installing Grub..."
-msgstr "Grub installeren..."
+msgstr "Instal·lant GRUB... "
 
 #: ../usr/lib/usb-creator/usbcreator.py:86
 msgid "Start copying ISO..."
-msgstr "Start kopiëren van ISO..."
+msgstr "Comença la còpia de la ISO..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:87
 msgid "kB left to copy:"
-msgstr "kB nog te kopiëren:"
+msgstr "kB restants per copiar: "
 
 #: ../usr/lib/usb-creator/usbcreator.py:88
 msgid "Check md5sum of ISO..."
-msgstr "Controleer md5sum van ISO..."
+msgstr "Cercant la md5sum de la ISO... "
 
 #: ../usr/lib/usb-creator/usbcreator.py:125
 msgid "Version"
-msgstr "Versie"
+msgstr "Versió "
 
 #: ../usr/lib/usb-creator/usbcreator.py:144
 msgid ""
 "Cannot add ISO from path: {}.\n"
 "Please, remove the ISO path or browse for an existing ISO."
 msgstr ""
-"Kan de ISO niet toevoegen van pad: {}.\n"
-"Verwijder het ISO pad of zoek naar een bestaand ISO bestand."
+"No es pot afegir la ISO des del camí: {}.\n"
+"Si us plau, elimineu el camí de la ISO o cerqueu una ISO existent. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:151
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
 msgstr ""
-"Er is onvoldoende ruimte over op de USB stick.\n"
-"Verwijder onnodige bestanden voordat u verder gaat."
+"No hi ha prou espai disponible al llapis de memòria.\n"
+"Si us plau, elimineu fitxers innecessaris abans de continuar."
 
 #: ../usr/lib/usb-creator/usbcreator.py:174
 msgid "Are you sure you want to remove the selected ISO from the device?"
-msgstr ""
-"Weet u zeker dat u het geselecteerde ISO bestand van het apparaat wilt "
-"verwijderen?"
+msgstr "Esteu segurs de voler eliminar la ISO seleccionada del dispositiu? "
 
 #: ../usr/lib/usb-creator/usbcreator.py:195
 msgid "Select ISO"
-msgstr "Selecteer ISO"
+msgstr "Seleccioneu la ISO "
 
 #: ../usr/lib/usb-creator/usbcreator.py:248
 msgid "Unmount"
-msgstr "Ontkoppel"
+msgstr "Desmunta "
 
 #: ../usr/lib/usb-creator/usbcreator.py:253
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
 msgstr ""
-"Kon het apparaat niet ontkoppelen.\n"
-"Ontkoppel het apparaat handmatig."
+"No es pot desmuntar el dispositiu.\n"
+"Si us plau, desmunteu-lo manualment. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:256
 msgid "You can now safely remove the device."
-msgstr "U kunt het apparaat nu veilig verwijderen."
+msgstr "Ara podeu retirar el dispositiu amb seguretat. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:499
 msgid "Run this application with root permission."
-msgstr "Start de applicatie met root permissie."
+msgstr "Executeu aquesta aplicació amb permisos d'administrador. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:501
 msgid "Wrong arguments were passed to usb-creator."
-msgstr "Er zijn verkeerde argumenten voor usb-creator gebruikt."
+msgstr "S'han passat arguments erronis al USB-Creator. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:503
 msgid "The device was not found or no device was given."
-msgstr "Het apparaat was niet gevonden of er was geen apparaat opgegeven."
+msgstr "No es troba els dispositiu o no s'ha especificat. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:505
 msgid "Given ISO path was not found."
-msgstr "Gegeven ISO pad was niet gevonden."
+msgstr "No es troba el camí especificat cap a la ISO. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:507
 msgid "Device is in use by another application."
-msgstr "Het apparaat wordt door een andere applicatie gebruikt"
+msgstr "El dispositiu està en ús per una altra aplicació. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:509
 msgid "Unable to mount the device."
-msgstr "Kan het apparaat niet koppelen."
+msgstr "No es pot muntar el dispositiu. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:511
 msgid "Md5sum mismatch."
-msgstr "Md5sum komt niet overeen."
+msgstr "La md5sum no concorda. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:513
 msgid "The device has no fat32 partition."
-msgstr "Het apparaat heeft geen fat32 partitie."
+msgstr "El dispositiu no té una partició FAT32. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:515
 msgid "The device has no bootloader installed."
-msgstr "Het apparaat heeft geen bootloader geïnstalleerd."
+msgstr "El dispositiu no té un arrencador instal·lat. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:517
 msgid "There is not enough space available on the device."
-msgstr "Er is op het apparaat onvoldoende ruimte beschikbaar."
+msgstr "No hi ha prou espai disponible al dispositiu. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:519
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
 msgstr ""
-"Een onbekende fout is opgetreden.\n"
-"Bezoek ons forum: http://forums.solydxk.com"
+"S'ha produït un error desconegut.\n"
+"Si us plau, visiteu el nostre fòrum de suport: http://forums.solydxk.com "
 
 #: ../usr/lib/usb-creator/usbcreator.py:523
 msgid "The USB was successfully written."
-msgstr "De USB is succesvol geschreven."
+msgstr "S'ha enregistrat a l'USB amb èxit. "
 
 #: ../usr/share/kde4/apps/solid/actions/usb-constructor-openusb.desktop.in.h:1
 msgid "Create a multi-boot USB with the USB Creator"
-msgstr "Maak een multi-boot USB met de USB Creator"
+msgstr "Crea un USB de multi-arrencada amb el USB Creator."
 
 #: ../usr/share/applications/usb-creator.desktop.in.h:2
 msgid "Create a multi-boot USB"
-msgstr "Maak een multi-boot USB"
+msgstr "Crea un USB de multi-arrencada. "
