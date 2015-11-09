@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 19:54+0100\n"
+"POT-Creation-Date: 2015-11-09 10:45+0100\n"
 "PO-Revision-Date: 2015-11-03 18:42+0000\n"
 "Last-Translator: Eduard Selma <selma@tinet.cat>\n"
 "Language-Team: Catalan (http://www.transifex.com/solydxk/usb-creator/"
@@ -132,7 +132,7 @@ msgstr ""
 "No es pot afegir la ISO des del camí: {}.\n"
 "Si us plau, elimineu el camí de la ISO o cerqueu una ISO existent. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:151
+#: ../usr/lib/usb-creator/usbcreator.py:154
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
@@ -140,19 +140,19 @@ msgstr ""
 "No hi ha prou espai disponible al llapis de memòria.\n"
 "Si us plau, elimineu fitxers innecessaris abans de continuar."
 
-#: ../usr/lib/usb-creator/usbcreator.py:174
+#: ../usr/lib/usb-creator/usbcreator.py:177
 msgid "Are you sure you want to remove the selected ISO from the device?"
 msgstr "Esteu segurs de voler eliminar la ISO seleccionada del dispositiu? "
 
-#: ../usr/lib/usb-creator/usbcreator.py:195
+#: ../usr/lib/usb-creator/usbcreator.py:198
 msgid "Select ISO"
 msgstr "Seleccioneu la ISO "
 
-#: ../usr/lib/usb-creator/usbcreator.py:248
+#: ../usr/lib/usb-creator/usbcreator.py:251
 msgid "Unmount"
 msgstr "Desmunta "
 
-#: ../usr/lib/usb-creator/usbcreator.py:253
+#: ../usr/lib/usb-creator/usbcreator.py:256
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
@@ -160,51 +160,51 @@ msgstr ""
 "No es pot desmuntar el dispositiu.\n"
 "Si us plau, desmunteu-lo manualment. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:256
+#: ../usr/lib/usb-creator/usbcreator.py:259
 msgid "You can now safely remove the device."
 msgstr "Ara podeu retirar el dispositiu amb seguretat. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:499
+#: ../usr/lib/usb-creator/usbcreator.py:501
 msgid "Run this application with root permission."
 msgstr "Executeu aquesta aplicació amb permisos d'administrador. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:501
+#: ../usr/lib/usb-creator/usbcreator.py:503
 msgid "Wrong arguments were passed to usb-creator."
 msgstr "S'han passat arguments erronis al USB-Creator. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:503
+#: ../usr/lib/usb-creator/usbcreator.py:505
 msgid "The device was not found or no device was given."
 msgstr "No es troba els dispositiu o no s'ha especificat. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:505
+#: ../usr/lib/usb-creator/usbcreator.py:507
 msgid "Given ISO path was not found."
 msgstr "No es troba el camí especificat cap a la ISO. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:507
+#: ../usr/lib/usb-creator/usbcreator.py:509
 msgid "Device is in use by another application."
 msgstr "El dispositiu està en ús per una altra aplicació. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:509
+#: ../usr/lib/usb-creator/usbcreator.py:511
 msgid "Unable to mount the device."
 msgstr "No es pot muntar el dispositiu. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:511
+#: ../usr/lib/usb-creator/usbcreator.py:513
 msgid "Md5sum mismatch."
 msgstr "La md5sum no concorda. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:513
+#: ../usr/lib/usb-creator/usbcreator.py:515
 msgid "The device has no fat32 partition."
 msgstr "El dispositiu no té una partició FAT32. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:515
+#: ../usr/lib/usb-creator/usbcreator.py:517
 msgid "The device has no bootloader installed."
 msgstr "El dispositiu no té un arrencador instal·lat. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:517
+#: ../usr/lib/usb-creator/usbcreator.py:519
 msgid "There is not enough space available on the device."
 msgstr "No hi ha prou espai disponible al dispositiu. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:519
+#: ../usr/lib/usb-creator/usbcreator.py:521
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
@@ -212,7 +212,7 @@ msgstr ""
 "S'ha produït un error desconegut.\n"
 "Si us plau, visiteu el nostre fòrum de suport: http://forums.solydxk.com "
 
-#: ../usr/lib/usb-creator/usbcreator.py:523
+#: ../usr/lib/usb-creator/usbcreator.py:525
 msgid "The USB was successfully written."
 msgstr "S'ha enregistrat a l'USB amb èxit. "
 

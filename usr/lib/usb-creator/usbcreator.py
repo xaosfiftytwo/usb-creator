@@ -147,7 +147,10 @@ class USBCreator(object):
                 return True
 
             # Check if there is enough space
-            if self.device["available"] - self.device["new_iso_required"] < 0:
+            available = self.device["available"]
+            if self.chkFormatDevice.get_active():
+                available = self.device["size"]
+            if available - self.device["new_iso_required"] < 0:
                 msg = _("There is not enough space available on the pen drive.\n"
                         "Please, remove unneeded files before continuing.")
                 WarningDialog(self.btnExecute.get_label(), msg)
@@ -309,10 +312,9 @@ class USBCreator(object):
 
     def on_chkFormatDevice_toggled(self, widget):
         # Recalculate available space
+        available = self.device["available"]
         if widget.get_active():
             available = self.device["size"]
-        else:
-            available = self.device["available"]
         self.lblAvailable.set_label("{}: {} MB".format(self.available_text, int(available / 1024)))
 
     def fill_treeview_usbcreator(self, mount=''):

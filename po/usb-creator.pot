@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-04 09:05+0100\n"
+"POT-Creation-Date: 2015-11-09 10:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,81 +126,81 @@ msgid ""
 "Please, remove the ISO path or browse for an existing ISO."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:151
+#: ../usr/lib/usb-creator/usbcreator.py:154
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:174
+#: ../usr/lib/usb-creator/usbcreator.py:177
 msgid "Are you sure you want to remove the selected ISO from the device?"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:195
+#: ../usr/lib/usb-creator/usbcreator.py:198
 msgid "Select ISO"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:248
+#: ../usr/lib/usb-creator/usbcreator.py:251
 msgid "Unmount"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:253
+#: ../usr/lib/usb-creator/usbcreator.py:256
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:256
+#: ../usr/lib/usb-creator/usbcreator.py:259
 msgid "You can now safely remove the device."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:499
+#: ../usr/lib/usb-creator/usbcreator.py:501
 msgid "Run this application with root permission."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:501
+#: ../usr/lib/usb-creator/usbcreator.py:503
 msgid "Wrong arguments were passed to usb-creator."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:503
+#: ../usr/lib/usb-creator/usbcreator.py:505
 msgid "The device was not found or no device was given."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:505
+#: ../usr/lib/usb-creator/usbcreator.py:507
 msgid "Given ISO path was not found."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:507
+#: ../usr/lib/usb-creator/usbcreator.py:509
 msgid "Device is in use by another application."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:509
+#: ../usr/lib/usb-creator/usbcreator.py:511
 msgid "Unable to mount the device."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:511
+#: ../usr/lib/usb-creator/usbcreator.py:513
 msgid "Md5sum mismatch."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:513
+#: ../usr/lib/usb-creator/usbcreator.py:515
 msgid "The device has no fat32 partition."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:515
+#: ../usr/lib/usb-creator/usbcreator.py:517
 msgid "The device has no bootloader installed."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:517
+#: ../usr/lib/usb-creator/usbcreator.py:519
 msgid "There is not enough space available on the device."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:519
+#: ../usr/lib/usb-creator/usbcreator.py:521
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:523
+#: ../usr/lib/usb-creator/usbcreator.py:525
 msgid "The USB was successfully written."
 msgstr ""
 
