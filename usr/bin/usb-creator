@@ -39,7 +39,6 @@ DEBIAN_INITRD='initrd $isofile.initrd.gz'
 DEBIANMINI_LINUX='linux (loop)/linux'
 DEBIANMINI_INITRD='initrd (loop)/initrd.gz'
 # ----------------------------------------------------------------
-# NOT TESTED: too large for my USB!
 SUSE_LINUX='linux (loop)/boot/x86_64/loader/linux install=hd:$isofile quiet'
 SUSE_INITRD='initrd (loop)/boot/x86_64/loader/initrd'
 SUSELIVE_LINUX='linux (loop)/boot/x86_64/loader/linux isofrom_device=$imgdevpath isofrom_system=$isofile LANG=en_US.UTF-8 quiet'
@@ -49,6 +48,7 @@ FEDORA_LINUX='linux (loop)/isolinux/vmlinuz inst.stage2=hd:UUID=$rootuuid findis
 FEDORA_INITRD='initrd (loop)/isolinux/initrd.img'
 # NO WORKY: hangs on "Reached target Basic System"
 FEDORALIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid findiso=$isofile rootfstype=auto ro rd.live.image quiet rhgb rd.luks=0 rd.md=0 rd.dm=0'
+#FEDORALIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:CDLABEL=$usblabel findiso=$isofile rootfstype=auto ro rd.live.image quiet rhgb rd.luks=0 rd.md=0 rd.dm=0'
 FEDORALIVE_INITRD='initrd (loop)/isolinux/initrd0.img'
 # ----------------------------------------------------------------
 ARCHDUAL_LINUX='linux (loop)/arch/boot/x86_64/vmlinuz archisodevice=/dev/loop0 img_dev=$imgdevpath img_loop=$isofile quiet'
@@ -56,12 +56,12 @@ ARCHDUAL_INITRD='initrd (loop)/arch/boot/x86_64/archiso.img'
 ARCHBOOT_LINUX='linux (loop)/boot/vmlinuz_x86_64 iso_loop_dev=$imgdevpath iso_loop_path=$isofile quiet'
 ARCHBOOT_INITRD='initrd (loop)/boot/initramfs_x86_64.img'
 # ----------------------------------------------------------------
-# NOT TESTED: too large for my USB!
+# NO WORKY: ends in a black screen
 CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:UUID=$rootuuid findiso=$isofile quiet'
-#CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:LABEL='$LABEL':/$isofile'
+#CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:LABEL=$usblabel:/$isofile'
 CENTOS_INITRD='initrd (loop)/isolinux/initrd.img'
 CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid iso-scan/filename=$isofile rd.live.image quiet'
-#CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:CDLABEL='$LABEL' iso-scan/filename=$isofile rd.live.image'
+#CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:LABEL=$usblabel iso-scan/filename=$isofile rd.live.image'
 CENTOSLIVE_INITRD='initrd (loop)/isolinux/initrd0.img'
 # ----------------------------------------------------------------
 # Source (German): https://forums.mageia.org/de/viewtopic.php?f=8&t=1713
@@ -103,6 +103,13 @@ PMAGIC_INITRD='initrd (loop)/pmagic/initrd.img'
 # ================================================================
 # ================================================================
 
+# Create menu lines for 32 bit isos
+function create_32_bit_lines() {
+  if [[ "$1" =~ i*[3456]86 ]] || [[ "$ISO" =~ [-_\.[:space:]]32[-_\.[:space:]] ]]; then
+    LINUX_LINE=$(echo $LINUX_LINE | sed "s/x86_64/$2/")
+    INITRD_LINE=$(echo $INITRD_LINE | sed "s/x86_64/$2/")
+  fi
+}
 
 # Write a grub menu for each ISO
 function write_grub_menu() {
@@ -152,10 +159,12 @@ function write_grub_menu() {
       LINUX_LINE=$ARCHBOOT_LINUX
       INITRD_LINE=$ARCHBOOT_INITRD
     fi
+    create_32_bit_lines $LOWERISONAME 'i686'
   elif [[ "$LOWERISONAME" =~ "manjaro" ]]; then
     MISOLABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
     LINUX_LINE=$(echo $MANJARO_LINUX | sed "s/misolabel/misolabel=$MISOLABEL/")
     INITRD_LINE=$MANJARO_INITRD
+    create_32_bit_lines $LOWERISONAME 'i686'
   elif [[ "$LOWERISONAME" =~ "centos" ]]; then
     LINUX_LINE=$CENTOS_LINUX
     INITRD_LINE=$CENTOS_INITRD
@@ -170,6 +179,7 @@ function write_grub_menu() {
       LINUX_LINE=$SUSELIVE_LINUX
       INITRD_LINE=$SUSELIVE_INITRD
     fi
+    create_32_bit_lines $LOWERISONAME 'i386'
   elif [[ "$LOWERISONAME" =~ "gentoo" ]]; then
     LINUX_LINE=$GENTOO_LINUX
     INITRD_LINE=$GENTOO_INITRD
@@ -191,6 +201,7 @@ function write_grub_menu() {
       LINUX_LINE=$MAGEIALIVE_LINUX
       INITRD_LINE=$MAGEIALIVE_INITRD
     fi
+    create_32_bit_lines $LOWERISONAME 'i686'
   elif [[ "$LOWERISONAME" =~ "rescue" ]]; then
     LINUX_LINE=$SYSRESCUE_LINUX
     INITRD_LINE=$SYSRESCUE_INITRD
@@ -208,18 +219,14 @@ function write_grub_menu() {
   # ================================================================
   
   if [ -d "$GRUBDIR" ]; then
-    # Check if ISO is 32-bit
-    if [[ "$LOWERISONAME" =~ "686" ]]; then
-      LINUX_LINE=$(echo $LINUX_LINE | sed 's/x86_64/i686/')
-      INITRD_LINE=$(echo $INITRD_LINE | sed 's/x86_64/i686/')
-    fi
+    
     
     # Set menu title
-    MENUTITLE=$(echo "$ISONAME" | sed -e 's/x86_//g' -e 's/[-_]/ /g' -e 's/64/64-bit/g' -e 's/32/32-bit/g' -e 's/i*686/32-bit/g')
+    MENUTITLE=$(echo "$ISONAME" | sed -e 's/x*86_64/64/' -e 's/[-_]/ /g' -e 's/64/64-bit/' -e 's/i*[3456]86/32/' -e 's/32/32-bit/')
     # Uppercase first character
     MENUTITLE="${MENUTITLE^}"
     # Remove extension
-    MENUTITLE="${MENUTITLE%%.*}"
+    MENUTITLE="${MENUTITLE%.*}"
     
     MENU="menuentry '"$MENUTITLE"' {\n"
     MENU="$MENU  set isofile='/"$ISONAME"'\n"
@@ -277,7 +284,8 @@ set timeout=10
 set default=0
 
 # set debug=all
-search --no-floppy --set=root -l LABEL
+set usblabel='LABEL'
+search --no-floppy --set=root -l $usblabel
 probe -u $root --set=rootuuid
 set imgdevpath="/dev/disk/by-uuid/$rootuuid"
 

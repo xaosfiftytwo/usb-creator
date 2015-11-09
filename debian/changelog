@@ -1,6 +1,7 @@
-usb-creator (0.1.4) solydxk; urgency=low
+usb-creator (0.1.5) solydxk; urgency=low
 
   * Better check on space available
+  * Changed support for 32-bit ISOs
 
  -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Mon, 09 Nov 2015 11:00:00 +0100
 
