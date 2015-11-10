@@ -418,6 +418,9 @@ class USBCreator(object):
             msg = ''
             last_line = getoutput("tail -50 {} | grep -v DEBUG | grep -v ==".format(self.log_file))
             for line in reversed(last_line):
+                # Check for session start line: that is the last line to check
+                if ">>>>>" in line and "<<<<<" in line:
+                    break
                 for chk_line in self.log_lines:
                     if chk_line[0] in line.lower():
                         print((">>> line found: {}".format(line)))
