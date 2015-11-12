@@ -116,9 +116,7 @@ class USBCreator(object):
         self.on_btnRefresh_clicked()
 
         # Init log
-        init_log = "\n===============================================\n" \
-                   "Start USB Creator: {}\n" \
-                   "===============================================".format(datetime.now())
+        init_log = ">>> Start USB Creator: {} <<<".format(datetime.now())
         self.log.write(init_log)
 
         # Version information
@@ -182,6 +180,7 @@ class USBCreator(object):
                     if exists(iso_path):
                         os.remove(iso_path)
                         self.log.write("Remove ISO: {}".format(iso_path))
+                shell_exec("usb-creator -d {} -g".format(self.device["path"]))
                 self.on_cmbDevice_changed()
                 self.fill_treeview_usbcreator(self.device["mount"])
 
@@ -326,13 +325,16 @@ class USBCreator(object):
             isos = glob(join(mount, '*.iso'))
             for iso in isos:
                 iso_name = basename(iso)
+                iso_name_lower = iso_name.lower()
                 iso_size = "{} MB".format(int(self.get_iso_size(iso) / 1024))
-                iso_logo = self.logos["iso"]
+                iso_logo = ""
                 for key, logo in list(self.logos.items()):
                     if key != "iso":
-                        if key in iso_name.lower():
-                            iso_logo = logo
-                            break
+                        if key in iso_name_lower:
+                            if len(logo) > len(iso_logo):
+                                iso_logo = logo
+                if iso_logo == "":
+                    iso_logo = self.logos["iso"]
                 self.log.write("ISO on {}: {}, {}, {}".format(mount, iso_name, iso_size, iso_logo))
                 isos_list.append([False, iso_logo, iso_name, iso_size])
 
@@ -423,7 +425,7 @@ class USBCreator(object):
                     break
                 for chk_line in self.log_lines:
                     if chk_line[0] in line.lower():
-                        print((">>> line found: {}".format(line)))
+                        #print((line))
                         word = ''
                         if chk_line[1] == 0:
                             self.pbUsbCreator.pulse()
@@ -520,6 +522,9 @@ class USBCreator(object):
                     ErrorDialog(self.btnExecute.get_label(), _("The device has no bootloader installed."))
                 elif ret == 10:
                     ErrorDialog(self.btnExecute.get_label(), _("There is not enough space available on the device."))
+                elif ret == 11:
+                    ErrorDialog(self.btnExecute.get_label(), _("Unable to guess distribution from ISO name.\n"
+                                                               "Make sure you have the distribution name in the ISO name."))
                 else:
                     msg = _("An unknown error accured.\n"
                     "Please, visit our forum for support: http://forums.solydxk.com")

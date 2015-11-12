@@ -16,6 +16,7 @@
 # 8 - Not a fat32 filesystem
 # 9 - Missing bootloader
 # 10 - Not enough space on device
+# 11 - Cannot guess distribution from ISO name
 
 
 GUISTART='/usr/lib/usb-creator/main.py'
@@ -25,17 +26,18 @@ FILESDIR="/usr/share/usb-creator/files"
 # Distributions families
 # Source: http://distrowatch.com/search.php   select: "Based on"
 # ================================================================
-UBUNTUDISTROS='untu,aurora,mint,asturix,backbox,bio,bodhi,deepin,peasy,sense,joli,linuxgfx,kuki,linuxmce,netrunner,peppermint,pinguy,poseidon,puredyne,qimo,startos,trisquel,uberstudent,remix,ultimate,vinux,zentyal,zeven,lxle,zorin,elementary,lite,chromixium,mangaka,watt,voyager,kylin,extix,emma,chalet,caine,symphony,superx,artisx,bella,apodio,luninux,remnux,lliurex,leeenux,kxstudio,peach,deft,salent,caelinux,madbox,nova,baltix,bardinux,lunuxfx,greenie,centrych,caixa,openlx,guadalinex,max,ulteo,karoshi,nexenta,chitwanix,track'
-DEBIANDISTROS='debian,mini,kali,antix,steamos,q4os,tails,robo,sparky,makulu,tanglu,zilla,handy,neptune,semplice,gparted,solyd,parsix,elive,avlinux,univention,siduction,turnkey,point,galpon,proxmox,openmediavault,2xos,webconverger,finnix,blankon,linuxbbq,untangle,rescatux,boss,pardus,musix,rebellin,kanotix,gnewsense,matriux,skole,exe,vyos,kwheezy,doudou,window,parrot,canaima,volumio,selks,osmc,grml,pelicanhpc,linex,omoikane,catix,lmde'
-ARCHDISTROS='arch,manjaro,antergos,chakra,blackarch,bridge,parabola,poliarch,kademar,linhes'
-PUPPYDISTROS='puppy,simplicity,legacy,toutou'
+UBUNTUDISTROS='untu,aurora,mint,asturix,backbox,bio,bodhi,deepin,peasy,sense,joli,linuxgfx,kuki,linuxmce,netrunner,peppermint,pinguy,poseidon,puredyne,qimo,startos,trisquel,uberstudent,remix,ultimate,vinux,zentyal,zeven,lxle,zorin,elementary,lite,chromixium,mangaka,watt,voyager,kylin,extix,emma,chalet,caine,symphony,superx,artisx,bella,apodio,luninux,remnux,lliurex,leeenux,kxstudio,peach,deft,salent,caelinux,madbox,nova,baltix,bardinux,lunuxfx,greenie,centrych,caixa,openlx,guadalinex,max,ulteo,karoshi,nexenta,chitwanix,track,bll,lab'
+DEBIANDISTROS='debian,mini,kali,antix,steamos,q4os,tails,robo,sparky,makulu,tanglu,zilla,handy,neptune,semplice,gparted,solyd,parsix,elive,avlinux,univention,siduction,turnkey,point,galpon,proxmox,openmedia,2xos,webconverger,finnix,blankon,linuxbbq,untangle,boss,pardus,musix,rebellin,kanotix,gnewsense,matriux,skole,exe,vyos,kwheezy,doudou,window,parrot,canaima,volumio,selks,osmc,grml,pelicanhpc,linex,omoikane,catix,lmde'
+ARCHDISTROS='arch,manjaro,antergos,chakra,blackarch,bridge,parabola,poliarch,kademar,linhes,kaos'
+PUPPYDISTROS='puppy,simplicity,legacy,toutou,quirky'
 KNOPPIXDISTROS='knoppix,overclockix'
 CENTOSDISTROS='centos,baruwa,sme,asterisknow,stella,elastix,rockstor'
 FEDORADISTROS='fedora,korora,qubes,nst,linpus,blag,vortexbox,chapeau,hanthana,xange,olpc,sulix,ojuba'
 SUSEDISTROS='suse,netsecl'
 GENTOODISTROS='gentoo,sabayon,calculate,rescue,kiosk,funtoo,pentoo,exherbo,bicom'
-SLACKDISTROS='slack,vector,absolute,salix,wifislax,porteus,slackel,connochaet,austrumi,zenwalk,plamo,superb'
+SLACKDISTROS='slack,vector,vl,absolute,salix,wifislax,porteus,slackel,connochaet,austrumi,zenwalk,plamo,superb'
 MANDRIVADISTROS='mandriva,mageia,blackpanther,unity'
+INDEPENDENTDISTROS='pclinux,solus,4mlinux,magic'
 
 
 # ================================================================
@@ -47,8 +49,11 @@ MANDRIVADISTROS='mandriva,mageia,blackpanther,unity'
 # ================================================================
 # Ubuntu 
 # ================================================================
-UBUNTU_LINUX='linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile noprompt noeject quiet'
+# vmlinuz.efi is set to vmlinuz for 32-bit ISOs in write_grub_menu
+UBUNTU_LINUX='linux (loop)/casper/vmlinuz.efi boot=casper iso-scan/filename=$isofile noprompt noeject quiet splash'
 UBUNTU_INITRD='initrd (loop)/casper/initrd.lz'
+# Lite
+LITE_INITRD='initrd (loop)/casper/initrd.gz'
 
 # ================================================================
 # Debian 
@@ -70,6 +75,8 @@ ANTIX_INITRD='initrd (loop)/antiX/initrd.gz'
 CLONEZILLA_LINUX='linux (loop)/live/vmlinuz findiso=$isofile boot=live union=overlay username=user config quiet'
 # GParted
 GPARTED_LINUX='linux (loop)/live/vmlinuz boot=live findiso=$isofile union=overlay username=user config components noswap noeject toram=filesystem.squashfs ip=  quiet nosplash'
+# Kali
+KALI_LINUX='linux (loop)/live/vmlinuz boot=live findiso=$isofile noconfig=sudo username=root hostname=kali quiet splash'
 
 # ================================================================
 # Arch 
@@ -83,12 +90,24 @@ ARCHBOOT_INITRD='initrd (loop)/boot/initramfs_x86_64.img'
 # Source = https://forum.manjaro.org/index.php?PHPSESSID=8npqcb42p5i5nhste1bbv30sk0&topic=14051.msg169258#msg169258
 MANJARO_LINUX='linux (loop)/manjaro/boot/x86_64/manjaro img_dev=UUID=$rootuuid img_loop=$isofile misobasedir=manjaro misolabel nouveau.modeset=1 i915.modeset=1 radeon.modeset=1 logo.nologo overlay=nonfree nonfree=yes quiet'
 MANJARO_INITRD='initrd (loop)/manjaro/boot/x86_64/manjaro.img'
+# KaOS
+KAOS_LINUX='linux (loop)/kdeos/boot/x86_64/kdeosiso kdeosisolabel=$usblabel showopts nonfree=no xdriver=no i915.modeset=1 nouveau.modeset=1 radeon.modeset=1 systemd.show_status=0'
+KAOS_INITRD='initrd (loop)/kdeos/boot/x86_64/kdeosiso.img'
+# Netrunner
+NETRUNNER_LINUX='linux (loop)/netrunner/boot/x86_64/netrunner img_dev=UUID=$rootuuid img_loop=$isofile misobasedir=netrunner misolabel nouveau.modeset=1 i915.modeset=1 radeon.modeset=1 logo.nologo overlay=free quiet splash showopts'
+NETRUNNER_INITRD='initrd (loop)/netrunner/boot/x86_64/netrunner.img'
+# Antergos
+ANTERGOS_LINUX='linux (loop)/arch/boot/vmlinuz img_dev=UUID=$rootuuid img_loop=$isofile archisobasedir=arch archisolabel earlymodules=loop modules-load=loop rd.modules-load=loop udev.log-priority=crit rd.udev.log-priority=crit quiet splash'
+ANTERGOS_INITRD='initrd (loop)/arch/boot/archiso.img'
 
 # ================================================================
 # Puppy 
 # ================================================================
 PUPPY_LINUX='linux (loop)/vmlinuz boot=live config findiso=$isofile'
-PUPPY_LINUX='initrd (loop)/initrd.q'
+PUPPY_INITRD='initrd (loop)/initrd.q'
+# Simplicity
+# NO WORKY
+SIMPLICITY_INITRD='initrd (loop)/initrd.gz'
 
 # ================================================================
 # Knoppix 
@@ -100,11 +119,11 @@ KNOPPIX_INITRD='initrd (loop)/boot/isolinux/minirt.gz'
 # CentOS 
 # ================================================================
 # NO WORKY: ends in a black screen
-CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:UUID=$rootuuid findiso=$isofile quiet'
-#CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:LABEL=$usblabel:/$isofile'
+#CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:UUID=$rootuuid findiso=$isofile quiet'
+CENTOS_LINUX='linux (loop)/isolinux/vmlinuz noeject inst.stage2=hd:LABEL=$usblabel:/$isofile quiet'
 CENTOS_INITRD='initrd (loop)/isolinux/initrd.img'
-CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid iso-scan/filename=$isofile rd.live.image quiet'
-#CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:LABEL=$usblabel iso-scan/filename=$isofile rd.live.image'
+#CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid iso-scan/filename=$isofile rd.live.image quiet'
+CENTOSLIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:LABEL=$usblabel iso-scan/filename=$isofile rd.live.image quiet'
 CENTOSLIVE_INITRD='initrd (loop)/isolinux/initrd0.img'
 
 # ================================================================
@@ -129,6 +148,9 @@ SUSELIVE_LINUX='linux (loop)/boot/x86_64/loader/linux isofrom_device=$imgdevpath
 # ================================================================
 GENTOO_LINUX='linux (loop)/isolinux/gentoo root=/dev/ram0 init=/linuxrc aufs looptype=squashfs loop=/image.squashfs cdroot isoboot=$isofile quiet splash=silent,theme:default console=tty0'
 GENTOO_INITRD='initrd (loop)/isolinux/gentoo.igz'
+# Sabayon
+SABAYON_LINUX='linux (loop)/boot/sabayon root=/dev/ram0 aufs cdroot locale=en_US loop=/livecd.squashfs looptype=squashfs isoboot=$isofile'
+SABAYON_INITRD='initrd (loop)/boot/sabayon.igz'
 # SystemRescue
 SYSRESCUE_LINUX='linux (loop)/isolinux/rescue64 isoloop=$isofile setkmap=us docache dostartx quiet'
 SYSRESCUE_INITRD='initrd (loop)/isolinux/initram.igz'
@@ -136,8 +158,11 @@ SYSRESCUE_INITRD='initrd (loop)/isolinux/initram.igz'
 # ================================================================
 # SlackWare 
 # ================================================================
-SLACK_LINUX='linux (loop)/kernels/huge.s/bzImage printk.time=0 quiet'
+SLACK_LINUX='linux (loop)/kernels/huge.s/bzImage load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 SLACK_KERNEL=huge.s'
 SLACK_INITRD='initrd (loop)/isolinux/initrd.img'
+# Vector
+VECTOR_LINUX='linux (loop)/isolinux/kernel/sata GUI splash load_ramdisk=1 prompt_ramdisk=0 rw root=/dev/ram nomodeset'
+VECTOR_INITRD='initrd (loop)/isolinux/init.lz'
 
 # ================================================================
 # Mandriva 
@@ -147,12 +172,23 @@ MAGEIA_LINUX='linux (loop)/isolinux/x86_64/vmlinuz from=$isofile ro rd.luks=0 rd
 MAGEIA_INITRD='initrd (loop)/isolinux/x86_64/all.rdz'
 # NO WORKY: unable to read squashfs_super_block: https://bugs.mageia.org/show_bug.cgi?id=1506
 # NO WORKY: need label of USB, not of ISO or UUID (iso iso9660 does not support UUID): is set in write_grub_menu
-MAGEIALIVE_LINUX='linux (loop)/boot/vmlinuz root=mgalive findiso=$isofile ro rd.luks=0 rd.lvm=0 rd.md=0 rd.dm=0 quiet'
+MAGEIALIVE_LINUX='linux (loop)/boot/vmlinuz root=mgalive:LABEL=$usblabel splash quiet noiswmd rd.luks=0 rd.lvm=0 rd.md=0 rd.dm=0 vga=788'
 MAGEIALIVE_INITRD='initrd (loop)/boot/cdrom/initrd.gz'
 
 # ================================================================
-# PartedMagic 
+# Independent 
 # ================================================================
+# PClinuxOS
+PCLINUX_LINUX='linux (loop)/isolinux/vmlinuz fromusb root=UUID=$rootuuid bootfromiso=$isofile livecd=livecd apci=on splash=silent fstab=rw,noauto unionfs toram'
+PCLINUX_INITRD='initrd (loop)/isolinux/initrd.gz'
+# SolusOS 
+# NO WORKY
+SOLUS_LINUX='linux (loop)/boot/kernel root=live:LABEL=$usblabel iso-scan/filename=$isofile'
+SOLUS_INITRD='initrd (loop)/boot/initrd.img'
+# 4MLinux
+FOURMLINUX_LINUX='linux (loop)/boot/bzImage iso-scan/filename=$isofile root=/dev/ram0 vga=normal'
+FOURMLINUX_INITRD='initrd (loop)/boot/initrd.gz'
+# PartedMagic 
 PMAGIC_LINUX='linux (loop)/pmagic/bzImage findiso=$isofile boot=live quiet'
 PMAGIC_INITRD='initrd (loop)/pmagic/initrd.img'
 # ================================================================
@@ -160,9 +196,12 @@ PMAGIC_INITRD='initrd (loop)/pmagic/initrd.img'
 
 # Create menu lines for 32 bit isos
 function create_32_bit_lines() {
-  if [[ "$1" =~ i*[3456]86 ]] || [[ "$ISO" =~ [-_\.[:space:]]32[-_\.[:space:]] ]]; then
-    LINUX_LINE=$(echo $LINUX_LINE | sed "s/x86_64/$2/")
-    INITRD_LINE=$(echo $INITRD_LINE | sed "s/x86_64/$2/")
+  if [[ "$1" =~ i*[3456]86 ]] || [[ "$ISO" =~ [-_\.[:space:]]32[-_\.[:space:]b] ]]; then
+    if [ "$2" != "" ]; then
+      LINUX_LINE=$(echo $LINUX_LINE | sed "s/x86_64/$2/")
+      INITRD_LINE=$(echo $INITRD_LINE | sed "s/x86_64/$2/")
+    fi
+    LINUX_LINE=$(echo $LINUX_LINE | sed 's/vmlinuz.efi/vmlinuz/')
   fi
 }
 
@@ -171,20 +210,17 @@ function check_distros() {
   RET=''
   LOWERISONAME=$1
   LIST=$2
-  FOUNDDISTRO=$3
-  if [ "$FOUNDDISTRO" == "" ]; then
-    while IFS=',' read -ra ADDR; do
-      for DISTRO in "${ADDR[@]}"; do
-	if [[ "$LOWERISONAME" =~ "$DISTRO" ]]; then
-	  RET="$DISTRO"
-	  break
-	fi
-      done
-      if [ "$RET" != "" ]; then
+  while IFS=',' read -ra ADDR; do
+    for DISTRO in "${ADDR[@]}"; do
+      if [[ "$LOWERISONAME" =~ "$DISTRO" ]]; then
+	RET="$DISTRO"
 	break
       fi
-    done <<< "$LIST"
-  fi
+    done
+    if [ "$RET" != "" ]; then
+      break
+    fi
+  done <<< "$LIST"
   echo $RET
 }
 
@@ -197,141 +233,274 @@ function write_grub_menu() {
 
   # ================================================================
   # Make distro specific menu
+  # Find out which distro of that family we have and set the family name
   # ================================================================
-  UBUNTU=$(check_distros $LOWERISONAME $UBUNTUDISTROS '')
-  DEBIAN=$(check_distros $LOWERISONAME $DEBIANDISTROS $UBUNTU)
-  ARCH=$(check_distros $LOWERISONAME $ARCHDISTROS $DEBIAN)
-  PUPPY=$(check_distros $LOWERISONAME $PUPPYDISTROS $ARCH)
-  KNOPPIX=$(check_distros $LOWERISONAME $KNOPPIXDISTROS $PUPPY)
-  CENTOS=$(check_distros $LOWERISONAME $CENTOSDISTROS $KNOPPIX)
-  FEDORA=$(check_distros $LOWERISONAME $FEDORADISTROS $CENTOS)
-  SUSE=$(check_distros $LOWERISONAME $SUSEDISTROS $FEDORA)
-  GENTOO=$(check_distros $LOWERISONAME $GENTOODISTROS $SUSE)
-  SLACK=$(check_distros $LOWERISONAME $SLACKDISTROS $GENTOO)
-  MANDRIVA=$(check_distros $LOWERISONAME $MANDRIVADISTROS $SLACK)
+  FAMILY="ubuntu"
+  DISTRO=$(check_distros $LOWERISONAME $UBUNTUDISTROS)
   
-  # Set Debian configuration as default
-  LINUX_LINE=$DEBIAN_LINUX
-  INITRD_LINE=$DEBIAN_INITRD
-  
-  # Ubuntu distributions
-  if [ "$UBUNTU" != "" ]; then
-    LINUX_LINE=$UBUNTU_LINUX
-    INITRD_LINE=$UBUNTU_INITRD
-    if [ "$UBUNTU" == "mint" ] && [[ "$LOWERISONAME" =~ "64" ]]; then
-      LINUX_LINE=$(echo $LINUX_LINE | sed 's/vmlinuz/vmlinuz.efi/')
-    fi
-  
-  # Debian distributions
-  elif [ "$DEBIAN" != "" ]; then
-    if [ "$DEBIAN" == "debian" ] && [[ ! "$LOWERISONAME" =~ "live" ]]; then
-      wget "https://mirrors.kernel.org/debian/dists/stable/main/installer-amd64/current/images/hd-media/initrd.gz" -O $ISO.initrd.gz
-      LINUX_LINE=$DEBIANREG_LINUX
-      INITRD_LINE=$DEBIANREG_INITRD
-    elif [ "$DEBIAN" == "mini" ]; then
-      LINUX_LINE=$DEBIANMINI_LINUX
-      INITRD_LINE=$DEBIANMINI_INITRD
-    elif [ "$DEBIAN" == "lmde" ]; then
-      INITRD_LINE=$(echo $INITRD_LINE | sed 's/img/lz/')
-    elif [ "$DEBIAN" == "antix" ] || [[ "$LOWERISONAME" =~ "mx" ]]; then
-      LINUX_LINE=$ANTIX_LINUX
-      INITRD_LINE=$ANTIX_INITRD
-    elif [ "$DEBIAN" == "zilla" ]; then
-      LINUX_LINE=$CLONEZILLA_LINUX
-    elif [ "$DEBIAN" == "gparted" ]; then
-      LINUX_LINE=$GPARTED_LINUX
-    fi
-  
-  # Arch distributions
-  elif [ "$ARCH" != "" ]; then
-    LINUX_LINE=$ARCHDUAL_LINUX
-    INITRD_LINE=$ARCHDUAL_INITRD
-    if [[ "$LOWERISONAME" =~ "archboot" ]]; then
-      LINUX_LINE=$ARCHBOOT_LINUX
-      INITRD_LINE=$ARCHBOOT_INITRD
-    elif [ "$ARCH" == "manjaro" ]; then
-      MISOLABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
-      LINUX_LINE=$(echo $MANJARO_LINUX | sed "s/misolabel/misolabel=$MISOLABEL/")
-      INITRD_LINE=$MANJARO_INITRD
-      create_32_bit_lines $LOWERISONAME 'i686'
-    fi
-  
-  # Puppy distributions
-  elif [ "$PUPPY" != "" ]; then
-    LINUX_LINE=$PUPPY_LINUX
-    INITRD_LINE=$PUPPY_INITRD
-  
-  # Knoppix distributions
-  elif [ "$KNOPPIX" != "" ]; then
-    LINUX_LINE=$KNOPPIX_LINUX
-    INITRD_LINE=$KNOPPIX_INITRD
-    
-  # Centos distributions
-  elif [ "$CENTOS" != "" ]; then
-    LINUX_LINE=$CENTOS_LINUX
-    INITRD_LINE=$CENTOS_INITRD
-    if [[ "$LOWERISONAME" =~ "live" ]]; then
-      LINUX_LINE=$CENTOSLIVE_LINUX
-      INITRD_LINE=$CENTOSLIVE_INITRD
-    fi
-  
-  # Fedora distributions
-  elif [ "$FEDORA" != "" ]; then
-    LINUX_LINE=$FEDORA_LINUX
-    INITRD_LINE=$FEDORA_INITRD
-    if [[ "$LOWERISONAME" =~ "live" ]]; then
-      LINUX_LINE=$FEDORALIVE_LINUX
-      INITRD_LINE=$FEDORALIVE_INITRD
-    fi
-    
-  # openSuse distributions
-  elif [ "$SUSE" != "" ]; then
-    LINUX_LINE=$SUSE_LINUX
-    INITRD_LINE=$SUSE_INITRD
-    if [[ "$LOWERISONAME" =~ "live" ]]; then
-      LINUX_LINE=$SUSELIVE_LINUX
-    fi
-    create_32_bit_lines $LOWERISONAME 'i386'
-
-  # Gentoo distributions 
-  elif [ "$GENTOO" != "" ]; then
-    LINUX_LINE=$GENTOO_LINUX
-    INITRD_LINE=$GENTOO_INITRD
-    if [ "$GENTOO" == "rescue" ]; then
-      LINUX_LINE=$SYSRESCUE_LINUX
-      INITRD_LINE=$SYSRESCUE_INITRD
-    fi
-  
-  # SlackWare distributions 
-  elif [ "$SLACK" != "" ]; then
-    LINUX_LINE=$SLACK_LINUX
-    INITRD_LINE=$SLACK_INITRD
-  
-  # Mandriva distributions 
-  elif [ "$MANDRIVA" != "" ]; then
-    LINUX_LINE=$MAGEIA_LINUX
-    INITRD_LINE=$MAGEIA_INITRD
-    if [ "$MANDRIVA" == "mageia" ]; then
-      if [[ "$LOWERISONAME" =~ "live" ]]; then
-	#MAGEIA_LABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
-	LINUX_LINE=$(echo $LINUX_LINE | sed "s/mgalive/mgalive:LABEL=$LABEL/")
-	LINUX_LINE=$MAGEIALIVE_LINUX
-	INITRD_LINE=$MAGEIALIVE_INITRD
-      fi
-      create_32_bit_lines $LOWERISONAME 'i686'
-    fi
-  
-  # Parted magic
-  elif [[ "$LOWERISONAME" =~ "magic" ]]; then
-    LINUX_LINE=$PMAGIC_LINUX
-    INITRD_LINE=$PMAGIC_INITRD
+  DEBIAN=$(check_distros $LOWERISONAME $DEBIANDISTROS)
+  if [ "${#DEBIAN}" -gt "${#DISTRO}" ]; then
+    DISTRO=$DEBIAN
+    FAMILY="debian"
   fi
+  
+  ARCH=$(check_distros $LOWERISONAME $ARCHDISTROS)
+  if [ "${#ARCH}" -gt "${#DISTRO}" ]; then
+    DISTRO=$ARCH
+    FAMILY="arch"
+  fi
+  
+  PUPPY=$(check_distros $LOWERISONAME $PUPPYDISTROS)
+  if [ "${#PUPPY}" -gt "${#DISTRO}" ]; then
+    DISTRO=$PUPPY
+    FAMILY="puppy"
+  fi
+  
+  KNOPPIX=$(check_distros $LOWERISONAME $KNOPPIXDISTROS)
+  if [ "${#KNOPPIX}" -gt "${#DISTRO}" ]; then
+    DISTRO=$KNOPPIX
+    FAMILY="knoppix"
+  fi
+  
+  CENTOS=$(check_distros $LOWERISONAME $CENTOSDISTROS)
+  if [ "${#CENTOS}" -gt "${#DISTRO}" ]; then
+    DISTRO=$CENTOS
+    FAMILY="centos"
+  fi
+  
+  FEDORA=$(check_distros $LOWERISONAME $FEDORADISTROS)
+  if [ "${#FEDORA}" -gt "${#DISTRO}" ]; then
+    DISTRO=$FEDORA
+    FAMILY="fedora"
+  fi
+  
+  SUSE=$(check_distros $LOWERISONAME $SUSEDISTROS)
+  if [ "${#SUSE}" -gt "${#DISTRO}" ]; then
+    DISTRO=$SUSE
+    FAMILY="suse"
+  fi
+  
+  GENTOO=$(check_distros $LOWERISONAME $GENTOODISTROS)
+  if [ "${#GENTOO}" -gt "${#DISTRO}" ]; then
+    DISTRO=$GENTOO
+    FAMILY="gentoo"
+  fi
+  
+  SLACK=$(check_distros $LOWERISONAME $SLACKDISTROS)
+  if [ "${#SLACK}" -gt "${#DISTRO}" ]; then
+    DISTRO=$SLACK
+    FAMILY="slack"
+  fi
+  
+  MANDRIVA=$(check_distros $LOWERISONAME $MANDRIVADISTROS)
+  if [ "${#MANDRIVA}" -gt "${#DISTRO}" ]; then
+    DISTRO=$MANDRIVA
+    FAMILY="mandriva"
+  fi
+  
+  INDEPENDENT=$(check_distros $LOWERISONAME $INDEPENDENTDISTROS)
+  if [ "${#INDEPENDENT}" -gt "${#DISTRO}" ]; then
+    DISTRO=$INDEPENDENT
+    FAMILY="independent"
+  fi
+  
+  if [ "$DISTRO" == "" ]; then
+    FAMILY=""
+  fi
+  
+  echo "Family/distro of $ISONAME = $FAMILY/$DISTRO" | tee -a $LOG
+  
+  case $FAMILY in
+      ubuntu)
+	# Ubuntu distributions
+	LINUX_LINE=$UBUNTU_LINUX
+	INITRD_LINE=$UBUNTU_INITRD
+	if [ "$DISTRO" == "lite" ] ||
+	  [ "$DISTRO" == "chromixium" ]; then
+	  INITRD_LINE=$LITE_INITRD
+	elif [ "$DISTRO" == "bll" ] ||
+	    [ "$DISTRO" == "lab" ] ||
+	    [ "$DISTRO" == "watt" ] ||
+	    [ "$DISTRO" == "mangaka" ]; then
+	    LINUX_LINE=$(echo $UBUNTU_LINUX | sed 's/vmlinuz.efi/vmlinuz/')
+	    INITRD_LINE=$LITE_INITRD
+	elif [ "$DISTRO" == "ultimate" ]; then
+	    LINUX_LINE=$(echo $UBUNTU_LINUX | sed 's/vmlinuz.efi/vmlinuz/')
+	elif [ "$DISTRO" == "netrunner" ] && [[ "$LOWERISONAME" =~ "roll" ]]; then
+	  MISOLABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
+	  LINUX_LINE=$(echo $NETRUNNER_LINUX | sed "s/misolabel/misolabel=$MISOLABEL/")
+	  INITRD_LINE=$NETRUNNER_INITRD
+	fi
+	create_32_bit_lines $LOWERISONAME 'i686'
+  	;;
+  
+      debian)
+	# Debian distributions
+	LINUX_LINE=$DEBIAN_LINUX
+	INITRD_LINE=$DEBIAN_INITRD
+	if [ "$DISTRO" == "debian" ] && [[ ! "$LOWERISONAME" =~ "live" ]]; then
+	  wget "https://mirrors.kernel.org/debian/dists/stable/main/installer-amd64/current/images/hd-media/initrd.gz" -O $ISO.initrd.gz
+	  LINUX_LINE=$DEBIANREG_LINUX
+	  INITRD_LINE=$DEBIANREG_INITRD
+	elif [ "$DISTRO" == "mini" ]; then
+	  LINUX_LINE=$DEBIANMINI_LINUX
+	  INITRD_LINE=$DEBIANMINI_INITRD
+	elif [ "$DISTRO" == "lmde" ]; then
+	  INITRD_LINE=$(echo $INITRD_LINE | sed 's/img/lz/')
+	elif [ "$DISTRO" == "antix" ] || [[ "$LOWERISONAME" =~ "mx" ]]; then
+	  LINUX_LINE=$ANTIX_LINUX
+	  INITRD_LINE=$ANTIX_INITRD
+	elif [ "$DISTRO" == "kali" ]; then
+	  LINUX_LINE=$KALI_LINUX
+	elif [ "$DISTRO" == "zilla" ]; then
+	  LINUX_LINE=$CLONEZILLA_LINUX
+	elif [ "$DISTRO" == "gparted" ]; then
+	  LINUX_LINE=$GPARTED_LINUX
+	fi
+	;;
+  
+      arch)
+	# Arch distributions
+	LINUX_LINE=$ARCHDUAL_LINUX
+	INITRD_LINE=$ARCHDUAL_INITRD
+	if [[ "$LOWERISONAME" =~ "archboot" ]]; then
+	  LINUX_LINE=$ARCHBOOT_LINUX
+	  INITRD_LINE=$ARCHBOOT_INITRD
+	elif [ "$DISTRO" == "kaos" ]; then
+	  LINUX_LINE=$KAOS_LINUX
+	  INITRD_LINE=$KAOS_INITRD
+	  create_32_bit_lines $LOWERISONAME 'i686'
+	elif [ "$DISTRO" == "manjaro" ]; then
+	  MISOLABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
+	  LINUX_LINE=$(echo $MANJARO_LINUX | sed "s/misolabel/misolabel=$MISOLABEL/")
+	  INITRD_LINE=$MANJARO_INITRD
+	  create_32_bit_lines $LOWERISONAME 'i686'
+	elif [ "$DISTRO" == "antergos" ]; then
+	  ARCHISOLABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
+	  LINUX_LINE=$(echo $ANTERGOS_LINUX | sed "s/archisolabel/archisolabel=$ARCHISOLABEL/")
+	  INITRD_LINE=$ANTERGOS_INITRD
+	fi
+	;;
+  
+      puppy)
+	# Puppy distributions
+	LINUX_LINE=$PUPPY_LINUX
+	INITRD_LINE=$PUPPY_INITRD
+	if [ "$DISTRO" == "simplicity" ]; then
+	  INITRD_LINE=$SIMPLICITY_INITRD
+	fi
+	;;
+      
+      knoppix)
+	# Knoppix distributions
+	LINUX_LINE=$KNOPPIX_LINUX
+	INITRD_LINE=$KNOPPIX_INITRD
+	;;
+      
+      centos)
+	# Centos distributions
+	LINUX_LINE=$CENTOS_LINUX
+	INITRD_LINE=$CENTOS_INITRD
+	if [[ "$LOWERISONAME" =~ "live" ]]; then
+	  LINUX_LINE=$CENTOSLIVE_LINUX
+	  INITRD_LINE=$CENTOSLIVE_INITRD
+	fi
+	;;
+      
+      fedora)
+	# Fedora distributions
+	LINUX_LINE=$FEDORA_LINUX
+	INITRD_LINE=$FEDORA_INITRD
+	if [[ "$LOWERISONAME" =~ "live" ]]; then
+	  LINUX_LINE=$FEDORALIVE_LINUX
+	  INITRD_LINE=$FEDORALIVE_INITRD
+	fi
+	;;
+      
+      suse)
+	# openSuse distributions
+	LINUX_LINE=$SUSE_LINUX
+	INITRD_LINE=$SUSE_INITRD
+	if [[ "$LOWERISONAME" =~ "live" ]]; then
+	  LINUX_LINE=$SUSELIVE_LINUX
+	fi
+	create_32_bit_lines $LOWERISONAME 'i386'
+	;;
+      
+      gentoo)
+	# Gentoo distributions 
+	LINUX_LINE=$GENTOO_LINUX
+	INITRD_LINE=$GENTOO_INITRD
+	if [ "$DISTRO" == "rescue" ]; then
+	  LINUX_LINE=$SYSRESCUE_LINUX
+	  INITRD_LINE=$SYSRESCUE_INITRD
+	elif [ "$DISTRO" == "sabayon" ]; then
+	  LINUX_LINE=$SABAYON_LINUX
+	  INITRD_LINE=$SABAYON_INITRD
+	fi
+	;;
+      
+      slack)
+	# SlackWare distributions 
+	LINUX_LINE=$SLACK_LINUX
+	INITRD_LINE=$SLACK_INITRD
+	if [ "$DISTRO" == "vector" ] || [ "$DISTRO" == "vl" ]; then
+	  LINUX_LINE=$VECTOR_LINUX
+	  INITRD_LINE=$VECTOR_INITRD
+	fi
+	;;
+      
+      mandriva)
+	# Mandriva distributions 
+	LINUX_LINE=$MAGEIA_LINUX
+	INITRD_LINE=$MAGEIA_INITRD
+	if [ "$DISTRO" == "mageia" ]; then
+	  if [[ "$LOWERISONAME" =~ "live" ]]; then
+	    #MAGEIA_LABEL=$(env LANG=C isoinfo -d -i $ISO | grep 'Volume id:' | awk '{print $3}')
+	    LINUX_LINE=$(echo $LINUX_LINE | sed "s/mgalive/mgalive:LABEL=$LABEL/")
+	    LINUX_LINE=$MAGEIALIVE_LINUX
+	    INITRD_LINE=$MAGEIALIVE_INITRD
+	  fi
+	  create_32_bit_lines $LOWERISONAME 'i686'
+	fi
+	;;
+      
+      independent)
+	# Independent distributions 
+	# PClinuxOS
+	if [ "$DISTRO" == "pclinux" ]; then
+	  LINUX_LINE=$PCLINUX_LINUX
+	  INITRD_LINE=$PCLINUX_INITRD
+	  
+	# SolusOS
+	elif [ "$DISTRO" == "solus" ]; then
+	  LINUX_LINE=$SOLUS_LINUX
+	  INITRD_LINE=$SOLUS_INITRD
+	  
+	# 4MLinux
+	elif [ "$DISTRO" == "4mlinux" ]; then
+	  LINUX_LINE=$FOURMLINUX_LINUX
+	  INITRD_LINE=$FOURMLINUX_INITRD
+	
+	# Parted magic
+	elif [ "$DISTRO" == "magic" ]; then
+	  LINUX_LINE=$PMAGIC_LINUX
+	  INITRD_LINE=$PMAGIC_INITRD
+	fi
+	;;
+	
+      *)
+	echo "Could not guess distribution from ISO name: $ISONAME." | tee -a $LOG
+	exit 11
+	;;
+  esac
+  
   # ================================================================
   # ================================================================
   
   if [ -d "$GRUBDIR" ]; then
     # Set menu title
-    MENUTITLE=$(echo "$ISONAME" | sed -e 's/x*86_64/64/' -e 's/[-_]/ /g' -e 's/64/64-bit/' -e 's/i*[3456]86/32/' -e 's/32/32-bit/')
+    MENUTITLE=$(echo "$ISONAME" | sed -e 's/x*86_64/64/' -e 's/[-_]/ /g' -e 's/bit/ /' -e 's/64/64-bit/' -e 's/i*[3456]86/32/' -e 's/32/32-bit/')
     # Uppercase first character
     MENUTITLE="${MENUTITLE^}"
     # Remove extension
@@ -393,7 +562,7 @@ set timeout=10
 set default=0
 
 # set debug=all
-set usblabel='LABEL'
+set usblabel="LABEL"
 search --no-floppy --set=root -l $usblabel
 probe -u $root --set=rootuuid
 set imgdevpath="/dev/disk/by-uuid/$rootuuid"
@@ -412,7 +581,7 @@ fi
 background_image -m stretch /boot/grub/grubbg.png
 set menu_color_normal=white/black
 set menu_color_highlight=dark-gray/white
-''' | sed "s/LABEL/\'$LABEL\'/" > "$GRUBDIR/grub.cfg"
+''' | sed "s/LABEL/$LABEL/" > "$GRUBDIR/grub.cfg"
   fi
 }
 
@@ -468,6 +637,11 @@ if [ -z $1 ]; then
     exit 0
   fi
 else
+  if [ $UID -ne 0 ]; then
+    echo "Run as root."
+    exit 1
+  fi
+
   # Log file for traceback
   MAX_SIZE_KB=5120
   LOG_SIZE_KB=0
@@ -479,6 +653,7 @@ else
       mv -f $LOG $LOG2
     fi
   fi
+  
   echo "===========================================================" | tee -a $LOG
   echo "===============>>>>> Log session start <<<<<===============" | tee -a $LOG
   echo "===========================================================" | tee -a $LOG
@@ -494,12 +669,7 @@ else
   UNMOUNT=false
   FAT=false
   MOUNT=''
-  
-  if [ $UID -ne 0 ]; then
-    echo "Run as root"
-    exit 1
-  fi
-  
+    
   while getopts ":bd:fghi:l:mru" opt; do
     case $opt in
       b)
@@ -621,6 +791,10 @@ else
     # If not set: set default label name
     if [ "$LABEL" == "" ]; then
       LABEL='MULTIUSB'
+      if ! $FORMAT; then
+	# Make sure you set the label
+	e2label $DEVICE'1' $LABEL | tee -a $LOG
+      fi
     fi
   fi
   

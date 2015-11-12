@@ -1,7 +1,9 @@
-usb-creator (0.1.6) solydxk; urgency=low
+usb-creator (0.1.8) solydxk; urgency=low
 
   * Use distribution families (derivatives of a base distribution)
   * Added distribution logos
+  * Show message when distribution is not recognized
+  * General debugging
 
  -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Tue, 10 Nov 2015 12:00:00 +0100
 
