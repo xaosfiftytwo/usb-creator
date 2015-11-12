@@ -13,7 +13,6 @@ These I've done successfully:
     * Ubuntu 32/64/mate/lubuntu (and probably the other derivates as well).
     * Debian Live.
     * Debian mini.
-    * Regular Fedora.
     * Arch dual and Arch boot.
     * Mageia regular.
     * Manjaro.
@@ -52,7 +51,7 @@ Not tested:
 
 No worky:
 
-    * Fedora live.
+    * Fedora workstation and live.
     * CentOS (ends in black screen).
     * Mageia live.
     * Simplicity (had to add "simplicity" to the iso name)

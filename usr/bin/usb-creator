@@ -461,7 +461,7 @@ function write_grub_menu() {
 	    LINUX_LINE=$MAGEIALIVE_LINUX
 	    INITRD_LINE=$MAGEIALIVE_INITRD
 	  fi
-	  create_32_bit_lines $LOWERISONAME 'i686'
+	  create_32_bit_lines $LOWERISONAME 'i586'
 	fi
 	;;
       
