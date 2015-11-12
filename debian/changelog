@@ -1,3 +1,10 @@
+usb-creator (0.1.9) solydxk; urgency=low
+
+  * Follow symlinked ISOs
+  * Include help file
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Thu, 12 Nov 2015 13:00:00 +0100
+
 usb-creator (0.1.8) solydxk; urgency=low
 
   * Use distribution families (derivatives of a base distribution)

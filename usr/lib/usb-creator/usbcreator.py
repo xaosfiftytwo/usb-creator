@@ -100,6 +100,8 @@ class USBCreator(object):
         self.logos = self.get_logos()
         self.queue = Queue(-1)
         self.threads = {}
+        self.htmlDir = join(self.mediaDir, "html")
+        self.helpFile = join(self.get_language_dir(), "help.html")
         log = getoutput("cat /usr/bin/usb-creator | grep 'LOG=' | cut -d'=' -f 2")
         self.log_file = log[0]
         self.log = Logger(self.log_file, addLogTime=False, maxSizeKB=5120)
@@ -316,6 +318,16 @@ class USBCreator(object):
             available = self.device["size"]
         self.lblAvailable.set_label("{}: {} MB".format(self.available_text, int(available / 1024)))
 
+    def on_btnHelp_clicked(self, widget):
+        # Open the help file as the real user (not root)
+        logname = getoutput('logname')[0]
+        try:
+            ff = getoutput('which firefox')[0]
+            os.system("su {} -c \"{} {}\" &".format(logname, ff, self.helpFile))
+        except:
+            # If Firefox was removed, this might work
+            os.system("su {} -c \"xdg-open {}\" &".format(logname, self.helpFile))
+
     def fill_treeview_usbcreator(self, mount=''):
         isos_list = []
         # columns: checkbox, image (logo), device, driver
@@ -479,7 +491,7 @@ class USBCreator(object):
         return ''
 
     def get_iso_size(self, iso):
-        iso_size = getoutput("du -k \"%s\" | awk '{print $1}'" % iso)
+        iso_size = getoutput("du -Lk \"%s\" | awk '{print $1}'" % iso)
         if iso_size:
             return int(iso_size[0])
         return 0
@@ -534,3 +546,24 @@ class USBCreator(object):
                 MessageDialog(self.window.get_title(), msg)
         except:
             ErrorDialog(self.btnExecute.get_label(), cmdOutput)
+
+    # ===============================================
+    # Language specific functions
+    # ===============================================
+
+    def get_language_dir(self):
+        # First test if full locale directory exists, e.g. html/pt_BR,
+        # otherwise perhaps at least the language is there, e.g. html/pt
+        lang = self.get_current_language()
+        path = join(self.htmlDir, lang)
+        if path != self.htmlDir:
+            if not isdir(path):
+                path = join(self.htmlDir, lang.split('_')[0].lower())
+                if not isdir(path):
+                    return join(self.htmlDir, 'en')
+            return path
+        # else, just return English slides
+        return join(self.htmlDir, 'en')
+
+    def get_current_language(self):
+        return os.environ.get('LANG', 'US').split('.')[0]

@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>USB Creator Help</h1>
+	<div class="main">
+		<h2>Omschrijving</h2>
+		<p>De USB Creator is een tool om gebruikers te helpen een bootable flash drive
+met meerdere Linux besturingssystemen te creëren.</p>
+
+		<h2>Belangrijk</h2>
+		<p>Zorg ervoor dat u een backup heeft gemaakt van alle belangrijke bestanden
+van de flash drive voordat u begint.</p>
+
+		<h2>Commando's</h2>
+		<p>U kunt de USB Creator ook in de terminal gebruiken. Hier zijn enkele
+voorbeelden:</p>
+
+		<h3># usb-creator -f -i /path/to/my.iso -m</h3>
+		<p>Dit zal de flash drive formatteren, het ISO bestand naar de flash drive
+kopiëren en controleert de md5sum van het gekopieerde ISO bestand met die
+van het originele ISO bestand.</p>
+
+		<h3># usb-creator -b -g -r</h3>
+		<p>Dit commando zal een unbootable flash drive dat al ISO bestanden heeft,
+proberen te herstellen.</p>
+		
+		<h3># usb-creator -h</h3>
+		<p>Dit zal alle beschikbare opties en het gebruik ervan laten zien.</p>
+
+		<h2>Verborgen functies</h2>
+		<p>Wanneer u de naam van het ISO bestand van het ISO veld verwijderd, zal de
+USB Creator de ruimte die nodig is voor alle ISO bestanden in die map
+berekenen.</p>
+		<p>U kunt de volgorde waarin de ISO bestanden worden weergegeven in het menu
+veranderen door een getal aan het begin van de ISO naam toe te voegen,
+bijvoorbeeld: "01-MyDistro-amd64.iso".</p>
+		<p>Symbolische links worden gevolgd, maar de symbolische links moeten wel de
+".iso" extensie hebben.</p>
+		
+		<h2>Boot uw ISO bestand niet?</h2>
+		<p>Op onze <a href="https://github.com/SolydXK/usb-creator"
+target="_blank">GitHub</a> pagina vindt u een lijst met geteste
+distributies. Niet alle ISO's kunnen direct van het ISO bestand worden
+opgestart. Controleer dit op het forum van de distributie.</p>
+		<p>Het menu is geconfigureerd in een bestand dat u kunt vinden op uw flash
+drive: /boot/grub/grub.cfg</p>
+		<p>Help ons deze applicatie te verbeteren door grub.cfg aan te passen totdat de
+ISO opstart. Post uw wijzigingen op GitHub of ons <a
+href="http://forums.solydxk.com" target="_blank">forum</a>.</p>
+    </div>
+  </body>
+</html>

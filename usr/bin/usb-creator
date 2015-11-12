@@ -132,7 +132,8 @@ CENTOSLIVE_INITRD='initrd (loop)/isolinux/initrd0.img'
 FEDORA_LINUX='linux (loop)/isolinux/vmlinuz inst.stage2=hd:UUID=$rootuuid findiso=$isofile noeject quiet'
 FEDORA_INITRD='initrd (loop)/isolinux/initrd.img'
 # NO WORKY: hangs on "Reached target Basic System"
-FEDORALIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid findiso=$isofile rootfstype=auto ro rd.live.image quiet rhgb rd.luks=0 rd.md=0 rd.dm=0'
+#FEDORALIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:UUID=$rootuuid findiso=$isofile rootfstype=auto ro rd.live.image quiet rhgb rd.luks=0 rd.md=0 rd.dm=0'
+FEDORALIVE_LINUX='linux (loop)/isolinux/vmlinuz0 boot=isolinux iso-scan/filename=$isofile root=live:LABEL=$usblabel ro rd.live.image quiet rhgb'
 #FEDORALIVE_LINUX='linux (loop)/isolinux/vmlinuz0 root=live:CDLABEL=$usblabel findiso=$isofile rootfstype=auto ro rd.live.image quiet rhgb rd.luks=0 rd.md=0 rd.dm=0'
 FEDORALIVE_INITRD='initrd (loop)/isolinux/initrd0.img'
 
@@ -500,7 +501,7 @@ function write_grub_menu() {
   
   if [ -d "$GRUBDIR" ]; then
     # Set menu title
-    MENUTITLE=$(echo "$ISONAME" | sed -e 's/x*86_64/64/' -e 's/[-_]/ /g' -e 's/bit/ /' -e 's/64/64-bit/' -e 's/i*[3456]86/32/' -e 's/32/32-bit/')
+    MENUTITLE=$(echo "$ISONAME" | sed -e 's/^[0-9]*[-_ .]*//' -e 's/x*86_64/64/' -e 's/[-_]/ /g' -e 's/bit/ /' -e 's/64/64-bit/' -e 's/i*[3456]86/32/' -e 's/32/32-bit/')
     # Uppercase first character
     MENUTITLE="${MENUTITLE^}"
     # Remove extension
@@ -917,7 +918,7 @@ else
       exit 10
     else
       echo "Rsync $ISO to device..." | tee -a $LOG
-      rsync -r -v --progress --modify-window=1 -c "$ISO" "$MOUNT/" | tee -a $LOG
+      rsync -L -K -r -v --progress --modify-window=1 -c "$ISO" "$MOUNT/" | tee -a $LOG
       echo
       wait_until_done $DEVICE & 
       sync

@@ -1,7 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Translators:
 # Arjen Balfoort <schoelje@solydxk.com>, 2015
 # root <arjenbalfoort@solydxk.com>, 2015
@@ -9,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-12 12:19+0100\n"
-"PO-Revision-Date: 2015-11-12 09:40+0000\n"
-"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/solydxk/usb-creator/language/"
-"nl/)\n"
+"POT-Creation-Date: 2015-11-12 18:59+0100\n"
+"PO-Revision-Date: 2015-11-12 17:17+0200\n"
+"Last-Translator: root <arjenbalfoort@solydxk.com>\n"
+"Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
 #: ../usr/lib/usb-creator/main.py:37
 msgid "Unexpected error"
@@ -121,11 +120,11 @@ msgstr "kB nog te kopiëren:"
 msgid "Check md5sum of ISO..."
 msgstr "Controleer md5sum van ISO..."
 
-#: ../usr/lib/usb-creator/usbcreator.py:123
+#: ../usr/lib/usb-creator/usbcreator.py:125
 msgid "Version"
 msgstr "Versie"
 
-#: ../usr/lib/usb-creator/usbcreator.py:142
+#: ../usr/lib/usb-creator/usbcreator.py:144
 msgid ""
 "Cannot add ISO from path: {}.\n"
 "Please, remove the ISO path or browse for an existing ISO."
@@ -133,7 +132,7 @@ msgstr ""
 "Kan de ISO niet toevoegen van pad: {}.\n"
 "Verwijder het ISO pad of zoek naar een bestaand ISO bestand."
 
-#: ../usr/lib/usb-creator/usbcreator.py:152
+#: ../usr/lib/usb-creator/usbcreator.py:154
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
@@ -141,21 +140,21 @@ msgstr ""
 "Er is onvoldoende ruimte over op de USB stick.\n"
 "Verwijder onnodige bestanden voordat u verder gaat."
 
-#: ../usr/lib/usb-creator/usbcreator.py:175
+#: ../usr/lib/usb-creator/usbcreator.py:177
 msgid "Are you sure you want to remove the selected ISO from the device?"
 msgstr ""
 "Weet u zeker dat u het geselecteerde ISO bestand van het apparaat wilt "
 "verwijderen?"
 
-#: ../usr/lib/usb-creator/usbcreator.py:197
+#: ../usr/lib/usb-creator/usbcreator.py:199
 msgid "Select ISO"
 msgstr "Selecteer ISO"
 
-#: ../usr/lib/usb-creator/usbcreator.py:250
+#: ../usr/lib/usb-creator/usbcreator.py:252
 msgid "Unmount"
 msgstr "Ontkoppel"
 
-#: ../usr/lib/usb-creator/usbcreator.py:255
+#: ../usr/lib/usb-creator/usbcreator.py:257
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
@@ -163,51 +162,51 @@ msgstr ""
 "Kon het apparaat niet ontkoppelen.\n"
 "Ontkoppel het apparaat handmatig."
 
-#: ../usr/lib/usb-creator/usbcreator.py:258
+#: ../usr/lib/usb-creator/usbcreator.py:260
 msgid "You can now safely remove the device."
 msgstr "U kunt het apparaat nu veilig verwijderen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:506
+#: ../usr/lib/usb-creator/usbcreator.py:518
 msgid "Run this application with root permission."
 msgstr "Start de applicatie met root permissie."
 
-#: ../usr/lib/usb-creator/usbcreator.py:508
+#: ../usr/lib/usb-creator/usbcreator.py:520
 msgid "Wrong arguments were passed to usb-creator."
 msgstr "Er zijn verkeerde argumenten voor usb-creator gebruikt."
 
-#: ../usr/lib/usb-creator/usbcreator.py:510
+#: ../usr/lib/usb-creator/usbcreator.py:522
 msgid "The device was not found or no device was given."
 msgstr "Het apparaat was niet gevonden of er was geen apparaat opgegeven."
 
-#: ../usr/lib/usb-creator/usbcreator.py:512
+#: ../usr/lib/usb-creator/usbcreator.py:524
 msgid "Given ISO path was not found."
 msgstr "Gegeven ISO pad was niet gevonden."
 
-#: ../usr/lib/usb-creator/usbcreator.py:514
+#: ../usr/lib/usb-creator/usbcreator.py:526
 msgid "Device is in use by another application."
 msgstr "Het apparaat wordt door een andere applicatie gebruikt"
 
-#: ../usr/lib/usb-creator/usbcreator.py:516
+#: ../usr/lib/usb-creator/usbcreator.py:528
 msgid "Unable to mount the device."
 msgstr "Kan het apparaat niet koppelen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:518
+#: ../usr/lib/usb-creator/usbcreator.py:530
 msgid "Md5sum mismatch."
 msgstr "Md5sum komt niet overeen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:520
+#: ../usr/lib/usb-creator/usbcreator.py:532
 msgid "The device has no fat32 partition."
 msgstr "Het apparaat heeft geen fat32 partitie."
 
-#: ../usr/lib/usb-creator/usbcreator.py:522
+#: ../usr/lib/usb-creator/usbcreator.py:534
 msgid "The device has no bootloader installed."
 msgstr "Het apparaat heeft geen bootloader geïnstalleerd."
 
-#: ../usr/lib/usb-creator/usbcreator.py:524
+#: ../usr/lib/usb-creator/usbcreator.py:536
 msgid "There is not enough space available on the device."
 msgstr "Er is op het apparaat onvoldoende ruimte beschikbaar."
 
-#: ../usr/lib/usb-creator/usbcreator.py:526
+#: ../usr/lib/usb-creator/usbcreator.py:538
 msgid ""
 "Unable to guess distribution from ISO name.\n"
 "Make sure you have the distribution name in the ISO name."
@@ -215,7 +214,7 @@ msgstr ""
 "Kan de distributie a.h.v. de ISO naam niet raden.\n"
 "Zorg ervoor dat ISO naam de distributienaam bevat."
 
-#: ../usr/lib/usb-creator/usbcreator.py:529
+#: ../usr/lib/usb-creator/usbcreator.py:541
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
@@ -223,7 +222,7 @@ msgstr ""
 "Een onbekende fout is opgetreden.\n"
 "Bezoek ons forum: http://forums.solydxk.com"
 
-#: ../usr/lib/usb-creator/usbcreator.py:533
+#: ../usr/lib/usb-creator/usbcreator.py:545
 msgid "The USB was successfully written."
 msgstr "De USB is succesvol geschreven."
 
@@ -234,3 +233,140 @@ msgstr "Maak een multi-boot USB met de USB Creator"
 #: ../usr/share/applications/usb-creator.desktop.in.h:2
 msgid "Create a multi-boot USB"
 msgstr "Maak een multi-boot USB"
+
+#: en/help.html+html.body.h1:8
+msgid "USB Creator Help"
+msgstr "USB Creator Help"
+
+#: en/help.html+html.body.div.h2:10
+msgid "Description"
+msgstr "Omschrijving"
+
+#: en/help.html+html.body.div.p:11
+msgid ""
+"The USB Creator is a tool to help users to create a bootable flash drive "
+"with multiple Linux operating systems."
+msgstr ""
+"De USB Creator is een tool om gebruikers te helpen een bootable flash drive "
+"met meerdere Linux besturingssystemen te creëren."
+
+#: en/help.html+html.body.div.h2:13
+msgid "Important"
+msgstr "Belangrijk"
+
+#: en/help.html+html.body.div.p:14
+msgid ""
+"Make sure you backed up all important data from the flash drive before you "
+"start."
+msgstr ""
+"Zorg ervoor dat u een backup heeft gemaakt van alle belangrijke bestanden "
+"van de flash drive voordat u begint."
+
+#: en/help.html+html.body.div.h2:16
+msgid "Commands"
+msgstr "Commando's"
+
+#: en/help.html+html.body.div.p:17
+msgid ""
+"You can also use the USB Creator from the terminal. Here are some examples:"
+msgstr ""
+"U kunt de USB Creator ook in de terminal gebruiken. Hier zijn enkele "
+"voorbeelden:"
+
+#: en/help.html+html.body.div.h3:19
+msgid "# usb-creator -f -i /path/to/my.iso -m"
+msgstr "# usb-creator -f -i /path/to/my.iso -m"
+
+#: en/help.html+html.body.div.p:20
+msgid ""
+"This will format the flash drive, copy the ISO file to the flash drive and "
+"check the md5sum of the copied ISO file with the original ISO file."
+msgstr ""
+"Dit zal de flash drive formatteren, het ISO bestand naar de flash drive "
+"kopiëren en controleert de md5sum van het gekopieerde ISO bestand met die "
+"van het originele ISO bestand."
+
+#: en/help.html+html.body.div.h3:22
+msgid "# usb-creator -b -g -r"
+msgstr "# usb-creator -b -g -r"
+
+#: en/help.html+html.body.div.p:23
+msgid ""
+"This will try to repair an unbootable flash drive that already contains ISO "
+"files."
+msgstr ""
+"Dit commando zal een unbootable flash drive dat al ISO bestanden heeft, "
+"proberen te herstellen."
+
+#: en/help.html+html.body.div.h3:25
+msgid "# usb-creator -h"
+msgstr "# usb-creator -h"
+
+#: en/help.html+html.body.div.p:26
+msgid "This will show all available options and their usage."
+msgstr "Dit zal alle beschikbare opties en het gebruik ervan laten zien."
+
+#: en/help.html+html.body.div.h2:28
+msgid "Hidden features"
+msgstr "Verborgen functies"
+
+#: en/help.html+html.body.div.p:29
+msgid ""
+"When you remove the ISO file name from the ISO field, USB Creator will "
+"calculate the space needed for all ISO files in that directory."
+msgstr ""
+"Wanneer u de naam van het ISO bestand van het ISO veld verwijderd, zal de "
+"USB Creator de ruimte die nodig is voor alle ISO bestanden in die map "
+"berekenen."
+
+#: en/help.html+html.body.div.p:30
+msgid ""
+"You can change the order in which the ISO files are displayed in the menu by "
+"adding a number in front of the ISO file name, e.g.: \"01-MyDistro-amd64.iso"
+"\"."
+msgstr ""
+"U kunt de volgorde waarin de ISO bestanden worden weergegeven in het menu "
+"veranderen door een getal aan het begin van de ISO naam toe te voegen, "
+"bijvoorbeeld: \"01-MyDistro-amd64.iso\"."
+
+#: en/help.html+html.body.div.p:31
+msgid ""
+"Symbolic links are followed but the symbolic links must have the \".iso\" "
+"extension to make it work."
+msgstr ""
+"Symbolische links worden gevolgd, maar de symbolische links moeten wel de \"."
+"iso\" extensie hebben."
+
+#: en/help.html+html.body.div.h2:33
+msgid "Your ISO is not booting?"
+msgstr "Boot uw ISO bestand niet?"
+
+#: en/help.html+html.body.div.p:34
+msgid ""
+"On our <a href=\"https://github.com/SolydXK/usb-creator\" target=\"_blank"
+"\">GitHub</a> page you can see a list of tested distributions but not all "
+"can be booted directly from the ISO file. Check the distribution's forum if "
+"it can be booted directly from the ISO file."
+msgstr ""
+"Op onze <a href=\"https://github.com/SolydXK/usb-creator\" target=\"_blank"
+"\">GitHub</a> pagina vindt u een lijst met geteste distributies. Niet alle "
+"ISO's kunnen direct van het ISO bestand worden opgestart. Controleer dit op "
+"het forum van de distributie."
+
+#: en/help.html+html.body.div.p:35
+msgid ""
+"The menu is configured in a file which you can find on your flash drive: /"
+"boot/grub/grub.cfg"
+msgstr ""
+"Het menu is geconfigureerd in een bestand dat u kunt vinden op uw flash "
+"drive: /boot/grub/grub.cfg"
+
+#: en/help.html+html.body.div.p:36
+msgid ""
+"Please help improve this application by adapting grub.cfg until the ISO "
+"boots and post your changes on GitHub or our <a href=\"http://forums.solydxk."
+"com\" target=\"_blank\">forum</a>."
+msgstr ""
+"Help ons deze applicatie te verbeteren door grub.cfg aan te passen totdat de "
+"ISO opstart. Post uw wijzigingen op GitHub of ons <a href=\"http://forums."
+"solydxk.com\" target=\"_blank\">forum</a>."
