@@ -918,7 +918,7 @@ else
       exit 10
     else
       echo "Rsync $ISO to device..." | tee -a $LOG
-      rsync -L -K -r -v --progress --modify-window=1 -c "$ISO" "$MOUNT/" | tee -a $LOG
+      rsync -L -K -r -v --progress --inplace --modify-window=1 -c "$ISO" "$MOUNT/" | tee -a $LOG
       echo
       wait_until_done $DEVICE & 
       sync
