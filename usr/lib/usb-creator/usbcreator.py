@@ -95,8 +95,8 @@ class USBCreator(object):
         self.device['has_partition'] = False
         self.device['mount'] = ''
         self.device['available'] = 0
-        self.device['new_iso'] = ''
-        self.device['new_iso_required'] = 0
+        self.device["new_iso"] = ''
+        self.device["new_iso_required"] = 0
         self.logos = self.get_logos()
         self.queue = Queue(-1)
         self.threads = {}
@@ -204,28 +204,30 @@ class USBCreator(object):
     def on_btnClear_clicked(self, widget):
         self.txtIso.set_text('')
 
-    def on_txtIso_changed(self, widget):
+    def on_txtIso_changed(self, widget=None):
         iso_path = self.txtIso.get_text()
         if exists(iso_path):
             if isdir(iso_path):
                 isos = glob(join(iso_path, '*.iso'))
-                required = 0
-                for iso in isos:
-                    # Check if these ISOs overwrite current USB ISOs
-                    check_usb_iso = join(self.device["mount"], basename(iso))
-                    check_usb_iso_size = 0
-                    if exists(check_usb_iso):
-                        check_usb_iso_size = self.get_iso_size(check_usb_iso)
-                    required += (self.get_iso_size(iso) - check_usb_iso_size)
-                self.lblRequired.set_label("{}: {} MB".format(self.required_text, int(required / 1024)))
-                # Save the info
-                if required > 0:
-                    self.device['new_iso'] = iso_path
-                    self.device['new_iso_required'] = required
+                if isos:
+                    required = 0
+                    for iso in isos:
+                        # Check if these ISOs overwrite current USB ISOs
+                        check_usb_iso = join(self.device["mount"], basename(iso))
+                        check_usb_iso_size = 0
+                        if exists(check_usb_iso):
+                            check_usb_iso_size = self.get_iso_size(check_usb_iso)
+                        required += (self.get_iso_size(iso) - check_usb_iso_size)
+                    if required < 0:
+                        required = 0
+                    self.lblRequired.set_label("{}: {} MB".format(self.required_text, int(required / 1024)))
+                    # Save the info
+                    self.device["new_iso"] = iso_path
+                    self.device["new_iso_required"] = required
                     self.log.write("New ISO directory: {}, {}".format(iso_path, required))
                 else:
-                    self.device['new_iso'] = ''
-                    self.device['new_iso_required'] = 0
+                    self.device["new_iso"] = ''
+                    self.device["new_iso_required"] = 0
                     self.log.write("New ISO directory does not contain ISOs: {}".format(iso_path))
             else:
                 # Check if this ISO overwrites current USB ISO
@@ -236,12 +238,12 @@ class USBCreator(object):
                 required = (self.get_iso_size(iso_path) - check_usb_iso_size)
                 self.lblRequired.set_label("{}: {} MB".format(self.required_text, int(required / 1024)))
                 # Save the info
-                self.device['new_iso'] = iso_path
-                self.device['new_iso_required'] = required
+                self.device["new_iso"] = iso_path
+                self.device["new_iso_required"] = required
                 self.log.write("New ISO: {}, {}".format(iso_path, required))
         else:
-            self.device['new_iso'] = ''
-            self.device['new_iso_required'] = 0
+            self.device["new_iso"] = ''
+            self.device["new_iso_required"] = 0
             self.lblRequired.set_text('')
 
     def on_btnRefresh_clicked(self, widget=None):
@@ -298,6 +300,11 @@ class USBCreator(object):
             self.device['mount'] = mount
             self.device['available'] = available
             self.log.write("Selected device info: {}".format(self.device))
+
+            # Update info
+            iso_path = self.txtIso.get_text().strip()
+            if iso_path != "" and exists(iso_path):
+                self.on_txtIso_changed()
         else:
             self.fill_treeview_usbcreator()
             self.lblAvailable.set_label('')

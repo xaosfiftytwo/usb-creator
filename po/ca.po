@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-12 18:59+0100\n"
+"POT-Creation-Date: 2015-11-12 21:22+0100\n"
 "PO-Revision-Date: 2015-11-12 09:37+0000\n"
 "Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/solydxk/usb-creator/"
@@ -149,11 +149,11 @@ msgstr "Esteu segurs de voler eliminar la ISO seleccionada del dispositiu? "
 msgid "Select ISO"
 msgstr "Seleccioneu la ISO "
 
-#: ../usr/lib/usb-creator/usbcreator.py:252
+#: ../usr/lib/usb-creator/usbcreator.py:254
 msgid "Unmount"
 msgstr "Desmunta "
 
-#: ../usr/lib/usb-creator/usbcreator.py:257
+#: ../usr/lib/usb-creator/usbcreator.py:259
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
@@ -161,57 +161,57 @@ msgstr ""
 "No es pot desmuntar el dispositiu.\n"
 "Si us plau, desmunteu-lo manualment. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:260
+#: ../usr/lib/usb-creator/usbcreator.py:262
 msgid "You can now safely remove the device."
 msgstr "Ara podeu retirar el dispositiu amb seguretat. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:518
+#: ../usr/lib/usb-creator/usbcreator.py:525
 msgid "Run this application with root permission."
 msgstr "Executeu aquesta aplicació amb permisos d'administrador. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:520
+#: ../usr/lib/usb-creator/usbcreator.py:527
 msgid "Wrong arguments were passed to usb-creator."
 msgstr "S'han passat arguments erronis al USB-Creator. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:522
+#: ../usr/lib/usb-creator/usbcreator.py:529
 msgid "The device was not found or no device was given."
 msgstr "No es troba els dispositiu o no s'ha especificat. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:524
+#: ../usr/lib/usb-creator/usbcreator.py:531
 msgid "Given ISO path was not found."
 msgstr "No es troba el camí especificat cap a la ISO. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:526
+#: ../usr/lib/usb-creator/usbcreator.py:533
 msgid "Device is in use by another application."
 msgstr "El dispositiu està en ús per una altra aplicació. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:528
+#: ../usr/lib/usb-creator/usbcreator.py:535
 msgid "Unable to mount the device."
 msgstr "No es pot muntar el dispositiu. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:530
+#: ../usr/lib/usb-creator/usbcreator.py:537
 msgid "Md5sum mismatch."
 msgstr "La md5sum no concorda. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:532
+#: ../usr/lib/usb-creator/usbcreator.py:539
 msgid "The device has no fat32 partition."
 msgstr "El dispositiu no té una partició FAT32. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:534
+#: ../usr/lib/usb-creator/usbcreator.py:541
 msgid "The device has no bootloader installed."
 msgstr "El dispositiu no té un arrencador instal·lat. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:536
+#: ../usr/lib/usb-creator/usbcreator.py:543
 msgid "There is not enough space available on the device."
 msgstr "No hi ha prou espai disponible al dispositiu. "
 
-#: ../usr/lib/usb-creator/usbcreator.py:538
+#: ../usr/lib/usb-creator/usbcreator.py:545
 msgid ""
 "Unable to guess distribution from ISO name.\n"
 "Make sure you have the distribution name in the ISO name."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:541
+#: ../usr/lib/usb-creator/usbcreator.py:548
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
@@ -219,7 +219,7 @@ msgstr ""
 "S'ha produït un error desconegut.\n"
 "Si us plau, visiteu el nostre fòrum de suport: http://forums.solydxk.com "
 
-#: ../usr/lib/usb-creator/usbcreator.py:545
+#: ../usr/lib/usb-creator/usbcreator.py:552
 msgid "The USB was successfully written."
 msgstr "S'ha enregistrat a l'USB amb èxit. "
 
@@ -339,4 +339,10 @@ msgid ""
 "Please help improve this application by adapting grub.cfg until the ISO "
 "boots and post your changes on GitHub or our <a href=\"http://forums.solydxk."
 "com\" target=\"_blank\">forum</a>."
+msgstr ""
+
+#: en/help.html+html.body.div.p:37
+msgid ""
+"Don't forget to attach the log file when you post an issue on our forum: /"
+"var/log/usb-creator.log"
 msgstr ""
