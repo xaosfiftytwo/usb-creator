@@ -215,10 +215,11 @@ class USBCreator(object):
                     required = 0
                     for iso in isos:
                         # Check if these ISOs overwrite current USB ISOs
-                        check_usb_iso = join(self.device["mount"], basename(iso))
                         check_usb_iso_size = 0
-                        if exists(check_usb_iso):
-                            check_usb_iso_size = self.get_iso_size(check_usb_iso)
+                        if not self.chkFormatDevice.get_active():
+                            check_usb_iso = join(self.device["mount"], basename(iso))
+                            if exists(check_usb_iso):
+                                check_usb_iso_size = self.get_iso_size(check_usb_iso)
                         required += (self.get_iso_size(iso) - check_usb_iso_size)
                     if required < 0:
                         required = 0
@@ -233,10 +234,11 @@ class USBCreator(object):
                     self.log.write("New ISO directory does not contain ISOs: {}".format(iso_path))
             else:
                 # Check if this ISO overwrites current USB ISO
-                check_usb_iso = join(self.device["mount"], basename(iso_path))
                 check_usb_iso_size = 0
-                if exists(check_usb_iso):
-                    check_usb_iso_size = self.get_iso_size(check_usb_iso)
+                if not self.chkFormatDevice.get_active():
+                    check_usb_iso = join(self.device["mount"], basename(iso_path))
+                    if exists(check_usb_iso):
+                        check_usb_iso_size = self.get_iso_size(check_usb_iso)
                 required = (self.get_iso_size(iso_path) - check_usb_iso_size)
                 self.lblRequired.set_label("{}: {} MB".format(self.required_text, int(required / 1024)))
                 # Save the info
@@ -277,17 +279,21 @@ class USBCreator(object):
                 # udisks returns bytes, while df returns kbs
                 size = int(int(usb_size[0].split(":")[1].strip()) / 1024)
 
+            # Assume that the USB is empty (will check later)
+            available = size
+
             # Get free size on USB
             has_partition = self.device_has_partition(device)
             if has_partition:
                 mount = self.get_device_mount(device)
-                free_size = getoutput("df --output=avail {}1 | awk 'NR==2'".format(device))
-                if free_size:
-                    available = int(free_size[0])
-                self.chkFormatDevice.set_sensitive(True)
-                self.chkFormatDevice.set_active(False)
+                # This function can be called from on_chkFormatDevice_toggled
+                if widget != self.chkFormatDevice:
+                    self.chkFormatDevice.set_sensitive(True)
+                    self.chkFormatDevice.set_active(False)
+                    free_size = getoutput("df --output=avail {}1 | awk 'NR==2'".format(device))
+                    if free_size:
+                        available = int(free_size[0])
             else:
-                available = size
                 self.chkFormatDevice.set_active(True)
                 self.chkFormatDevice.set_sensitive(False)
 
@@ -321,11 +327,8 @@ class USBCreator(object):
             self.device["new_iso_required"] = 0
 
     def on_chkFormatDevice_toggled(self, widget):
-        # Recalculate available space
-        available = self.device["available"]
-        if widget.get_active():
-            available = self.device["size"]
-        self.lblAvailable.set_label("{}: {} MB".format(self.available_text, int(available / 1024)))
+        # Recalculate available space and requied space
+        self.on_cmbDevice_changed(widget)
 
     def on_btnHelp_clicked(self, widget):
         # Open the help file as the real user (not root)

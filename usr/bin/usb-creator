@@ -913,29 +913,25 @@ else
   # watch -t grep -e Dirty: /proc/meminfo
   for ISO in $ISOS; do
     ISONAME=$(basename $ISO)
-    ISOSIZE=$(du -k "$ISO" | awk '{print $1}')
-    FREESIZE=$(df --output=avail $DEVICE'1' | awk 'NR==2')
-    if [ $ISOSIZE -gt $FREESIZE ]; then
-      if [ -f "$MOUNT/$ISONAME" ]; then
-        rm -vf "$MOUNT/$ISONAME" | tee -a $LOG
-        FREESIZE=$(df --output=avail $DEVICE'1' | awk 'NR==2')
-      fi
+    if [ -e "$MOUNT/$ISONAME" ]; then
+      rm -v "$MOUNT/$ISONAME" | tee -a $LOG
     fi
+    ISOSIZE=$(du -Lk "$ISO" | awk '{print $1}')
+    FREESIZE=$(df --output=avail $DEVICE'1' | awk 'NR==2')
     if [ $ISOSIZE -gt $FREESIZE ]; then
       echo "Not enough space on $DEVICE. Needed: $ISOSIZE, Available: $FREESIZE" | tee -a $LOG
       exit 10
-    else
-      echo "Rsync $ISO to device..." | tee -a $LOG
-      rsync -L -K -r -v --progress --inplace --modify-window=1 -c "$ISO" "$MOUNT/" | tee -a $LOG
-      echo
-      wait_until_done $DEVICE & 
-      sync
-      # Add to history file when not already in history file
-      if ! grep -q $ISO "$ISOHISTORY"; then
-	echo $ISO >> $ISOHISTORY
-      fi
-      GRUB=true
     fi
+    echo "Rsync $ISO to device..." | tee -a $LOG
+    rsync -L -K -r -v --progress --inplace --modify-window=1 -c "$ISO" "$MOUNT/" | tee -a $LOG
+    echo
+    wait_until_done $DEVICE & 
+    sync
+    # Add to history file when not already in history file
+    if ! grep -q $ISO "$ISOHISTORY"; then
+      echo $ISO >> $ISOHISTORY
+    fi
+    GRUB=true
   done
   
   # Configure Grub
