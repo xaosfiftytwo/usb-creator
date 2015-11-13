@@ -163,6 +163,8 @@ class USBCreator(object):
                 arguments.append("-r")
                 arguments.append("-b")
                 arguments.append("-g")
+                # This should use the history file to get the original md5sum
+                arguments.append("-m")
             if exists(iso):
                 arguments.append("-i \"{}\"".format(iso))
                 arguments.append("-m")
@@ -192,7 +194,7 @@ class USBCreator(object):
         file_filter.add_mime_type("application/x-cd-image")
         file_filter.add_pattern("*.iso")
 
-        start_dir = dirname(self.txtIso.get_text())
+        start_dir = dirname(self.txtIso.get_text().strip())
         if not exists(start_dir):
             start_dir = expanduser("~")
 
@@ -205,7 +207,7 @@ class USBCreator(object):
         self.txtIso.set_text('')
 
     def on_txtIso_changed(self, widget=None):
-        iso_path = self.txtIso.get_text()
+        iso_path = self.txtIso.get_text().strip()
         if exists(iso_path):
             if isdir(iso_path):
                 isos = glob(join(iso_path, '*.iso'))

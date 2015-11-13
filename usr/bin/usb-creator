@@ -521,9 +521,15 @@ function write_grub_menu() {
 
 # Create user history file
 LOGNAME=$(logname)
-ISOHISTDIR=$(eval echo "~$LOGNAME/usb-creator")
+ISOHISTDIR=$(eval echo "~$LOGNAME/.usb-creator")
 if [ ! -e "$ISOHISTDIR" ]; then
-  mkdir -p "$ISOHISTDIR"
+  OLDHISTDIR=$(eval echo "~$LOGNAME/usb-creator")
+  if [ -e "$ISOHISTDIR" ]; then
+    mv "$OLDHISTDIR" "$ISOHISTDIR"
+  fi
+  if [ ! -e "$ISOHISTDIR" ]; then
+    mkdir -p "$ISOHISTDIR"
+  fi
   chown -R $LOGNAME $ISOHISTDIR
 fi
 ISOHISTORY="$ISOHISTDIR/isohistory.txt"
@@ -845,7 +851,9 @@ else
   
   # Check if the ISO exists
   for ISO in $ISOS; do
+    ISO=$(trim $ISO)
     if [ -d $ISO ]; then
+      ISO=$(echo $ISO | sed 's/\/$//')
       ISOS=$(ls $ISO/*.iso)
       break
     elif [ ! -e "$ISO" ]; then
