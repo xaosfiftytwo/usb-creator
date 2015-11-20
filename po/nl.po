@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-12 21:22+0100\n"
-"PO-Revision-Date: 2015-11-12 18:01+0000\n"
+"POT-Creation-Date: 2015-11-20 12:46+0100\n"
+"PO-Revision-Date: 2015-11-13 15:51+0000\n"
 "Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/solydxk/usb-creator/language/"
 "nl/)\n"
@@ -141,21 +141,21 @@ msgstr ""
 "Er is onvoldoende ruimte over op de USB stick.\n"
 "Verwijder onnodige bestanden voordat u verder gaat."
 
-#: ../usr/lib/usb-creator/usbcreator.py:177
+#: ../usr/lib/usb-creator/usbcreator.py:179
 msgid "Are you sure you want to remove the selected ISO from the device?"
 msgstr ""
 "Weet u zeker dat u het geselecteerde ISO bestand van het apparaat wilt "
 "verwijderen?"
 
-#: ../usr/lib/usb-creator/usbcreator.py:199
+#: ../usr/lib/usb-creator/usbcreator.py:201
 msgid "Select ISO"
 msgstr "Selecteer ISO"
 
-#: ../usr/lib/usb-creator/usbcreator.py:254
+#: ../usr/lib/usb-creator/usbcreator.py:258
 msgid "Unmount"
 msgstr "Ontkoppel"
 
-#: ../usr/lib/usb-creator/usbcreator.py:259
+#: ../usr/lib/usb-creator/usbcreator.py:263
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
@@ -163,51 +163,51 @@ msgstr ""
 "Kon het apparaat niet ontkoppelen.\n"
 "Ontkoppel het apparaat handmatig."
 
-#: ../usr/lib/usb-creator/usbcreator.py:262
+#: ../usr/lib/usb-creator/usbcreator.py:266
 msgid "You can now safely remove the device."
 msgstr "U kunt het apparaat nu veilig verwijderen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:525
+#: ../usr/lib/usb-creator/usbcreator.py:530
 msgid "Run this application with root permission."
 msgstr "Start de applicatie met root permissie."
 
-#: ../usr/lib/usb-creator/usbcreator.py:527
+#: ../usr/lib/usb-creator/usbcreator.py:532
 msgid "Wrong arguments were passed to usb-creator."
 msgstr "Er zijn verkeerde argumenten voor usb-creator gebruikt."
 
-#: ../usr/lib/usb-creator/usbcreator.py:529
+#: ../usr/lib/usb-creator/usbcreator.py:534
 msgid "The device was not found or no device was given."
 msgstr "Het apparaat was niet gevonden of er was geen apparaat opgegeven."
 
-#: ../usr/lib/usb-creator/usbcreator.py:531
+#: ../usr/lib/usb-creator/usbcreator.py:536
 msgid "Given ISO path was not found."
 msgstr "Gegeven ISO pad was niet gevonden."
 
-#: ../usr/lib/usb-creator/usbcreator.py:533
+#: ../usr/lib/usb-creator/usbcreator.py:538
 msgid "Device is in use by another application."
 msgstr "Het apparaat wordt door een andere applicatie gebruikt"
 
-#: ../usr/lib/usb-creator/usbcreator.py:535
+#: ../usr/lib/usb-creator/usbcreator.py:540
 msgid "Unable to mount the device."
 msgstr "Kan het apparaat niet koppelen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:537
+#: ../usr/lib/usb-creator/usbcreator.py:542
 msgid "Md5sum mismatch."
 msgstr "Md5sum komt niet overeen."
 
-#: ../usr/lib/usb-creator/usbcreator.py:539
+#: ../usr/lib/usb-creator/usbcreator.py:544
 msgid "The device has no fat32 partition."
 msgstr "Het apparaat heeft geen fat32 partitie."
 
-#: ../usr/lib/usb-creator/usbcreator.py:541
+#: ../usr/lib/usb-creator/usbcreator.py:546
 msgid "The device has no bootloader installed."
 msgstr "Het apparaat heeft geen bootloader geïnstalleerd."
 
-#: ../usr/lib/usb-creator/usbcreator.py:543
+#: ../usr/lib/usb-creator/usbcreator.py:548
 msgid "There is not enough space available on the device."
 msgstr "Er is op het apparaat onvoldoende ruimte beschikbaar."
 
-#: ../usr/lib/usb-creator/usbcreator.py:545
+#: ../usr/lib/usb-creator/usbcreator.py:550
 msgid ""
 "Unable to guess distribution from ISO name.\n"
 "Make sure you have the distribution name in the ISO name."
@@ -215,7 +215,7 @@ msgstr ""
 "Kan de distributie a.h.v. de ISO naam niet raden.\n"
 "Zorg ervoor dat ISO naam de distributienaam bevat."
 
-#: ../usr/lib/usb-creator/usbcreator.py:548
+#: ../usr/lib/usb-creator/usbcreator.py:553
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
@@ -223,7 +223,7 @@ msgstr ""
 "Een onbekende fout is opgetreden.\n"
 "Bezoek ons forum: http://forums.solydxk.com"
 
-#: ../usr/lib/usb-creator/usbcreator.py:552
+#: ../usr/lib/usb-creator/usbcreator.py:557
 msgid "The USB was successfully written."
 msgstr "De USB is succesvol geschreven."
 
@@ -377,3 +377,5 @@ msgid ""
 "Don't forget to attach the log file when you post an issue on our forum: /"
 "var/log/usb-creator.log"
 msgstr ""
+"Vergeet niet het logbestand toe te voegen wanneer u een probleem post op ons "
+"forum: /var/log/usb-creator.log"

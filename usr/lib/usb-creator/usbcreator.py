@@ -551,7 +551,7 @@ class USBCreator(object):
                                                                "Make sure you have the distribution name in the ISO name."))
                 else:
                     msg = _("An unknown error accured.\n"
-                    "Please, visit our forum for support: http://forums.solydxk.com")
+                            "Please, visit our forum for support: http://forums.solydxk.com")
                     ErrorDialog(self.window.get_title(), msg)
             else:
                 msg = _("The USB was successfully written.")
@@ -566,16 +566,20 @@ class USBCreator(object):
     def get_language_dir(self):
         # First test if full locale directory exists, e.g. html/pt_BR,
         # otherwise perhaps at least the language is there, e.g. html/pt
+        # and if that doesn't work, try html/pt_PT
         lang = self.get_current_language()
         path = join(self.htmlDir, lang)
-        if path != self.htmlDir:
+        if not isdir(path):
+            base_lang = lang.split('_')[0].lower()
+            path = join(self.htmlDir, base_lang)
             if not isdir(path):
-                path = join(self.htmlDir, lang.split('_')[0].lower())
+                path = join(self.htmlDir, "{}_{}".format(base_lang, base_lang.upper()))
                 if not isdir(path):
-                    return join(self.htmlDir, 'en')
-            return path
-        # else, just return English slides
-        return join(self.htmlDir, 'en')
+                    path = join(self.htmlDir, 'en')
+        return path
 
     def get_current_language(self):
-        return os.environ.get('LANG', 'US').split('.')[0]
+        lang = os.environ.get('LANG', 'US').split('.')[0]
+        if lang == '':
+            lang = 'en'
+        return lang

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>USB Creator Hilfe</h1>
+	<div class="main">
+		<h2>Beschreibung</h2>
+		<p>Der USB Creator ist ein Werkzeug, mit dessen Hilfe ein bootfähiges
+Flash-Laufwerk mit mehreren Linux-Betriebssysteme erstellt werden kann.</p>
+
+		<h2>Wichtig</h2>
+		<p>Bevor Sie beginnen, sollten Sie sicherstellen daß alle wichtigen Daten auf
+dem Flash-Laufwerk gesichert wurden.</p>
+
+		<h2>Befehle</h2>
+		<p>Sie können  USB Creator auch vom Terminal aus bedienen. Hier sind einige
+Beispiele:</p>
+
+		<h3># usb-creator -f -i /path/to/my.iso -m</h3>
+		<p>Damit wird das Flash-Laufwerk formatiert, die ISO Datei auf das Laufwerk
+kopiert und ein md5-Prüfsummenvergleich initialisiert. </p>
+
+		<h3># usb-creator -b -g -r</h3>
+		<p>Dieser Befehl führt einen Reparaturversuch an einem nicht bootbaren
+Flash-Laufwerk durch, auf dem sich bereit eine ISO Datei bedindet.</p>
+		
+		<h3># usb-creator -h</h3>
+		<p>Dieser Befehl wird alle verfügbaren Optionen und Ihre Benutzung anzeigen.</p>
+
+		<h2>Versteckte Eigenschaften</h2>
+		<p>Wenn Sie den ISO Dateinamen aus dem ISO Feld entfernen, wird USB Creator den
+notwendigen Platz für alle ISO Dateien in diesem Verzeichnis berechnen.</p>
+		<p>Die Reihenfolge der im Menü angezeigen ISO Dateien lässt sich durch das
+Hinzufügen einer Nummer vor dem eigentlichen ISO Dateinamen erreichen, wie
+z.B. "01-MeineDistro-amd64.iso"</p>
+		<p>Symbolische Links funktionieren unter der Voraussetzung, dass die eine
+".iso" Erweiterung haben.</p>
+		
+		<h2>Bootet Ihre ISO Datei nicht?</h2>
+		<p>Auf unserer <a href="https://github.com/SolydXK/usb-creator"
+target="_blank">GitHub</a> Seite können Sie eine Liste der getesteten
+Linux-Distributionen einsehen, aber nicht alle können von können direkt von
+der ISO Datei gebootet werden. Schauen Sie im Forum nach, ob die
+Distribution direkt von der ISO Datei gebootet werden kann. </p>
+		<p>Die Konfiguration des Menüs lässt sich über eine Datei bewerkstelligen, die
+Sie auf Ihrem Flash Laufwerk unter /boot/grub/grub.cfg finden.</p>
+		<p>Bitte helfen Sie diese Anwendung zu verbessern, indem Sie die grub.cfg Datei
+solange anpassen, bis die ISO Datei bootet. Bitte teilen Sie uns Ihre
+Verbesserungen auf GitHub oder in unserem <a
+href="http://forums.solydxk.com" target="_blank">Forum</a> mit.</p>
+		<p>Sollten Sie ein Frage in unserem Forum stellen, dann vergessen Sie bitte
+nicht die Log-Datei unter  /var/log/usb-creator.log anzuhängen.</p>
+    </div>
+  </body>
+</html>

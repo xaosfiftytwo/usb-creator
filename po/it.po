@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-12 21:22+0100\n"
+"POT-Creation-Date: 2015-11-20 12:46+0100\n"
 "PO-Revision-Date: 2015-11-12 09:37+0000\n"
 "Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
 "Language-Team: Italian (http://www.transifex.com/solydxk/usb-creator/"
@@ -143,20 +143,20 @@ msgstr ""
 "Si prega di liberare spazio cancellando file non necessari prima di "
 "continuare."
 
-#: ../usr/lib/usb-creator/usbcreator.py:177
+#: ../usr/lib/usb-creator/usbcreator.py:179
 msgid "Are you sure you want to remove the selected ISO from the device?"
 msgstr ""
 "Procedere con la rimozione dell'immagine ISO selezionata dal dispositivo?"
 
-#: ../usr/lib/usb-creator/usbcreator.py:199
+#: ../usr/lib/usb-creator/usbcreator.py:201
 msgid "Select ISO"
 msgstr "Selezionare ISO"
 
-#: ../usr/lib/usb-creator/usbcreator.py:254
+#: ../usr/lib/usb-creator/usbcreator.py:258
 msgid "Unmount"
 msgstr "Smonta"
 
-#: ../usr/lib/usb-creator/usbcreator.py:259
+#: ../usr/lib/usb-creator/usbcreator.py:263
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
@@ -164,57 +164,57 @@ msgstr ""
 "Impossibile smontare il dispositivo.\n"
 "Si prega di smontare il dispositivo manualmente."
 
-#: ../usr/lib/usb-creator/usbcreator.py:262
+#: ../usr/lib/usb-creator/usbcreator.py:266
 msgid "You can now safely remove the device."
 msgstr "È ora possibile rimuovere il dispositivo."
 
-#: ../usr/lib/usb-creator/usbcreator.py:525
+#: ../usr/lib/usb-creator/usbcreator.py:530
 msgid "Run this application with root permission."
 msgstr "Avvia questa applicazione con i permessi di amministratore"
 
-#: ../usr/lib/usb-creator/usbcreator.py:527
+#: ../usr/lib/usb-creator/usbcreator.py:532
 msgid "Wrong arguments were passed to usb-creator."
 msgstr "Sono stati passati argomenti errati a usb-creator."
 
-#: ../usr/lib/usb-creator/usbcreator.py:529
+#: ../usr/lib/usb-creator/usbcreator.py:534
 msgid "The device was not found or no device was given."
 msgstr "Periferica non trovata o nessuna periferica selezionata."
 
-#: ../usr/lib/usb-creator/usbcreator.py:531
+#: ../usr/lib/usb-creator/usbcreator.py:536
 msgid "Given ISO path was not found."
 msgstr "Il percorso fornito per l'immagine ISO non è stato trovato."
 
-#: ../usr/lib/usb-creator/usbcreator.py:533
+#: ../usr/lib/usb-creator/usbcreator.py:538
 msgid "Device is in use by another application."
 msgstr "La periferica è in uso da un'altra applicazione."
 
-#: ../usr/lib/usb-creator/usbcreator.py:535
+#: ../usr/lib/usb-creator/usbcreator.py:540
 msgid "Unable to mount the device."
 msgstr "Impossibile montare il dispositivo."
 
-#: ../usr/lib/usb-creator/usbcreator.py:537
+#: ../usr/lib/usb-creator/usbcreator.py:542
 msgid "Md5sum mismatch."
 msgstr "Md5sum non corrispondente."
 
-#: ../usr/lib/usb-creator/usbcreator.py:539
+#: ../usr/lib/usb-creator/usbcreator.py:544
 msgid "The device has no fat32 partition."
 msgstr "Nessuna partizione fat32"
 
-#: ../usr/lib/usb-creator/usbcreator.py:541
+#: ../usr/lib/usb-creator/usbcreator.py:546
 msgid "The device has no bootloader installed."
 msgstr "Nessun bootloader installato sul dispositivo."
 
-#: ../usr/lib/usb-creator/usbcreator.py:543
+#: ../usr/lib/usb-creator/usbcreator.py:548
 msgid "There is not enough space available on the device."
 msgstr "Spazio disponibile non sufficiente sulla periferica."
 
-#: ../usr/lib/usb-creator/usbcreator.py:545
+#: ../usr/lib/usb-creator/usbcreator.py:550
 msgid ""
 "Unable to guess distribution from ISO name.\n"
 "Make sure you have the distribution name in the ISO name."
 msgstr ""
 
-#: ../usr/lib/usb-creator/usbcreator.py:548
+#: ../usr/lib/usb-creator/usbcreator.py:553
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
@@ -222,7 +222,7 @@ msgstr ""
 "Errore inatteso.\n"
 "Si prega di visitare il forum di supporto: http://forums.solydxk.com"
 
-#: ../usr/lib/usb-creator/usbcreator.py:552
+#: ../usr/lib/usb-creator/usbcreator.py:557
 msgid "The USB was successfully written."
 msgstr "Scrittura USB completata con successo."
 
