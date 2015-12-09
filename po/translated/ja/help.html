@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>USB Creator ヘルプ</h1>
+	<div class="main">
+		<h2>説明</h2>
+		<p>USB Creator は、複数の Linux オペレーティングシステムが起動できるフラッシュドライブを作成するのに役立つツールです。</p>
+
+		<h2>重要</h2>
+		<p>開始前に、フラッシュドライブにある重要なデータをすべてバックアップして下さい。</p>
+
+		<h2>コマンド</h2>
+		<p>ターミナルから USB Creator を使用することができます。ここでいくつかの例を示します。</p>
+
+		<h3># usb-creator -f -i /path/to/my.iso -m</h3>
+		<p>フラッシュドライブをフォーマットし、ISO ファイルをコピーした後、オリジナルの ISO ファイルとコピーした ISO ファイルとの MD5
+チェックサムを確認します。</p>
+
+		<h3># usb-creator -b -g -r</h3>
+		<p>すでに ISO ファイルが含まれている起動できないフラッシュドライブの修復を試みます。</p>
+		
+		<h3># usb-creator -h</h3>
+		<p>すべての利用可能なオプションとその使用方法を表示します。</p>
+
+		<h2>隠し機能</h2>
+		<p>ISO フィールドから ISO ファイル名を削除すると、USB Creator はそのディレクトリ内にあるすべての ISO
+ファイルに必要なスペースを計算します。</p>
+		<p>ISO ファイルは、ISO ファイル名の前に数を追加することによって、メニューに表示される順序を変更することができます。例えば:
+"01-MyDistro-amd64.iso"</p>
+		<p>シンボリックリンクは動作します。ただし動作させるためには ".iso" 拡張子にしている必要があります。</p>
+		
+		<h2>ISO が起動しない？</h2>
+		<p><a href="https://github.com/SolydXK/usb-creator" target="_blank">GitHub</a>
+ページでは、テスト済みのディストリビューション一覧を参照できますが、その ISO ファイルすべてが直接起動できるわけではありません。ISO
+ファイルから直接起動できるかディストリビューションのフォーラムを確認して下さい。</p>
+		<p>メニューは、フラッシュドライブにある次のファイルで設定を見ることができます: /boot/grub/grub.cfg</p>
+		<p>ISO を起動する grub.cfg の適合によって、このアプリケーションを改善したい場合は GitHub または <a
+href="http://forums.solydxk.com" target="_blank">フォーラム</a> で変更内容を投稿してください</p>
+		<p>フォーラムに問題を投稿する場合、ログファイルの添付を忘れないで下さい: /var/log/usb-creator.log</p>
+    </div>
+  </body>
+</html>

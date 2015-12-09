@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>Pomoc USB Creatora</h1>
+	<div class="main">
+		<h2>Opis</h2>
+		<p>USB Creator jest narzędziem do tworzenia wielodystrybucyjnych dysków
+startowych USB </p>
+
+		<h2>Ważne</h2>
+		<p>Upewnij się zanim rozpoczniesz, że zrobiłeś kopię zapasową ważnych danych z
+pendrive'a!</p>
+
+		<h2>Polecenia</h2>
+		<p>USB Creatora można używać również w terminalu. Przykłady:</p>
+
+		<h3># usb-creator -f -i /path/to/my.iso -m</h3>
+		<p>Wykonanie polecenia spowoduje sformatowanie dysku, skopiowanie obrazu ISO na
+dysk i porównanie sumy kontrolnej kopii z oryginałem.</p>
+
+		<h3># usb-creator -b -g -r</h3>
+		<p>Zostanie podjęta próba naprawy nieuruchamiającego się dysku z obrazem ISO.</p>
+		
+		<h3># usb-creator -h</h3>
+		<p>Zostaną wyświetlone dostępne opcje i sposób użycia.</p>
+
+		<h2>Funkcje ukryte</h2>
+		<p>Po usunięciu nazwy pliku ISO z pola ISO, USB Creator obliczy ilość
+przestrzeni potrzebnej dla wszystkich plików ISO w tym folderze.</p>
+		<p>Można zmienić kolejność wyświetlania w menu plików ISO dodając kolejne
+liczby przed nazwą pliku ISO, np. "01-MyDistro-amd64.iso".</p>
+		<p>Linki symboliczne są dopuszczalne ale muszą mieć rozszerzenie ".iso" aby
+mogły byś realizowane.</p>
+		
+		<h2>Plik ISO nie uruchamia się?</h2>
+		<p>Na naszej stronie <a href="https://github.com/SolydXK/usb-creator"
+target="_blank">GitHub</a> można znaleźć listę przetestowanych
+dystrybucji. Nie wszystkie można uruchomić bezpośrednio z pliku ISO. Sprawdź
+na forum dystrybucji czy jest możliwy rozruch z pliku ISO.</p>
+		<p>Menu startowe jest skonfigurowane w pliku /boot/grub/grub.cfg, który
+znajduje się na dysku startowym.</p>
+		<p>Pomóż udoskonalać aplikację adaptując grub.cfg przed rozruchem
+ISO. Wprowadzone zmiany przekaż na nasze  <a
+href="http://forums.solydxk.com" target="_blank">forum</a>.</p>
+		<p>Przesyłając raport o błędzie nie zapomnij o dołączeniu logu
+/var/log/usb-creator.log .</p>
+    </div>
+  </body>
+</html>

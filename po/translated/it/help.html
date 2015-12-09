@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>USB Creator Help</h1>
+	<div class="main">
+		<h2>Descrizione</h2>
+		<p>USB Creator è uno strumento per facilitare la creazione di dispositivi
+avviabili con più sistemi operativi Linux.</p>
+
+		<h2>Importante</h2>
+		<p>Assicurarsi di aver salvato tutti i dati importanti dalla periferica perima
+di incominciare.</p>
+
+		<h2>Comandi</h2>
+		<p>È anche possibile utilizzare USB Creator dal terminale. Di seguito alcuni
+esempi:</p>
+
+		<h3># usb-creator -f -i /path/to/my.iso -m</h3>
+		<p>Questa azione formatterà il dispositivo, copierà l'immagine ISO e
+controllerà l'md5sum dell'immagine ISO copiata con l'immagine originale.</p>
+
+		<h3># usb-creator -b -g -r</h3>
+		<p>Questa azione proverà a riparare un dispositivo non avviabile con immagini
+ISO preesistenti.</p>
+		
+		<h3># usb-creator -h</h3>
+		<p>Mostra ogni opzione disponibile e le relative modalità d'uso.</p>
+
+		<h2>Opzioni nascoste</h2>
+		<p>Rimuovendo il nome del file ISO dal campo ISO, USB Creator calcolerà lo
+spazio necessario alle immagini ISO in tale cartella.</p>
+		<p>È possibile modificare l'odine in cui i file ISO sono mostrati nel menu
+aggiungendo un numero prima del nome del file ISO, ad es.:
+"01-LaMiaDistro-amd64.iso".</p>
+		<p>I collegamenti simbolici verrano seguiti ma devono avere l'estensione ".iso"
+per funzionare correttamente.</p>
+		
+		<h2>L'immagine ISO non si avvia?</h2>
+		<p>Sulla nostra pagina di  <a href="https://github.com/SolydXK/usb-creator"
+target="_blank">GitHub</a> è pubblicata una lista di distribuzioni testate
+ma non tutte possono essere avviate direttamente dall'immagine
+ISO. Controllare il forum della distribuzione per accertarsi che sia
+direttamente avviabile da immagine ISO.</p>
+		<p>Menu configurato grazie ad un file disponibile sul dispositivo:
+/boot/grub/grub.cfg</p>
+		<p>Si prega di migliorare questa applicazione adattando il contenuto di
+grub.cgf fino a che l'immagine ISO sia correttamente avviabile e quindi di
+condividere le modifiche necessarie su GitHub o sul nostro <a
+href="http://forums.solydxk.com" target="_blank">forum</a>.</p>
+		<p>Ricordarsi di allegare il file di log quando si intende chiedere supporto
+sul nostro forum: /var/log/usb-creator.log</p>
+    </div>
+  </body>
+</html>

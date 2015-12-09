@@ -3,32 +3,34 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# BALLOON a.k.a. Fu-sen., 2015
+# Wojciech Kolasinski <kolasinski@retsat1.com.pl>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-07 10:59+0100\n"
-"PO-Revision-Date: 2015-11-28 02:49+0000\n"
-"Last-Translator: BALLOON a.k.a. Fu-sen.\n"
-"Language-Team: Japanese (http://www.transifex.com/solydxk/usb-creator/"
-"language/ja/)\n"
-"Language: ja\n"
+"PO-Revision-Date: 2015-12-06 17:10+0000\n"
+"Last-Translator: Wojciech Kolasinski <kolasinski@retsat1.com.pl>\n"
+"Language-Team: Polish (http://www.transifex.com/solydxk/usb-creator/language/"
+"pl/)\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #: ../usr/lib/usb-creator/main.py:41
 msgid "Unexpected error"
-msgstr "予想外のエラー"
+msgstr "Nieokreślony błąd"
 
 #: ../usr/lib/usb-creator/main.py:42
 msgid ""
 "USB Creator has failed with the following unexpected error. Please submit a "
 "bug report!"
 msgstr ""
-"USB Creator に予想外のエラーが発生しました。バグレポートを送って下さい！"
+"USB Creator został zatrzymany wskutek nieznanego błędu. Proszę wysłać raport "
+"o błędzie."
 
 #: ../usr/lib/usb-creator/usbcreator.py:68
 #: ../usr/share/applications/usb-creator.desktop.in.h:1
@@ -37,7 +39,7 @@ msgstr "USB Creator"
 
 #: ../usr/lib/usb-creator/usbcreator.py:69
 msgid "Device"
-msgstr "デバイス"
+msgstr "Urządzenie"
 
 #: ../usr/lib/usb-creator/usbcreator.py:70
 msgid "USB"
@@ -45,31 +47,31 @@ msgstr "USB"
 
 #: ../usr/lib/usb-creator/usbcreator.py:71
 msgid "Available"
-msgstr "有効"
+msgstr "Dostępny"
 
 #: ../usr/lib/usb-creator/usbcreator.py:72
 msgid "Required"
-msgstr "必須"
+msgstr "Wymagany"
 
 #: ../usr/lib/usb-creator/usbcreator.py:73
 msgid "Format device"
-msgstr "デバイスのフォーマット"
+msgstr "Sformatuj urządzenie"
 
 #: ../usr/lib/usb-creator/usbcreator.py:74
 msgid "Warning: all data will be lost"
-msgstr "警告: 全てのデータは失われます"
+msgstr "Uwaga - dane zostaną usunięte"
 
 #: ../usr/lib/usb-creator/usbcreator.py:75
 msgid "Repair device"
-msgstr "デバイスの修復"
+msgstr "Napraw urządzenie"
 
 #: ../usr/lib/usb-creator/usbcreator.py:76
 msgid "Tries to repair an unbootable USB"
-msgstr "起動できない USB の修復を試みます"
+msgstr "Próba naprawy urządzenia rozruchowego USB"
 
 #: ../usr/lib/usb-creator/usbcreator.py:77
 msgid "Execute"
-msgstr "実行"
+msgstr "Wykonaj"
 
 #: ../usr/lib/usb-creator/usbcreator.py:78
 msgid "ISO"
@@ -77,198 +79,196 @@ msgstr "ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:79
 msgid "Delete"
-msgstr "削除"
+msgstr "Usuń"
 
 #: ../usr/lib/usb-creator/usbcreator.py:80
 msgid "Refresh device list"
-msgstr "デバイス一覧の更新"
+msgstr "Odśwież listę urządzeń"
 
 #: ../usr/lib/usb-creator/usbcreator.py:81
 msgid "Unmount device"
-msgstr "デバイスのアンマウント"
+msgstr "Odmontuj urządzenie"
 
 #: ../usr/lib/usb-creator/usbcreator.py:82
 msgid "Browse for ISO file"
-msgstr "ISO ファイル参照"
+msgstr "Przeglądaj pliki ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:83
 msgid "Clear the ISO field"
-msgstr "ISO 領域クリア"
+msgstr "Wyczyść pole ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:87
 msgid "Partitioning USB..."
-msgstr "USB のパーティション設定中..."
+msgstr "Partycjonowanie USB"
 
 #: ../usr/lib/usb-creator/usbcreator.py:88
 msgid "Searching for bad block"
-msgstr "無効ブロックの検索中"
+msgstr "Wyszukiwanie uszkodzonych bloków"
 
 #: ../usr/lib/usb-creator/usbcreator.py:89
 msgid "Installing Grub..."
-msgstr "GRUB インストール中..."
+msgstr "Instalacja grub"
 
 #: ../usr/lib/usb-creator/usbcreator.py:90
 msgid "Start copying ISO..."
-msgstr "ISO のコピー開始..."
+msgstr "Start kopiowania ISO..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:91
 msgid "kB left to copy:"
-msgstr "コピー 残りKB:"
+msgstr "do skopiowania pozostało kB:"
 
 #: ../usr/lib/usb-creator/usbcreator.py:92
 msgid "Check md5sum of ISO..."
-msgstr "ISO の MD5SUM を確認..."
+msgstr "Sprawdź sumę kontrolną ISO..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:129
 msgid "Version"
-msgstr "バージョン"
+msgstr "Wersja"
 
 #: ../usr/lib/usb-creator/usbcreator.py:148
 msgid ""
 "Cannot add ISO from path: {}.\n"
 "Please, remove the ISO path or browse for an existing ISO."
 msgstr ""
-"ISO に次のパスを追加できません: {}\n"
-"ISO パスを削除するか、ISO を参照できるようにして下さい。"
+"Niewłaściwa ścieżka do ISO: {}\n"
+"Usuń ścieżkę lub wyszukaj istniejący obraz ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:158
 msgid ""
 "There is not enough space available on the pen drive.\n"
 "Please, remove unneeded files before continuing."
 msgstr ""
-"ペンドライブに空き領域がありません。\n"
-"続ける前に削除を行って下さい。"
+"Brak dostatecznej ilości miejsca na pendrive.\n"
+"Usuń zbędne pliki przed kontynuacją."
 
 #: ../usr/lib/usb-creator/usbcreator.py:183
 msgid "Are you sure you want to remove the selected ISO from the device?"
-msgstr "デバイス内の選択した ISO を削除してよろしいですか？"
+msgstr "Czy na pewno chcesz usunąć wybrany plik ISO z urządzenia?"
 
 #: ../usr/lib/usb-creator/usbcreator.py:205
 msgid "Select ISO"
-msgstr "ISO を選択"
+msgstr "Wybierz ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:262
 msgid "Unmount"
-msgstr "アンマウント"
+msgstr "Odmontuj"
 
 #: ../usr/lib/usb-creator/usbcreator.py:267
 msgid ""
 "Could not unmount the device.\n"
 "Please unmount the device manually."
 msgstr ""
-"デバイスをアンマウントできません。\n"
-"手動でデバイスをアンマウントして下さい。"
+"Nie można odmontować urządzenia.\n"
+"Proszę odmontować ręcznie"
 
 #: ../usr/lib/usb-creator/usbcreator.py:270
 msgid "You can now safely remove the device."
-msgstr "安全にデバイスを取り外す事ができます。"
+msgstr "Można bezpiecznie usunąć urządzenie."
 
 #: ../usr/lib/usb-creator/usbcreator.py:534
 msgid "Run this application with root permission."
-msgstr "このアプリケーションは root 権限で実行する必要があります。"
+msgstr "Uruchom aplikację z uprawnieniami administratora."
 
 #: ../usr/lib/usb-creator/usbcreator.py:536
 msgid "Wrong arguments were passed to usb-creator."
-msgstr "誤った値が USB クリエーターに渡されました。"
+msgstr "Zostały przekazane błędne argumenty do kreatora USB."
 
 #: ../usr/lib/usb-creator/usbcreator.py:538
 msgid "The device was not found or no device was given."
-msgstr "デバイスは見つからないか接続されていません。"
+msgstr "Nie znaleziono lub nie podano urządzenia."
 
 #: ../usr/lib/usb-creator/usbcreator.py:540
 msgid "Given ISO path was not found."
-msgstr "指定の ISO パスが見つかりません。"
+msgstr "Nie znaleziono pliku ISO na podanej ścieżce."
 
 #: ../usr/lib/usb-creator/usbcreator.py:542
 msgid "Device is in use by another application."
-msgstr "デバイスは、別のアプリケーションで使用されています。"
+msgstr "Urządzenie jest używane przez inną aplikację."
 
 #: ../usr/lib/usb-creator/usbcreator.py:544
 msgid "Unable to mount the device."
-msgstr "デバイスをマウントできません。"
+msgstr "Nie można zamontować urządzenia."
 
 #: ../usr/lib/usb-creator/usbcreator.py:546
 msgid "Md5sum mismatch."
-msgstr "MD5SUM が一致していません。"
+msgstr "Niezgodność md5sum."
 
 #: ../usr/lib/usb-creator/usbcreator.py:548
 msgid "The device has no fat32 partition."
-msgstr "デバイスは FAT32 パーティションではありません。"
+msgstr "Urządzenie nie ma partycji fat32."
 
 #: ../usr/lib/usb-creator/usbcreator.py:550
 msgid "The device has no bootloader installed."
-msgstr "デバイスにブートローダーをインストールできませんでした。"
+msgstr "Brak programu rozruchowego w urządzeniu."
 
 #: ../usr/lib/usb-creator/usbcreator.py:552
 msgid "There is not enough space available on the device."
-msgstr "デバイスの利用できる十分な空き領域がありません。"
+msgstr "Zbyt mało dostępnej przestrzeni w urządzeniu."
 
 #: ../usr/lib/usb-creator/usbcreator.py:554
 msgid ""
 "Unable to guess distribution from ISO name.\n"
 "Make sure you have the distribution name in the ISO name."
 msgstr ""
-"ISO 名でディストリビューションを推測する事ができません。\n"
-"ISO名にディストリビューション名を含めてください。"
+"Nie można znaleźć nazwy dystrybucji pliku ISO.\n"
+"Upewnij się, czy jest nazwa dystrybucji w nazwie pliku ISO."
 
 #: ../usr/lib/usb-creator/usbcreator.py:557
 msgid ""
 "An unknown error accured.\n"
 "Please, visit our forum for support: http://forums.solydxk.com"
 msgstr ""
-"原因不明のエラーが発生しました。\n"
-"サポートフォーラムへご連絡下さい: http://forums.solydxk.com"
+"Pojawił się nieznany błąd.\n"
+"Poszukaj pomocy na naszym forum: http://forums.solydxk.com"
 
 #: ../usr/lib/usb-creator/usbcreator.py:561
 msgid "The USB was successfully written."
-msgstr "USB の書き込みを行いました。"
+msgstr "USB zapisany poprawnie."
 
 #: ../usr/share/kde4/apps/solid/actions/usb-constructor-openusb.desktop.in.h:1
 msgid "Create a multi-boot USB with the USB Creator"
-msgstr "USB クリエーターはマルチブート USB を生成します"
+msgstr "Utwórz USB wielosystemowy za pomocą kreatora USB."
 
 #: ../usr/share/applications/usb-creator.desktop.in.h:2
 msgid "Create a multi-boot USB"
-msgstr "マルチブート USB の生成"
+msgstr "Utwórz USB wielosystemowy."
 
 #: en/help.html+html.body.h1:8
 msgid "USB Creator Help"
-msgstr "USB Creator ヘルプ"
+msgstr "Pomoc USB Creatora"
 
 #: en/help.html+html.body.div.h2:10
 msgid "Description"
-msgstr "説明"
+msgstr "Opis"
 
 #: en/help.html+html.body.div.p:11
 msgid ""
 "The USB Creator is a tool to help users to create a bootable flash drive "
 "with multiple Linux operating systems."
 msgstr ""
-"USB Creator は、複数の Linux オペレーティングシステムが起動できるフラッシュド"
-"ライブを作成するのに役立つツールです。"
+"USB Creator jest narzędziem do tworzenia wielodystrybucyjnych dysków "
+"startowych USB "
 
 #: en/help.html+html.body.div.h2:13
 msgid "Important"
-msgstr "重要"
+msgstr "Ważne"
 
 #: en/help.html+html.body.div.p:14
 msgid ""
 "Make sure you backed up all important data from the flash drive before you "
 "start."
 msgstr ""
-"開始前に、フラッシュドライブにある重要なデータをすべてバックアップして下さ"
-"い。"
+"Upewnij się zanim rozpoczniesz, że zrobiłeś kopię zapasową ważnych danych z "
+"pendrive'a!"
 
 #: en/help.html+html.body.div.h2:16
 msgid "Commands"
-msgstr "コマンド"
+msgstr "Polecenia"
 
 #: en/help.html+html.body.div.p:17
 msgid ""
 "You can also use the USB Creator from the terminal. Here are some examples:"
-msgstr ""
-"ターミナルから USB Creator を使用することができます。ここでいくつかの例を示し"
-"ます。"
+msgstr "USB Creatora można używać również w terminalu. Przykłady:"
 
 #: en/help.html+html.body.div.h3:19
 msgid "# usb-creator -f -i /path/to/my.iso -m"
@@ -279,8 +279,8 @@ msgid ""
 "This will format the flash drive, copy the ISO file to the flash drive and "
 "check the md5sum of the copied ISO file with the original ISO file."
 msgstr ""
-"フラッシュドライブをフォーマットし、ISO ファイルをコピーした後、オリジナルの "
-"ISO ファイルとコピーした ISO ファイルとの MD5 チェックサムを確認します。"
+"Wykonanie polecenia spowoduje sformatowanie dysku, skopiowanie obrazu ISO na "
+"dysk i porównanie sumy kontrolnej kopii z oryginałem."
 
 #: en/help.html+html.body.div.h3:22
 msgid "# usb-creator -b -g -r"
@@ -291,8 +291,7 @@ msgid ""
 "This will try to repair an unbootable flash drive that already contains ISO "
 "files."
 msgstr ""
-"すでに ISO ファイルが含まれている起動できないフラッシュドライブの修復を試みま"
-"す。"
+"Zostanie podjęta próba naprawy nieuruchamiającego się dysku z obrazem ISO."
 
 #: en/help.html+html.body.div.h3:25
 msgid "# usb-creator -h"
@@ -300,19 +299,19 @@ msgstr "# usb-creator -h"
 
 #: en/help.html+html.body.div.p:26
 msgid "This will show all available options and their usage."
-msgstr "すべての利用可能なオプションとその使用方法を表示します。"
+msgstr "Zostaną wyświetlone dostępne opcje i sposób użycia."
 
 #: en/help.html+html.body.div.h2:28
 msgid "Hidden features"
-msgstr "隠し機能"
+msgstr "Funkcje ukryte"
 
 #: en/help.html+html.body.div.p:29
 msgid ""
 "When you remove the ISO file name from the ISO field, USB Creator will "
 "calculate the space needed for all ISO files in that directory."
 msgstr ""
-"ISO フィールドから ISO ファイル名を削除すると、USB Creator はそのディレクトリ"
-"内にあるすべての ISO ファイルに必要なスペースを計算します。"
+"Po usunięciu nazwy pliku ISO z pola ISO, USB Creator obliczy ilość "
+"przestrzeni potrzebnej dla wszystkich plików ISO w tym folderze."
 
 #: en/help.html+html.body.div.p:30
 msgid ""
@@ -320,20 +319,20 @@ msgid ""
 "adding a number in front of the ISO file name, e.g.: \"01-MyDistro-amd64.iso"
 "\"."
 msgstr ""
-"ISO ファイルは、ISO ファイル名の前に数を追加することによって、メニューに表示"
-"される順序を変更することができます。例えば: \"01-MyDistro-amd64.iso\""
+"Można zmienić kolejność wyświetlania w menu plików ISO dodając kolejne "
+"liczby przed nazwą pliku ISO, np. \"01-MyDistro-amd64.iso\"."
 
 #: en/help.html+html.body.div.p:31
 msgid ""
 "Symbolic links are followed but the symbolic links must have the \".iso\" "
 "extension to make it work."
 msgstr ""
-"シンボリックリンクは動作します。ただし動作させるためには \".iso\" 拡張子にし"
-"ている必要があります。"
+"Linki symboliczne są dopuszczalne ale muszą mieć rozszerzenie \".iso\" aby "
+"mogły byś realizowane."
 
 #: en/help.html+html.body.div.h2:33
 msgid "Your ISO is not booting?"
-msgstr "ISO が起動しない？"
+msgstr "Plik ISO nie uruchamia się?"
 
 #: en/help.html+html.body.div.p:34
 msgid ""
@@ -342,18 +341,18 @@ msgid ""
 "can be booted directly from the ISO file. Check the distribution's forum if "
 "it can be booted directly from the ISO file."
 msgstr ""
-"<a href=\"https://github.com/SolydXK/usb-creator\" target=\"_blank\">GitHub</"
-"a> ページでは、テスト済みのディストリビューション一覧を参照できますが、その "
-"ISO ファイルすべてが直接起動できるわけではありません。ISO ファイルから直接起"
-"動できるかディストリビューションのフォーラムを確認して下さい。"
+"Na naszej stronie <a href=\"https://github.com/SolydXK/usb-creator\" target="
+"\"_blank\">GitHub</a> można znaleźć listę przetestowanych dystrybucji. Nie "
+"wszystkie można uruchomić bezpośrednio z pliku ISO. Sprawdź na forum "
+"dystrybucji czy jest możliwy rozruch z pliku ISO."
 
 #: en/help.html+html.body.div.p:35
 msgid ""
 "The menu is configured in a file which you can find on your flash drive: /"
 "boot/grub/grub.cfg"
 msgstr ""
-"メニューは、フラッシュドライブにある次のファイルで設定を見ることができます: /"
-"boot/grub/grub.cfg"
+"Menu startowe jest skonfigurowane w pliku /boot/grub/grub.cfg, który "
+"znajduje się na dysku startowym."
 
 #: en/help.html+html.body.div.p:36
 msgid ""
@@ -361,14 +360,14 @@ msgid ""
 "boots and post your changes on GitHub or our <a href=\"http://forums.solydxk."
 "com\" target=\"_blank\">forum</a>."
 msgstr ""
-"ISO を起動する grub.cfg の適合によって、このアプリケーションを改善したい場合"
-"は GitHub または <a href=\"http://forums.solydxk.com\" target=\"_blank\">"
-"フォーラム</a> で変更内容を投稿してください"
+"Pomóż udoskonalać aplikację adaptując grub.cfg przed rozruchem ISO. "
+"Wprowadzone zmiany przekaż na nasze  <a href=\"http://forums.solydxk.com\" "
+"target=\"_blank\">forum</a>."
 
 #: en/help.html+html.body.div.p:37
 msgid ""
 "Don't forget to attach the log file when you post an issue on our forum: /"
 "var/log/usb-creator.log"
 msgstr ""
-"フォーラムに問題を投稿する場合、ログファイルの添付を忘れないで下さい: /var/"
-"log/usb-creator.log"
+"Przesyłając raport o błędzie nie zapomnij o dołączeniu logu /var/log/usb-"
+"creator.log ."
