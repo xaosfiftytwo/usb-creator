@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-07 10:59+0100\n"
-"PO-Revision-Date: 2015-12-07 00:48+0000\n"
+"POT-Creation-Date: 2015-12-26 23:13+0100\n"
+"PO-Revision-Date: 2015-12-18 14:07+0000\n"
 "Last-Translator: ilu lu\n"
 "Language-Team: German (http://www.transifex.com/solydxk/usb-creator/language/"
 "de/)\n"
@@ -201,7 +201,7 @@ msgstr "Keine FAT32 Partition vorhanden."
 
 #: ../usr/lib/usb-creator/usbcreator.py:550
 msgid "The device has no bootloader installed."
-msgstr "Auf dem Gerät ist kein Bootloader installiert."
+msgstr "Auf dem Gerät ist kein Systemstarter (bootloader) installiert."
 
 #: ../usr/lib/usb-creator/usbcreator.py:552
 msgid "There is not enough space available on the device."
@@ -221,7 +221,7 @@ msgid ""
 "Please, visit our forum for support: http://forums.solydxk.com"
 msgstr ""
 "Es ist ein unbekannter Fehler aufgetreten\n"
-"Hilfe erhalten Sie in unserem Forum: http://forums.solydxk.com"
+"Hilfe gibt es in unserem Forum: http://forums.solydxk.com"
 
 #: ../usr/lib/usb-creator/usbcreator.py:561
 msgid "The USB was successfully written."
@@ -248,7 +248,7 @@ msgid ""
 "The USB Creator is a tool to help users to create a bootable flash drive "
 "with multiple Linux operating systems."
 msgstr ""
-"Der USB Creator ist ein Werkzeug zur Herstellung eines bootfähigen Flash-"
+"Der USB Creator ist ein Werkzeug zur Herstellung eines startfähigen Flash-"
 "Laufwerks mit mehreren Linux-Betriebssystemen."
 
 #: en/help.html+html.body.div.h2:13
@@ -295,7 +295,7 @@ msgid ""
 "This will try to repair an unbootable flash drive that already contains ISO "
 "files."
 msgstr ""
-"Versuch der Reparatur eines nicht bootbaren Flash-Laufwerks, auf dem sich "
+"Versuch der Reparatur eines nicht startfähigen Flash-Laufwerks, auf dem sich "
 "bereit ein ISO befindet."
 
 #: en/help.html+html.body.div.h3:25
@@ -338,7 +338,7 @@ msgstr ""
 
 #: en/help.html+html.body.div.h2:33
 msgid "Your ISO is not booting?"
-msgstr "Bootet Ihre ISO Datei nicht?"
+msgstr "Startet Ihr ISO nicht?"
 
 #: en/help.html+html.body.div.p:34
 msgid ""
@@ -349,8 +349,8 @@ msgid ""
 msgstr ""
 "Auf unserer <a href=\"https://github.com/SolydXK/usb-creator\" target="
 "\"_blank\">GitHub</a>-Seite steht eine Liste der getesteten Linux-"
-"Distributionen, aber nicht alle können direkt von der ISO-Datei gebootet "
-"werden. Dies können Sie im Forum der Distribution nachprüfen."
+"Distributionen, aber nicht alle können direkt von der ISO-Datei gestartet "
+"werden. Dies können Sie im Forum der Distribution überprüfen."
 
 #: en/help.html+html.body.div.p:35
 msgid ""
@@ -366,10 +366,9 @@ msgid ""
 "boots and post your changes on GitHub or our <a href=\"http://forums.solydxk."
 "com\" target=\"_blank\">forum</a>."
 msgstr ""
-"Bitte helfen Sie diese Anwendung zu verbessern, indem Sie die grub.cfg Datei "
-"solange anpassen, bis die ISO Datei bootet. Bitte teilen Sie uns Ihre "
-"Verbesserungen auf GitHub oder in unserem <a href=\"http://forums.solydxk.com"
-"\" target=\"_blank\">Forum</a> mit."
+"Bitte helfen Sie, indem Sie die grub.cfg solange anpassen, bis das ISO "
+"bootet, und uns Ihre Verbesserungen auf GitHub oder in unserem <a href="
+"\"http://forums.solydxk.com\" target=\"_blank\">Forum</a> mitteilen."
 
 #: en/help.html+html.body.div.p:37
 msgid ""

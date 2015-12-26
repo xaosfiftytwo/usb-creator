@@ -8,7 +8,7 @@
 	<h1>USB Creator Hilfe</h1>
 	<div class="main">
 		<h2>Beschreibung</h2>
-		<p>Der USB Creator ist ein Werkzeug zur Herstellung eines bootfähigen
+		<p>Der USB Creator ist ein Werkzeug zur Herstellung eines startfähigen
 Flash-Laufwerks mit mehreren Linux-Betriebssystemen.</p>
 
 		<h2>Wichtig</h2>
@@ -24,7 +24,7 @@ Beispiele:</p>
 und vergleicht die md5-Prüfsummen. </p>
 
 		<h3># usb-creator -b -g -r</h3>
-		<p>Versuch der Reparatur eines nicht bootbaren Flash-Laufwerks, auf dem sich
+		<p>Versuch der Reparatur eines nicht startfähigen Flash-Laufwerks, auf dem sich
 bereit ein ISO befindet.</p>
 		
 		<h3># usb-creator -h</h3>
@@ -39,17 +39,16 @@ z.B. "01-MeineDistro-amd64.iso".</p>
 		<p>Symbolische Links funktionieren unter der Voraussetzung, dass sie eine
 ".iso" Erweiterung haben.</p>
 		
-		<h2>Bootet Ihre ISO Datei nicht?</h2>
+		<h2>Startet Ihr ISO nicht?</h2>
 		<p>Auf unserer <a href="https://github.com/SolydXK/usb-creator"
 target="_blank">GitHub</a>-Seite steht eine Liste der getesteten
 Linux-Distributionen, aber nicht alle können direkt von der ISO-Datei
-gebootet werden. Dies können Sie im Forum der Distribution nachprüfen.</p>
+gestartet werden. Dies können Sie im Forum der Distribution überprüfen.</p>
 		<p>Das Menü kann über eine Datei konfiguriert werden, die Sie auf Ihrem
 Flash-Laufwerk unter /boot/grub/grub.cfg finden.</p>
-		<p>Bitte helfen Sie diese Anwendung zu verbessern, indem Sie die grub.cfg Datei
-solange anpassen, bis die ISO Datei bootet. Bitte teilen Sie uns Ihre
-Verbesserungen auf GitHub oder in unserem <a
-href="http://forums.solydxk.com" target="_blank">Forum</a> mit.</p>
+		<p>Bitte helfen Sie, indem Sie die grub.cfg solange anpassen, bis das ISO
+bootet, und uns Ihre Verbesserungen auf GitHub oder in unserem <a
+href="http://forums.solydxk.com" target="_blank">Forum</a> mitteilen.</p>
 		<p>Sollten Sie ein Frage in unserem Forum stellen, dann vergessen Sie bitte
 nicht die Log-Datei unter /var/log/usb-creator.log anzuhängen.</p>
     </div>

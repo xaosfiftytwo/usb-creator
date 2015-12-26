@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>Aide d'USB Creator</h1>
+	<div class="main">
+		<h2>Description</h2>
+		<p>USB Creator est un outil pour aider les utilisateurs à créer une clé USB
+amorçable contenant plusieurs systèmes d'exploitation Linux. </p>
+
+		<h2>Important</h2>
+		<p>Assurez-vous d'avoir sauvegardé toutes vos données importantes provenant de
+la clé USB avant de démarrer.</p>
+
+		<h2>Commandes</h2>
+		<p>Vous pouvez aussi utiliser USB Creator à partir du terminal. Voici quelques
+exemples:</p>
+
+		<h3># usb-creator -f -i /chemin/vers/mon.iso -m</h3>
+		<p>Cela va formater la clé USB, copier l'ISO sur cette clé et vérifier la somme
+Md5 de l'ISO copiée avec l'ISO originale.</p>
+
+		<h3># usb-creator -b -g -r</h3>
+		<p>Cela va tenter de réparer une clé USB non amorçable qui contient déjà les
+fichiers ISO.</p>
+		
+		<h3># usb-creator -h</h3>
+		<p>Cela vous présente toutes les options disponibles et leur usage.</p>
+
+		<h2>Fonctions cachées</h2>
+		<p>Lorsque vous enlevez le nom de l'ISO de son champ, USB Creator calculera
+l'espace requis pour tous les ISO du répertoire.</p>
+		<p>Vous pouvez modifier l'ordre dans lequel  les ISO sont affichées dans le
+menu en ajoutant un nombre devant le nom de l'ISO, par ex.:
+"01-MaDistro-amd64.iso".</p>
+		<p>Les liens symboliques sont suivis mais ils doivent avoir une extension
+".iso" pour fonctionner.</p>
+		
+		<h2>Votre ISO ne s'amorçe pas?</h2>
+		<p>Sur notre page <a href="https://github.com/SolydXK/usb-creator"
+target="_blank">GitHub</a> vous pouvez trouver une liste de distributions
+testées mais toutes ne peuvent pas être amorçées directement par leur
+ISO. Vérifiez le forum de cette distribution si tel est le cas.</p>
+		<p>Le menu est configuré par un fichier que vous pouvez trouver sur la clé USB:
+/boot/grub/grub.cfg</p>
+		<p>Merci de nous aider à améliorer ce programme en adaptant grub.cfg jusqu'à ce
+que l'ISO s'amorce et postez vos modifications sur GitHub ou notre <a
+href="http://forums.solydxk.com" target="_blank">forum</a>.</p>
+		<p>N'oubliez pas d'ajouter le fichier de log lorsque vous postez une question
+sur notre forum: /var/log/usb-creator.log</p>
+    </div>
+  </body>
+</html>
