@@ -800,7 +800,14 @@ else
       LABEL='MULTIUSB'
       if ! $FORMAT; then
 	# Make sure you set the label
-	e2label $DEVICE'1' $LABEL | tee -a $LOG
+	FATSTR=$(udisks --show-info $DEVICE'1' | grep fat)
+	if [ "$FATSTR" != "" ]; then
+	  echo "mtools_skip_check=1" > ~/.mtoolsrc
+	  mlabel ::"$LABEL" -i $DEVICE'1' | tee -a $LOG
+	  rm ~/.mtoolsrc
+	else
+	  e2label $DEVICE'1' $LABEL | tee -a $LOG
+	fi
       fi
     fi
   fi
