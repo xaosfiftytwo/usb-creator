@@ -7,7 +7,7 @@ gi.require_version('Gtk', '3.0')
 import sys
 sys.path.insert(1, '/usr/lib/usb-creator')
 from dialogs import ErrorDialog
-from gi.repository import Gtk
+from gi.repository import Gtk, GObject
 from usbcreator import USBCreator
 
 
@@ -38,9 +38,10 @@ def uncaught_excepthook(*args):
             pdb.pm()
     else:
         import traceback
-        ErrorDialog(_('Unexpected error'),
-                    "<b>{}</b>".format(_('USB Creator has failed with the following unexpected error. Please submit a bug report!')),
-                    '<tt>' + '\n'.join(traceback.format_exception(*args)) + '</tt>', None, True, 'usb-creator')
+        details = '\n'.join(traceback.format_exception(*args)).replace('<', '').replace('>', '')
+        title = _('Unexpected error')
+        msg = _('USB Creator has failed with the following unexpected error. Please submit a bug report!')
+        ErrorDialog(title, "<b>%s</b>" % msg, "<tt>%s</tt>" % details, None, True, 'usb-creator')
 
     sys.exit(1)
 
@@ -50,6 +51,11 @@ sys.excepthook = uncaught_excepthook
 if __name__ == "__main__":
     # Create an instance of our GTK application
     try:
+        # Calling GObject.threads_init() is not needed for PyGObject 3.10.2+
+        # Check with print (sys.version)
+        # Debian Jessie: 3.4.2
+        GObject.threads_init()
+
         USBCreator()
         Gtk.main()
     except KeyboardInterrupt:

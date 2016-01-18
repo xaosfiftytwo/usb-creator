@@ -5,9 +5,11 @@ Maintainer: Arjen Balfoort <arjenbalfoort@solydxk.com>
 Build-Depends: debhelper (>= 9)
   , python3 (>= 3.2)
   , intltool
+  , transifex-client
+  , translate-toolkit
 X-Python3-Version: >= 3.2
-Standards-Version: 3.9.5
-Vcs-Git: git://github.com/SolydXK/usb-creator.git
+Standards-Version: 3.9.6
+Vcs-Git: git@github.com:SolydXK/usb-creator.git
 Vcs-Browser: https://github.com/SolydXK/usb-creator
 
 Package: usb-creator

@@ -5,7 +5,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 
 # from gi.repository import Gtk, GdkPixbuf, GObject, Pango, Gdk, GLib
-from gi.repository import Gtk, GObject, GLib
+from gi.repository import Gtk, GObject
 from os.path import join, abspath, dirname, basename, \
                     splitext, exists, expanduser, isdir
 from utils import ExecuteThreadedCommands, getoutput, \
@@ -24,9 +24,6 @@ from logger import Logger
 import gettext
 from gettext import gettext as _
 gettext.textdomain('usb-creator')
-
-# Need to initiate threads for Gtk
-GObject.threads_init()
 
 
 #class for the main window
@@ -379,7 +376,7 @@ class USBCreator(object):
             t.daemon = True
             t.start()
             self.queue.join()
-            GLib.timeout_add(1000, self.check_thread, name)
+            GObject.timeout_add(1000, self.check_thread, name)
 
         except Exception as detail:
             ErrorDialog(self.btnExecute.get_label(), detail)
