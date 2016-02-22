@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 14:50+0200\n"
+"POT-Creation-Date: 2016-02-22 19:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 #: en/help.html+html.body.div.p:20
 msgid ""
 "This will format the flash drive, copy the ISO file to the flash drive and "
-"check the md5sum of the copied ISO file with the original ISO file."
+"check the hash of the copied ISO file with the original ISO file."
 msgstr ""
 
 #: en/help.html+html.body.div.h3:22

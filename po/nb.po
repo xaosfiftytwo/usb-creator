@@ -4,13 +4,14 @@
 #
 # Translators:
 # Anders Dalen <anders@andersdalen.no>, 2016
+# Arjen Balfoort <schoelje@solydxk.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 14:50+0100\n"
-"PO-Revision-Date: 2016-01-07 21:39+0000\n"
-"Last-Translator: Anders Dalen <anders@andersdalen.no>\n"
+"POT-Creation-Date: 2016-02-22 19:07+0100\n"
+"PO-Revision-Date: 2016-02-22 18:03+0000\n"
+"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/solydxk/usb-"
 "creator/language/nb/)\n"
 "Language: nb\n"
@@ -117,8 +118,8 @@ msgid "kB left to copy:"
 msgstr "kB igjen å kopiere:"
 
 #: ../usr/lib/usb-creator/usbcreator.py:89
-msgid "Check md5sum of ISO..."
-msgstr "Sjekk ISO-ens md5sum..."
+msgid "Check hash of ISO..."
+msgstr "Sjekk ISO-ens hash..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:126
 msgid "Version"
@@ -189,8 +190,8 @@ msgid "Unable to mount the device."
 msgstr "Ikke i stand til å montere enheten."
 
 #: ../usr/lib/usb-creator/usbcreator.py:543
-msgid "Md5sum mismatch."
-msgstr "Feil i Md5sum."
+msgid "Hash mismatch."
+msgstr "Feil i hash."
 
 #: ../usr/lib/usb-creator/usbcreator.py:545
 msgid "The device has no fat32 partition."
@@ -277,10 +278,10 @@ msgstr "# usb-creator -f -i /sti/til/min.iso -m"
 #: en/help.html+html.body.div.p:20
 msgid ""
 "This will format the flash drive, copy the ISO file to the flash drive and "
-"check the md5sum of the copied ISO file with the original ISO file."
+"check the hash of the copied ISO file with the original ISO file."
 msgstr ""
 "Dette vil formatere minnepinnen, kopiere ISO filen til minnepinnen og "
-"sammenligne md5summen på den kopierte ISO-filen med den originale ISO-filen."
+"sammenligne hash på den kopierte ISO-filen med den originale ISO-filen."
 
 #: en/help.html+html.body.div.h3:22
 msgid "# usb-creator -b -g -r"
@@ -352,7 +353,7 @@ msgid ""
 "The menu is configured in a file which you can find on your flash drive: /"
 "boot/grub/grub.cfg"
 msgstr ""
-"Menyen er konfigurert i en fil, som du kan finne på minne pinnen: /boot/grub/"
+"Menyen er konfigurert i en fil, som du kan finne på minnepinnen: /boot/grub/"
 "grub.cfg"
 
 #: en/help.html+html.body.div.p:36
@@ -370,5 +371,5 @@ msgid ""
 "Don't forget to attach the log file when you post an issue on our forum: /"
 "var/log/usb-creator.log"
 msgstr ""
-"Ikke glem å legge ved loggfilen når du poster et problem på vårt forum: /var/"
-"log/usb-creator.log"
+"Ikke glem å legge ved loggfilen når du poster et problem i forumet vårt: /"
+"var/log/usb-creator.log"

@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Arjen Balfoort <schoelje@solydxk.com>, 2016
 # Luis Filipe Teixeira <lufilte@gmail.com>, 2015
-# Nuno Duarte <nuno.passiano@gmail.com>, 2015
+# Nuno Duarte <inactive+nuno.passiano@transifex.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 14:50+0100\n"
-"PO-Revision-Date: 2015-12-08 00:21+0000\n"
-"Last-Translator: Luis Filipe Teixeira <lufilte@gmail.com>\n"
+"POT-Creation-Date: 2016-02-22 19:07+0100\n"
+"PO-Revision-Date: 2016-02-22 18:06+0000\n"
+"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/solydxk/usb-creator/"
 "language/pt/)\n"
 "Language: pt\n"
@@ -118,8 +119,8 @@ msgid "kB left to copy:"
 msgstr "kB que faltam a copiar:"
 
 #: ../usr/lib/usb-creator/usbcreator.py:89
-msgid "Check md5sum of ISO..."
-msgstr "Verificar md5sum de ISO..."
+msgid "Check hash of ISO..."
+msgstr "Verificar hash de ISO..."
 
 #: ../usr/lib/usb-creator/usbcreator.py:126
 msgid "Version"
@@ -190,8 +191,8 @@ msgid "Unable to mount the device."
 msgstr "Não é possível montar o dispositivo."
 
 #: ../usr/lib/usb-creator/usbcreator.py:543
-msgid "Md5sum mismatch."
-msgstr "Md5sum não corresponde."
+msgid "Hash mismatch."
+msgstr "Hash não corresponde."
 
 #: ../usr/lib/usb-creator/usbcreator.py:545
 msgid "The device has no fat32 partition."
@@ -279,10 +280,10 @@ msgstr "# usb-creator -f -i /path/to/my.iso -m"
 #: en/help.html+html.body.div.p:20
 msgid ""
 "This will format the flash drive, copy the ISO file to the flash drive and "
-"check the md5sum of the copied ISO file with the original ISO file."
+"check the hash of the copied ISO file with the original ISO file."
 msgstr ""
 "Isto irá formatar a unidade flash, copie o arquivo ISO para a unidade flash "
-"e verificar o md5sum do arquivo ISO copiados com o arquivo ISO originais."
+"e verificar o hash do arquivo ISO copiados com o arquivo ISO originais."
 
 #: en/help.html+html.body.div.h3:22
 msgid "# usb-creator -b -g -r"

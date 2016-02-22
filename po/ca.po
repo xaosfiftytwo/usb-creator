@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Arjen Balfoort <schoelje@solydxk.com>, 2016
 # Eduard Selma <selma@tinet.cat>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 14:50+0100\n"
-"PO-Revision-Date: 2015-11-24 09:31+0000\n"
-"Last-Translator: Eduard Selma <selma@tinet.cat>\n"
+"POT-Creation-Date: 2016-02-22 19:07+0100\n"
+"PO-Revision-Date: 2016-02-22 17:57+0000\n"
+"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/solydxk/usb-creator/"
 "language/ca/)\n"
 "Language: ca\n"
@@ -117,8 +118,8 @@ msgid "kB left to copy:"
 msgstr "kB restants per copiar: "
 
 #: ../usr/lib/usb-creator/usbcreator.py:89
-msgid "Check md5sum of ISO..."
-msgstr "Cercant la md5sum de la ISO... "
+msgid "Check hash of ISO..."
+msgstr "Cercant la hash de la ISO... "
 
 #: ../usr/lib/usb-creator/usbcreator.py:126
 msgid "Version"
@@ -189,8 +190,8 @@ msgid "Unable to mount the device."
 msgstr "No es pot muntar el dispositiu. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:543
-msgid "Md5sum mismatch."
-msgstr "La md5sum no concorda. "
+msgid "Hash mismatch."
+msgstr "La hash no concorda. "
 
 #: ../usr/lib/usb-creator/usbcreator.py:545
 msgid "The device has no fat32 partition."
@@ -278,10 +279,10 @@ msgstr "# usb-creator -f -i /camí/cap/al/meu.iso -m"
 #: en/help.html+html.body.div.p:20
 msgid ""
 "This will format the flash drive, copy the ISO file to the flash drive and "
-"check the md5sum of the copied ISO file with the original ISO file."
+"check the hash of the copied ISO file with the original ISO file."
 msgstr ""
 "Això formatarà la unitat flash, copiarà el fitxer ISO a la unitat i "
-"comprovarà la md5sum de la imatge ISO copiada amb el fitxer ISO original."
+"comprovarà la hash de la imatge ISO copiada amb el fitxer ISO original."
 
 #: en/help.html+html.body.div.h3:22
 msgid "# usb-creator -b -g -r"

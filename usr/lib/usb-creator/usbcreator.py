@@ -86,7 +86,7 @@ class USBCreator(object):
         self.log_lines.append(["installing", 15, _("Installing Grub...")])
         self.log_lines.append(["rsync", 25, _("Start copying ISO...")])
         self.log_lines.append(["left to copy", 0, _("kB left to copy:")])
-        self.log_lines.append(["check md5sum", 85, _("Check md5sum of ISO...")])
+        self.log_lines.append(["check hash", 85, _("Check hash of ISO...")])
 
         # Initiate variables
         self.devices = []
@@ -164,11 +164,11 @@ class USBCreator(object):
                 arguments.append("-r")
                 arguments.append("-b")
                 arguments.append("-g")
-                # This should use the history file to get the original md5sum
-                arguments.append("-m")
+                # This should use the history file to get the original hash
+                arguments.append("-s")
             if exists(iso):
                 arguments.append("-i \"{}\"".format(iso))
-                arguments.append("-m")
+                arguments.append("-s")
 
             cmd = "usb-creator {}".format(" ".join(arguments))
             self.log.write("Execute command: {}".format(cmd))
@@ -540,7 +540,7 @@ class USBCreator(object):
                 elif ret == 6:
                     ErrorDialog(self.btnExecute.get_label(), _("Unable to mount the device."))
                 elif ret == 7:
-                    ErrorDialog(self.btnExecute.get_label(), _("Md5sum mismatch."))
+                    ErrorDialog(self.btnExecute.get_label(), _("Hash mismatch."))
                 elif ret == 8:
                     ErrorDialog(self.btnExecute.get_label(), _("The device has no fat32 partition."))
                 elif ret == 9:

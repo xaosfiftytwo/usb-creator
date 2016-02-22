@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Arjen Balfoort <schoelje@solydxk.com>, 2016
 # ich bin <ichbin1199@gmail.com>, 2015
 # Jocelyn <anechampenois@solydxk.com>, 2015
 # Yuraï K - TURBA, 2015
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 14:50+0100\n"
-"PO-Revision-Date: 2015-12-15 22:10+0000\n"
-"Last-Translator: Jocelyn <anechampenois@solydxk.com>\n"
+"POT-Creation-Date: 2016-02-22 19:07+0100\n"
+"PO-Revision-Date: 2016-02-22 17:59+0000\n"
+"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
 "Language-Team: French (http://www.transifex.com/solydxk/usb-creator/language/"
 "fr/)\n"
 "Language: fr\n"
@@ -119,8 +120,8 @@ msgid "kB left to copy:"
 msgstr "Kio reste à copier :"
 
 #: ../usr/lib/usb-creator/usbcreator.py:89
-msgid "Check md5sum of ISO..."
-msgstr "Vérification md5sum de ISO"
+msgid "Check hash of ISO..."
+msgstr "Vérification hash de ISO"
 
 #: ../usr/lib/usb-creator/usbcreator.py:126
 msgid "Version"
@@ -193,8 +194,8 @@ msgid "Unable to mount the device."
 msgstr "Impossible de monter le périphérique."
 
 #: ../usr/lib/usb-creator/usbcreator.py:543
-msgid "Md5sum mismatch."
-msgstr "Décalage de somme Md5."
+msgid "Hash mismatch."
+msgstr "Décalage de somme hash."
 
 #: ../usr/lib/usb-creator/usbcreator.py:545
 msgid "The device has no fat32 partition."
@@ -283,10 +284,10 @@ msgstr "# usb-creator -f -i /chemin/vers/mon.iso -m"
 #: en/help.html+html.body.div.p:20
 msgid ""
 "This will format the flash drive, copy the ISO file to the flash drive and "
-"check the md5sum of the copied ISO file with the original ISO file."
+"check the hash of the copied ISO file with the original ISO file."
 msgstr ""
 "Cela va formater la clé USB, copier l'ISO sur cette clé et vérifier la somme "
-"Md5 de l'ISO copiée avec l'ISO originale."
+"hash de l'ISO copiée avec l'ISO originale."
 
 #: en/help.html+html.body.div.h3:22
 msgid "# usb-creator -b -g -r"

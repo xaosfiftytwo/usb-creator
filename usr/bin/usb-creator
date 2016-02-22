@@ -12,7 +12,7 @@
 # 4 - Given ISO path not found
 # 5 - Device in use
 # 6 - Unable to mount device
-# 7 - Md5sum mismatch
+# 7 - sha256sum mismatch
 # 8 - Not a fat32 filesystem
 # 9 - Missing bootloader
 # 10 - Not enough space on device
@@ -548,7 +548,7 @@ function usage() {
   echo "                          You can pass a directory and use wildcards."
   echo "-l \"LABEL\"                Set the label of the USB."
   echo "                          Default is: MULTIUSB"
-  echo "-m                        Md5sum the ISOs."
+  echo "-s -m                     sha256sum the ISOs."
   echo "                          If -i is not provided, $ISOHISTORY is used."
   echo "-r                        Repair the device."
   echo "                          With -f a deep scan is done."
@@ -671,7 +671,7 @@ else
   FORMAT=false
   GRUB=false
   ISOS=''
-  MD5SUM=false
+  SHA256SUM=false
   REPAIR=false
   UNMOUNT=false
   FAT=false
@@ -709,12 +709,16 @@ else
 	LABEL=$(echo $OPTARG | tr '[:lower:]' '[:upper:]' | tr -d '[[:space:]]')
 	;;
       m)
-	# Md5sum
-	MD5SUM=true
+	# SHA256SUM - backward compatibility
+	SHA256SUM=true
 	;;
       r)
 	# Repair
 	REPAIR=true
+	;;
+      s)
+	# SHA256SUM
+	SHA256SUM=true
 	;;
       u)
 	# Unmount
@@ -968,8 +972,8 @@ else
     echo "=====================================================" | tee -a $LOG
   fi
    
-  # Check the md5sum of the given ISOs
-  if $MD5SUM; then
+  # Check the sha256sum of the given ISOs
+  if $SHA256SUM; then
     MISMATCH=''
     
     # If -i is not provided, use the history file
@@ -991,17 +995,17 @@ $ISOS"
       echo "$ISOS" > $ISOHISTORY
     fi
     
-    # Now check the md5sums of the ISOs
+    # Now check the sha256sum of the ISOs
     for ISO in $ISOS; do
       ISONAME=$(basename $ISO)
       if [ -f "$ISO" ] && [ -f "$MOUNT/$ISONAME" ]; then
-	echo "Check md5sum of $ISONAME..." | tee -a $LOG
-	MD5ORG=$(md5sum $ISO | awk '{print $1}')
-	MD5TARGET=$(md5sum "$MOUNT/$ISONAME" | awk '{print $1}')
+	echo "Check sha256sum of $ISONAME..." | tee -a $LOG
+	MD5ORG=$(sha256sum $ISO | awk '{print $1}')
+	MD5TARGET=$(sha256sum "$MOUNT/$ISONAME" | awk '{print $1}')
 	if [ "$MD5ORG" != "$MD5TARGET" ]; then
-	  MISMATCH=$MISMATCH"Md5sum of $ISO does NOT match original. Original: $MD5ORG, Target: $MD5TARGET\n"
+	  MISMATCH=$MISMATCH"sha256sum of $ISO does NOT match original. Original: $MD5ORG, Target: $MD5TARGET\n"
 	else
-	  echo "Md5sum of target $ISONAME matches original: $MD5ORG" | tee -a $LOG
+	  echo "sha256sum of target $ISONAME matches original: $MD5ORG" | tee -a $LOG
 	fi
       fi
     done
