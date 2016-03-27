@@ -1,3 +1,10 @@
+usb-creator (0.2.7) solydxk; urgency=low
+
+  * Updated SolydXK logos to new flat logos
+  * Pure SolydXK USB gets different grub background
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sun, 27 Mar 2016 09:20:45 +0200
+
 usb-creator (0.2.6) solydxk; urgency=low
 
   * Use sha256sum instead of md5sum

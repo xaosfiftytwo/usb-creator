@@ -192,8 +192,13 @@ FOURMLINUX_INITRD='initrd (loop)/boot/initrd.gz'
 # PartedMagic 
 PMAGIC_LINUX='linux (loop)/pmagic/bzImage findiso=$isofile boot=live quiet'
 PMAGIC_INITRD='initrd (loop)/pmagic/initrd.img'
+
 # ================================================================
 # ================================================================
+
+# Pure distro USB (see write_grub_menu)
+SOLYDXK=false
+
 
 # Create menu lines for 32 bit isos
 function create_32_bit_lines() {
@@ -231,6 +236,13 @@ function write_grub_menu() {
   ISO=$2
   ISONAME=$(basename $ISO)
   LOWERISONAME=$(basename $ISO | tr '[:upper:]' '[:lower:]')
+  
+  # Pure distro USB check
+  if [[ "$LOWERISONAME" =~ "solyd" ]]; then
+    SOLYDXK=true
+  else
+    SOLYDXK=false
+  fi
 
   # ================================================================
   # Make distro specific menu
@@ -677,7 +689,7 @@ else
   FAT=false
   MOUNT=''
     
-  while getopts ":bd:fghi:l:mru" opt; do
+  while getopts ":bd:fghi:l:mrsu" opt; do
     case $opt in
       b)
 	# Bootloader
@@ -954,9 +966,6 @@ else
       exit 9
     fi
     
-    # Copy Grub background image
-    cp -vf $FILESDIR/*.png "$GRUBDIR/" 2>/dev/null | tee -a $LOG
-    
     # Init grub.cfg
     init_grub $GRUBDIR
        
@@ -970,6 +979,13 @@ else
     echo "====================== Grub.cfg =====================" | tee -a $LOG
     cat "$GRUBDIR/grub.cfg"
     echo "=====================================================" | tee -a $LOG
+    
+    # Copy Grub background image
+    IMG="grubbg.png"
+    if $SOLYDXK; then
+      IMG="grubbg-solydxk.png"
+    fi
+    cp -vf $FILESDIR/$IMG "$GRUBDIR/grubbg.png" 2>/dev/null | tee -a $LOG
   fi
    
   # Check the sha256sum of the given ISOs
