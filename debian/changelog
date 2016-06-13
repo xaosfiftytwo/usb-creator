@@ -1,3 +1,9 @@
+usb-creator (0.2.8) solydxk; urgency=low
+
+  * Use open-as-user to open browser as real user
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 01 Jun 2016 19:40:47 +0200
+
 usb-creator (0.2.7) solydxk; urgency=low
 
   * Updated SolydXK logos to new flat logos
